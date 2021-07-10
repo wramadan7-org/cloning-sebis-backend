@@ -1,0 +1,153 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												function firstRun(){
+													replaceSwitcher();
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+												};
+												window.onload = firstRun;
+												
+												function endisSwitch(identifier){
+													var formid = identifier.getAttribute("data-idStudy");
+													var form = document.getElementById("form-" + formid);
+													form.submit();
+												};
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idArticle");
+													swal({
+														title: "Are you sure?",
+														text: "You will not be able to recover this article!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Yes, delete it!",
+														cancelButtonText: "No, cancel please!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Cancelled", "Your article not deleted.", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>List My Study</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+											
+											<% if(ContentData.getStudy != ""){ var Study = ContentData.getStudy %>
+											
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Grade</th>
+															<th>Course</th>
+															<th>Status</th>
+															<th>Enable</th>
+															<th>Date Modified</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+													<% for(let i = 0; i < Study.length; i++){ var N = i+1; %>
+														<% var getGrade = ContentData.getGrade; %>
+														<% var getTyCourse = ContentData.getTypeCourse; %>
+														<% var GradeObj = getGrade.find(o => o._id == Study[i].gradeId); %>
+														<% var TcObj = getTyCourse.find(o => o._id == Study[i].typeId); %>
+														<tr>
+															<th scope="row"><%= N %>.</th>
+															<th><%= GradeObj.name %></th>
+															<th><%= TcObj.name %></th>
+															<th>
+															<% if(Study[i].status == "1"){ %>
+																<button readonly type="button" class="btn btn-success"><i class="fa fa-check"></i>Approved</button>
+															<% } else if(Study[i].status == "0") { %>
+																<button readonly type="button" class="btn btn-warning"><i class="fa fa-exclamation-triangle"></i>Pending</button>
+															<% } %>
+															</th>
+															<th>
+															<form action="/mystudy/<%= Study[i]._id %>" method="GET" id="form-<%= Study[i]._id %>">
+																<div class="mb-20" name="replacer" id="replacer" onClick="endisSwitch(this)" data-idStudy = "<%= Study[i]._id %>">
+																	<input 
+																		data-idStudy = "<%= Study[i]._id %>"
+																		type="checkbox" 
+																		class="js-switch-small" 
+																		id="published"
+																		name="published"
+																		<% if(Study[i].disable == "enable"){ %>
+																		checked
+																		<% } %>
+																		/>
+																</div>
+															</form>
+															</th>
+															<th><%= Study[i].updated_at %></th>
+															<th>
+															<form action="/article/<%= Study[i]._id %>?_method=DELETE" method="POST" id="form-<%= Study[i]._id %>">
+																<button 
+																	type="button" 
+																	class="btn btn-danger icon-only" 
+																	id="delete-button" 
+																	onClick="deleteModal(this)"
+																	data-idArticle="<%= Study[i]._id %>"
+																	><i class="fa fa-trash-o"></i></button>
+															</form>
+															</th>
+														</tr>
+													<% } %>
+													</tbody>
+												</table>
+											<% } else { %>
+												<div class="alert alert-danger" role="alert"> <strong>No study yet!</strong> Please create new one study. </div>
+											<% } %>											
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include('../modal/study-modal.ejs') %>
+									

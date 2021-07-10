@@ -1,0 +1,1211 @@
+[{
+  "_id": {
+    "$oid": "60d2e7ed55e86b12f0f09330"
+  },
+  "name": "AGAMA",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "disable",
+  "created_at": "2021-06-23 14:51:09",
+  "updated_at": "2021-06-23 14:51:09",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d432cea7d4272cacb41c50"
+  },
+  "name": "TEMATIK",
+  "kelasId": "60d2a8fd166e761664fa5040",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:22:54",
+  "updated_at": "2021-06-24 14:22:54",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d432eba7d4272cacb41c51"
+  },
+  "name": "PENDIDIKAN KEWARGANEGARAAN (PKN)",
+  "kelasId": "60d2a8fd166e761664fa5040",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:23:23",
+  "updated_at": "2021-06-24 14:23:23",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4332aa7d4272cacb41c52"
+  },
+  "name": "BAHASA INDONESIA",
+  "kelasId": "60d2a8fd166e761664fa5040",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:24:26",
+  "updated_at": "2021-06-24 14:24:26",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43332a7d4272cacb41c53"
+  },
+  "name": "MATEMATIKA",
+  "kelasId": "60d2a8fd166e761664fa5040",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:24:34",
+  "updated_at": "2021-06-24 14:24:34",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43354a7d4272cacb41c54"
+  },
+  "name": "PENDIDIKAN KEWARGANEGARAAN (PKN)",
+  "kelasId": "60d2d8f49350dc2948d5f8bf",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:25:08",
+  "updated_at": "2021-06-24 14:25:08",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43361a7d4272cacb41c55"
+  },
+  "name": "BAHASA INDONESIA",
+  "kelasId": "60d2d8f49350dc2948d5f8bf",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:25:21",
+  "updated_at": "2021-06-24 14:25:21",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4336ca7d4272cacb41c56"
+  },
+  "name": "MATEMATIKA",
+  "kelasId": "60d2d8f49350dc2948d5f8bf",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:25:32",
+  "updated_at": "2021-06-24 14:25:32",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4343c06787d18f8d5bd83"
+  },
+  "name": "IPA",
+  "kelasId": "60d2d8f49350dc2948d5f8bf",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:29:00",
+  "updated_at": "2021-06-24 14:29:00",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4344406787d18f8d5bd84"
+  },
+  "name": "IPS",
+  "kelasId": "60d2d8f49350dc2948d5f8bf",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:29:08",
+  "updated_at": "2021-06-24 14:29:08",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d434b78b788818ecfb5670"
+  },
+  "name": "PENDIDIKAN KEWARGANEGARAAN (PKN)",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:31:03",
+  "updated_at": "2021-06-24 14:31:03",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d434c38b788818ecfb5671"
+  },
+  "name": "BAHASA INDONESIA",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:31:15",
+  "updated_at": "2021-06-24 14:31:15",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d434cf8b788818ecfb5672"
+  },
+  "name": "MATEMATIKA",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:31:27",
+  "updated_at": "2021-06-24 14:31:27",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d434e28b788818ecfb5673"
+  },
+  "name": "IPA",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:31:46",
+  "updated_at": "2021-06-24 14:31:46",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d434ed8b788818ecfb5674"
+  },
+  "name": "IPS",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:31:57",
+  "updated_at": "2021-06-24 14:31:57",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d434f78b788818ecfb5675"
+  },
+  "name": "BAHASA INGGRIS",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:32:07",
+  "updated_at": "2021-06-24 14:32:07",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d435028b788818ecfb5676"
+  },
+  "name": "INFORMATIKA",
+  "kelasId": "60d2d9009350dc2948d5f8c0",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:32:18",
+  "updated_at": "2021-06-24 14:32:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4364b516e920ca02701e7"
+  },
+  "name": "PENDIDIKAN KEWARGANEGARAAN (PKN)",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:37:47",
+  "updated_at": "2021-06-24 14:37:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43659516e920ca02701e8"
+  },
+  "name": "BAHASA INDONESIA",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:38:01",
+  "updated_at": "2021-06-24 14:38:01",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43663516e920ca02701e9"
+  },
+  "name": "MATEMATIKA",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:38:11",
+  "updated_at": "2021-06-24 14:38:11",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43671516e920ca02701ea"
+  },
+  "name": "BAHASA INGGRIS",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:38:25",
+  "updated_at": "2021-06-24 14:38:25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4367e516e920ca02701eb"
+  },
+  "name": "BIOLOGI",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:38:38",
+  "updated_at": "2021-06-24 14:38:38",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43689516e920ca02701ec"
+  },
+  "name": "FISIKA",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:38:49",
+  "updated_at": "2021-06-24 14:38:49",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43697516e920ca02701ed"
+  },
+  "name": "KIMIA",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:39:03",
+  "updated_at": "2021-06-24 14:39:03",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d436d4516e920ca02701ee"
+  },
+  "name": "PENDIDIKAN KEWARGANEGARAAN (PKN)",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:40:04",
+  "updated_at": "2021-06-24 14:40:04",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d436e8516e920ca02701ef"
+  },
+  "name": "BAHASA INDONESIA",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:40:24",
+  "updated_at": "2021-06-24 14:40:24",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4371f516e920ca02701f0"
+  },
+  "name": "MATEMATIKA",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:41:19",
+  "updated_at": "2021-06-24 14:41:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43739516e920ca02701f1"
+  },
+  "name": "BAHASA INGGRIS",
+  "kelasId": "60d2d9129350dc2948d5f8c1",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:41:45",
+  "updated_at": "2021-06-24 14:41:45",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4374a516e920ca02701f2"
+  },
+  "name": "GEOGRAFI",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:42:02",
+  "updated_at": "2021-06-24 14:42:02",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43784516e920ca02701f3"
+  },
+  "name": "BAHASA INGGRIS",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:43:00",
+  "updated_at": "2021-06-24 14:43:00",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43798516e920ca02701f4"
+  },
+  "name": "SEJARAH INDONESIA",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:43:20",
+  "updated_at": "2021-06-24 14:43:20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d437b4516e920ca02701f5"
+  },
+  "name": "SOSIAOLOGI DAN ANTROPOLOGI",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:43:48",
+  "updated_at": "2021-06-24 14:43:48",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d437c4516e920ca02701f6"
+  },
+  "name": "EKONOMI AKUTANSI",
+  "kelasId": "60d2d91b9350dc2948d5f8c2",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:44:04",
+  "updated_at": "2021-06-24 14:44:04",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4383f516e920ca02701f7"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42bf3a7d4272cacb41c44",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:46:07",
+  "updated_at": "2021-06-24 14:46:07",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43849516e920ca02701f8"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42bf3a7d4272cacb41c44",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:46:17",
+  "updated_at": "2021-06-24 14:46:17",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4385c516e920ca02701f9"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42bf3a7d4272cacb41c44",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:46:36",
+  "updated_at": "2021-06-24 14:46:36",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4386f516e920ca02701fa"
+  },
+  "name": "GLOBAL PERSPECTIVES",
+  "kelasId": "60d42bf3a7d4272cacb41c44",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:46:55",
+  "updated_at": "2021-06-24 14:46:55",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43877516e920ca02701fb"
+  },
+  "name": "ICT",
+  "kelasId": "60d42bf3a7d4272cacb41c44",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:47:03",
+  "updated_at": "2021-06-24 14:47:03",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d438a5516e920ca02701fc"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c00a7d4272cacb41c45",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:47:49",
+  "updated_at": "2021-06-24 14:47:49",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d438b9516e920ca02701fd"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c00a7d4272cacb41c45",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:48:09",
+  "updated_at": "2021-06-24 14:48:09",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d438cc516e920ca02701fe"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42c00a7d4272cacb41c45",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:48:28",
+  "updated_at": "2021-06-24 14:48:28",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d438d8516e920ca02701ff"
+  },
+  "name": "GLOBAL PERSPECTIVE",
+  "kelasId": "60d42c00a7d4272cacb41c45",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:48:40",
+  "updated_at": "2021-06-24 14:48:40",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d438e0516e920ca0270200"
+  },
+  "name": "ICT",
+  "kelasId": "60d42c00a7d4272cacb41c45",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:48:48",
+  "updated_at": "2021-06-24 14:48:48",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d438f4516e920ca0270201"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:49:08",
+  "updated_at": "2021-06-24 14:49:08",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43902516e920ca0270202"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:49:22",
+  "updated_at": "2021-06-24 14:49:22",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4395e516e920ca0270203"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:50:54",
+  "updated_at": "2021-06-24 14:50:54",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4396f516e920ca0270204"
+  },
+  "name": "GEOGRAPHY",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:51:11",
+  "updated_at": "2021-06-24 14:51:11",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4397d516e920ca0270205"
+  },
+  "name": "GLOBAL PERSPECTIVE",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:51:25",
+  "updated_at": "2021-06-24 14:51:25",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43986516e920ca0270206"
+  },
+  "name": "HISTORY",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:51:34",
+  "updated_at": "2021-06-24 14:51:34",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4398e516e920ca0270207"
+  },
+  "name": "ICT",
+  "kelasId": "60d42c18a7d4272cacb41c46",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:51:42",
+  "updated_at": "2021-06-24 14:51:42",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43996516e920ca0270208"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:51:50",
+  "updated_at": "2021-06-24 14:51:50",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4399f516e920ca0270209"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:51:59",
+  "updated_at": "2021-06-24 14:51:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d439aa516e920ca027020a"
+  },
+  "name": "COMBINE SCIENCE",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:52:10",
+  "updated_at": "2021-06-24 14:52:10",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d439b5516e920ca027020b"
+  },
+  "name": "PHYSICS",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:52:21",
+  "updated_at": "2021-06-24 14:52:21",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d439c1516e920ca027020c"
+  },
+  "name": "CHEMISTRY",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:52:33",
+  "updated_at": "2021-06-24 14:52:33",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43a68516e920ca027020d"
+  },
+  "name": "BIOLOGY",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:55:20",
+  "updated_at": "2021-06-24 14:55:20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43a76516e920ca027020e"
+  },
+  "name": "GLOBAL PERSPECTIVE",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:55:34",
+  "updated_at": "2021-06-24 14:55:34",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43a83516e920ca027020f"
+  },
+  "name": "GEOGRAPHY",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:55:47",
+  "updated_at": "2021-06-24 14:55:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43a92516e920ca0270210"
+  },
+  "name": "HISTORY",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:56:02",
+  "updated_at": "2021-06-24 14:56:02",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43a9e516e920ca0270211"
+  },
+  "name": "ACCOUNTING",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:56:14",
+  "updated_at": "2021-06-24 14:56:14",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43aab516e920ca0270212"
+  },
+  "name": "BUSSINESS STUDIES",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:56:27",
+  "updated_at": "2021-06-24 14:56:27",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43ab5516e920ca0270213"
+  },
+  "name": "COMPUTER SCIENCE",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:56:37",
+  "updated_at": "2021-06-24 14:56:37",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43ac1516e920ca0270214"
+  },
+  "name": "ECONOMICS",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:56:49",
+  "updated_at": "2021-06-24 14:56:49",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43aca516e920ca0270215"
+  },
+  "name": "ICT",
+  "kelasId": "60d42c28a7d4272cacb41c47",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 14:56:58",
+  "updated_at": "2021-06-24 14:56:58",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43c54516e920ca0270216"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:03:32",
+  "updated_at": "2021-06-24 15:03:32",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43c5d516e920ca0270217"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:03:41",
+  "updated_at": "2021-06-24 15:03:41",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43c70516e920ca0270218"
+  },
+  "name": "COMBINE SCIENCE",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:04:00",
+  "updated_at": "2021-06-24 15:04:00",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43cbe516e920ca0270219"
+  },
+  "name": "CHEMISTRY",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:05:18",
+  "updated_at": "2021-06-24 15:05:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43cc8516e920ca027021a"
+  },
+  "name": "BIOLOGY",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:05:28",
+  "updated_at": "2021-06-24 15:05:28",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43cd2516e920ca027021b"
+  },
+  "name": "GLOBAL PERSPECTIVE",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:05:38",
+  "updated_at": "2021-06-24 15:05:38",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43d0c516e920ca027021c"
+  },
+  "name": "PHYSICS",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:06:36",
+  "updated_at": "2021-06-24 15:06:36",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43db0516e920ca027021d"
+  },
+  "name": "GEOGRAPHY",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:09:20",
+  "updated_at": "2021-06-24 15:09:20",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43db9516e920ca027021e"
+  },
+  "name": "HISTORY",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:09:29",
+  "updated_at": "2021-06-24 15:09:29",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43dc2516e920ca027021f"
+  },
+  "name": "ACCOUNTING",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:09:38",
+  "updated_at": "2021-06-24 15:09:38",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43dcc516e920ca0270220"
+  },
+  "name": "BUSSINESS STUDIES",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:09:48",
+  "updated_at": "2021-06-24 15:09:48",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43dd8516e920ca0270221"
+  },
+  "name": "COMPUTER SCIENCE",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:10:00",
+  "updated_at": "2021-06-24 15:10:00",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43de2516e920ca0270222"
+  },
+  "name": "ECONOMICS",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:10:10",
+  "updated_at": "2021-06-24 15:10:10",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43de8516e920ca0270223"
+  },
+  "name": "ICT",
+  "kelasId": "60d42c3da7d4272cacb41c48",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:10:16",
+  "updated_at": "2021-06-24 15:10:16",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43e7f516e920ca0270224"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c52a7d4272cacb41c49",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:12:47",
+  "updated_at": "2021-06-24 15:12:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43e8f516e920ca0270225"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c52a7d4272cacb41c49",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:13:03",
+  "updated_at": "2021-06-24 15:13:03",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43e9b516e920ca0270226"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42c52a7d4272cacb41c49",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:13:15",
+  "updated_at": "2021-06-24 15:13:15",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43ea7516e920ca0270227"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c61a7d4272cacb41c4a",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:13:27",
+  "updated_at": "2021-06-24 15:13:27",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43eb3516e920ca0270228"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c61a7d4272cacb41c4a",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:13:39",
+  "updated_at": "2021-06-24 15:13:39",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43ebb516e920ca0270229"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42c61a7d4272cacb41c4a",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:13:47",
+  "updated_at": "2021-06-24 15:13:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f06516e920ca027022a"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c70a7d4272cacb41c4b",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:15:02",
+  "updated_at": "2021-06-24 15:15:02",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f1a516e920ca027022b"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c70a7d4272cacb41c4b",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:15:22",
+  "updated_at": "2021-06-24 15:15:22",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f22516e920ca027022c"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42c70a7d4272cacb41c4b",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:15:30",
+  "updated_at": "2021-06-24 15:15:30",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f39516e920ca027022d"
+  },
+  "name": "SOCIETIES/HUMANITIES",
+  "kelasId": "60d42c70a7d4272cacb41c4b",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:15:53",
+  "updated_at": "2021-06-24 15:15:53",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f44516e920ca027022e"
+  },
+  "name": "GEOGRAPHY",
+  "kelasId": "60d42c70a7d4272cacb41c4b",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:16:04",
+  "updated_at": "2021-06-24 15:16:04",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f4f516e920ca027022f"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c7ea7d4272cacb41c4c",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:16:15",
+  "updated_at": "2021-06-24 15:16:15",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f5a516e920ca0270230"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c7ea7d4272cacb41c4c",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:16:26",
+  "updated_at": "2021-06-24 15:16:26",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f65516e920ca0270231"
+  },
+  "name": "SCIENCE",
+  "kelasId": "60d42c7ea7d4272cacb41c4c",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:16:37",
+  "updated_at": "2021-06-24 15:16:37",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f7b516e920ca0270232"
+  },
+  "name": "SOCIETIES/HUMANITIES",
+  "kelasId": "60d42c7ea7d4272cacb41c4c",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:16:59",
+  "updated_at": "2021-06-24 15:16:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43f85516e920ca0270233"
+  },
+  "name": "GEOGRAPHY",
+  "kelasId": "60d42c7ea7d4272cacb41c4c",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:17:09",
+  "updated_at": "2021-06-24 15:17:09",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43fa2516e920ca0270234"
+  },
+  "name": "ENGLISH",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:17:38",
+  "updated_at": "2021-06-24 15:17:38",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43fac516e920ca0270235"
+  },
+  "name": "MATHEMATICS",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:17:48",
+  "updated_at": "2021-06-24 15:17:48",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43fb5516e920ca0270236"
+  },
+  "name": "BIOLOGY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:17:57",
+  "updated_at": "2021-06-24 15:17:57",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43fbd516e920ca0270237"
+  },
+  "name": "CHEMISTRY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:18:05",
+  "updated_at": "2021-06-24 15:18:05",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43fc8516e920ca0270238"
+  },
+  "name": "PHYSICS",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:18:16",
+  "updated_at": "2021-06-24 15:18:16",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43fd2516e920ca0270239"
+  },
+  "name": "COMPUTER SCIENCE",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:18:26",
+  "updated_at": "2021-06-24 15:18:26",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43ff0516e920ca027023a"
+  },
+  "name": "ENVIRONMENTAL SYSTEM AND SOCIETIES",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:18:56",
+  "updated_at": "2021-06-24 15:18:56",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d43ffa516e920ca027023b"
+  },
+  "name": "BUSSINESS MANAGEMENT",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:19:06",
+  "updated_at": "2021-06-24 15:19:06",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d44006516e920ca027023c"
+  },
+  "name": "ECONOMICS AND ACCOUNTING",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:19:18",
+  "updated_at": "2021-06-24 15:19:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d44012516e920ca027023d"
+  },
+  "name": "GEOGRAPHY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:19:30",
+  "updated_at": "2021-06-24 15:19:30",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4401e516e920ca027023e"
+  },
+  "name": "GLOBAL POLITICS",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:19:42",
+  "updated_at": "2021-06-24 15:19:42",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d44026516e920ca027023f"
+  },
+  "name": "HISTORY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:19:50",
+  "updated_at": "2021-06-24 15:19:50",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d44036516e920ca0270240"
+  },
+  "name": "INFORMATION TECHNOLOGY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:20:06",
+  "updated_at": "2021-06-24 15:20:06",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d44041516e920ca0270241"
+  },
+  "name": "PHILOSOPHY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:20:17",
+  "updated_at": "2021-06-24 15:20:17",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d4404d516e920ca0270242"
+  },
+  "name": "PSYCHOLOGY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:20:29",
+  "updated_at": "2021-06-24 15:20:29",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d44057516e920ca0270243"
+  },
+  "name": "SOCIOLOGY",
+  "kelasId": "60d42c8da7d4272cacb41c4d",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 15:20:38",
+  "updated_at": "2021-06-24 15:20:38",
+  "__v": 0
+}]

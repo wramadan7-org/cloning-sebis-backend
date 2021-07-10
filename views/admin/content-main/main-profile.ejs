@@ -1,0 +1,740 @@
+									<!--<script src="/options_admin/js/switchery/switchery.min.js"></script>//-->
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<link rel="stylesheet" type="text/css" href="/options_admin/css/date-picker/jquery.timepicker.css" />
+									<link rel="stylesheet" type="text/css" href="/options_admin/css/date-picker/bootstrap-datepicker.css" />
+									<script>
+												function loadFirstData(){
+													var _id = "<%= ContentData.getIdentities._id %>";
+													var peopleName = "<%= ContentData.peopleName %>";
+													var Address = "<%= ContentData.getPeopleInfo.address %>";
+													var City = "<%= ContentData.getPeopleInfo.city %>";
+													var Postal = "<%= ContentData.getPeopleInfo.postalcode %>";
+													var Province = "<%= ContentData.getPeopleInfo.province %>";
+													var Gender = "<%= ContentData.getPeopleInfo.gender %>";
+													var Religion = "<%= ContentData.getPeopleInfo.religion %>";
+													var birthPlace = "<%= ContentData.getPeopleInfo.birthPlace %>";
+													var birthDate = "<%= ContentData.getPeopleInfo.birthDate %>";
+													var cardNumber = "<%= ContentData.getPeopleInfo.cardId %>";
+													var cardType = "<%= ContentData.getPeopleInfo.cardType %>";
+													var Email = "<%= ContentData.getPeople.email %>";
+													var Phone = "<%= ContentData.getPeople.phone %>";
+													var DescData = "<%= ContentData.getPeople.nameEng %>";
+													var YLink = "<%= ContentData.getPeopleInfo.avatarUrl %>";
+													
+													if(Gender == '') Gender = '-';
+													if(Religion == '') Religion = '-';
+													if(cardType == '') cardType = '-';
+													
+													document.getElementById("EditdataName").value = peopleName;
+													document.getElementById("EditdataAddress").value = Address;
+													document.getElementById("EditdataCity").value = City;
+													document.getElementById("EditdataPostal").value = Postal;
+													document.getElementById("EditdataProvince").value = Province;
+													document.getElementById("EditdataGender").value = Gender;
+													document.getElementById("EditdataReligion").value = Religion;
+													document.getElementById("EditdataBDate").value = birthDate;
+													document.getElementById("EditdataBPlace").value = birthPlace;
+													document.getElementById("EditdataIDCNumber").value = cardNumber;
+													document.getElementById("EditdataIDCType").value = cardType;
+													//document.getElementById("EditdataEmail").value = Email;
+													document.getElementById("EditdataPhone").value = Phone;
+													document.getElementById("EditdataDesc").value = DescData;
+													document.getElementById("EditdataYLink").value = YLink;
+													
+													document.getElementById("EditdataName").disabled 		= true;
+													document.getElementById("EditdataAddress").disabled 	= true;
+													document.getElementById("EditdataCity").disabled 		= true;
+													document.getElementById("EditdataPostal").disabled 		= true;
+													document.getElementById("EditdataProvince").disabled 	= true;
+													document.getElementById("EditdataGender").disabled 		= true;
+													document.getElementById("EditdataReligion").disabled 	= true;
+													document.getElementById("EditdataBDate").disabled	 	= true;
+													document.getElementById("EditdataBPlace").disabled 		= true;
+													document.getElementById("EditdataIDCNumber").disabled 	= true;
+													document.getElementById("EditdataIDCType").disabled 	= true;
+													//document.getElementById("EditdataEmail").disabled 		= true;
+													document.getElementById("EditdataPhone").disabled 		= true;
+													document.getElementById("EditdataDesc").disabled 		= true;
+													document.getElementById("EditdataYLink").disabled 		= true;
+													
+													document.getElementById("btnEditData").disabled 		= false;
+													document.getElementById("btnSimpanData").disabled 		= true;
+													document.getElementById("btnBatalData").disabled 		= true;
+													
+													document.getElementById("btnEditData").style.visibility	= "visible";
+													document.getElementById("btnSimpanData").style.visibility	= "hidden";
+													document.getElementById("btnBatalData").style.visibility	= "hidden";
+												};
+												
+												function openEdit(){
+													document.getElementById("btnEditData").disabled 		= true;
+													document.getElementById("btnSimpanData").disabled 		= false;
+													document.getElementById("btnBatalData").disabled 		= false;
+													
+													document.getElementById("btnEditData").style.visibility	= "hidden";
+													document.getElementById("btnSimpanData").style.visibility	= "visible";
+													document.getElementById("btnBatalData").style.visibility	= "visible";
+													
+													document.getElementById("EditdataName").disabled 		= false;
+													document.getElementById("EditdataAddress").disabled 	= false;
+													document.getElementById("EditdataCity").disabled 		= false;
+													document.getElementById("EditdataPostal").disabled 		= false;
+													document.getElementById("EditdataProvince").disabled 	= false;
+													document.getElementById("EditdataGender").disabled 		= false;
+													document.getElementById("EditdataReligion").disabled 	= false;
+													document.getElementById("EditdataBDate").disabled	 	= false;
+													document.getElementById("EditdataBPlace").disabled 		= false;
+													document.getElementById("EditdataIDCNumber").disabled 	= false;
+													document.getElementById("EditdataIDCType").disabled 	= false;
+													//document.getElementById("EditdataEmail").disabled 		= false;
+													document.getElementById("EditdataPhone").disabled 		= false;
+													document.getElementById("EditdataDesc").disabled 		= false;
+													document.getElementById("EditdataYLink").disabled 		= false;
+												};
+												
+												function cancelEdit(){
+													document.getElementById("btnEditData").disabled 		= false;
+													document.getElementById("btnSimpanData").disabled 		= true;
+													document.getElementById("btnBatalData").disabled 		= true;
+													
+													document.getElementById("btnEditData").style.visibility	= "visible";
+													document.getElementById("btnSimpanData").style.visibility	= "hidden";
+													document.getElementById("btnBatalData").style.visibility	= "hidden";
+													
+													document.getElementById("EditdataName").disabled 		= true;
+													document.getElementById("EditdataAddress").disabled 	= true;
+													document.getElementById("EditdataCity").disabled 		= true;
+													document.getElementById("EditdataPostal").disabled 		= true;
+													document.getElementById("EditdataProvince").disabled 	= true;
+													document.getElementById("EditdataGender").disabled 		= true;
+													document.getElementById("EditdataReligion").disabled 	= true;
+													document.getElementById("EditdataBDate").disabled	 	= true;
+													document.getElementById("EditdataBPlace").disabled 		= true;
+													document.getElementById("EditdataIDCNumber").disabled 	= true;
+													document.getElementById("EditdataIDCType").disabled 	= true;
+													//document.getElementById("EditdataEmail").disabled 		= true;
+													document.getElementById("EditdataPhone").disabled 		= true;
+													document.getElementById("EditdataDesc").disabled 		= true;
+													document.getElementById("EditdataYLink").disabled 		= true;
+												};
+												
+												function saveData(){
+													var formid = document.getElementById("editBasicForm");
+													formid.submit();
+												};
+												
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+													loadFirstData();
+													$('#imageViewerModal')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+												
+												
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+													
+												};
+												window.onload = onLoad;
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idStudy");
+													swal({
+														title: "Apakah anda yakin?",
+														text: "Anda tidak dapat mengembalikan data studi ini!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Ya, harap dihapus!",
+														cancelButtonText: "Batal, harap dibatalkan!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Dibatalkan", "Studi tutor tidak dihapus", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function becomeTeacher(){
+													var cbOne = document.getElementById("cbOne");
+													var cbTwo = document.getElementById("cbTwo");
+													
+													if(cbOne.checked==true && cbTwo.checked==true){												
+														swal({
+															title: "Apakah anda yakin untuk menjadi Tutor Online?",
+															text: "Anda tidak dapat merubah informasi data sebelum pengajuan anda diterima/ditolak!",
+															type: "warning",
+															showCancelButton: true,
+															confirmButtonColor: "#ec971f",
+															confirmButtonText: "Ya, Saya Yakin!",
+															cancelButtonText: "Batal, Saya Akan Cek Informasi Data Terlebih Dahulu!",
+															closeOnConfirm: false,
+															closeOnCancel: false
+														}, function(isConfirm){
+															if (!isConfirm) {
+																swal("Dibatalkan", "Proses Pengajuan di Batalkan!", "error");
+															} else {
+																var form = document.getElementById("formBecomeTeacher");
+																form.submit();
+															}
+														});
+													} else
+														swal("Gagal", "Mohon untuk membaca dan menyetujui syarat dan ketentuan yang berlaku!", "error");
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+												function onCallEditBasicInfo(identifier){
+													var _id = identifier.getAttribute("data-identitiesId");
+													var peopleName = identifier.getAttribute("data-name");
+													var Address = identifier.getAttribute("data-address");
+													var City = identifier.getAttribute("data-city");
+													var Province = identifier.getAttribute("data-province");
+													var Gender = identifier.getAttribute("data-gender");
+													var Religion = identifier.getAttribute("data-religion");
+													var birthPlace = identifier.getAttribute("data-bplace");
+													var birthDate = identifier.getAttribute("data-bdate");
+													var cardNumber = identifier.getAttribute("data-cardnumber");
+													var cardType = identifier.getAttribute("data-cardtype");
+													
+													if(Gender == '') Gender = '-';
+													if(Religion == '') Religion = '-';
+													if(cardType == '') cardType = '-';
+													
+													$("#editBasicInfo").modal("show");
+													document.getElementById("EditdataName").value = peopleName;
+													document.getElementById("EditdataAddress").value = Address;
+													document.getElementById("EditdataCity").value = City;
+													document.getElementById("EditdataProvince").value = Province;
+													document.getElementById("EditdataGender").value = Gender;
+													document.getElementById("EditdataReligion").value = Religion;
+													document.getElementById("EditdataBDate").value = birthDate;
+													document.getElementById("EditdataBPlace").value = birthPlace;
+													document.getElementById("EditdataIDCNumber").value = cardNumber;
+													document.getElementById("EditdataIDCType").value = cardType;
+													
+												}
+												
+												function editTeachInfo(identifier){
+													var _id = identifier.getAttribute("data-id");
+													var EditGrade = identifier.getAttribute("data-grade");
+													var EditCourse = identifier.getAttribute("data-course");
+													var EditCity = identifier.getAttribute("data-city");
+													var EditSchool = identifier.getAttribute("data-school");
+													var EditFromDate = identifier.getAttribute("data-fromdate");
+													var EditToDate = identifier.getAttribute("data-todate");
+													var EditStatus = identifier.getAttribute("data-status");
+													
+													$("#editTeachingModal").modal("show");
+													document.getElementById("EditTeachSchool").value = EditSchool;
+													document.getElementById("EditTeachCity").value = EditCity;
+													document.getElementById("EditTeachGrade").value = EditGrade;
+													document.getElementById("EditTeachCourse").value = EditCourse;
+													document.getElementById("EditTeachStatus").value = EditStatus;
+													document.getElementById("EditTeachFromDateV").value = EditFromDate;
+													document.getElementById("EditTeachToDateV").value = EditToDate;
+													document.getElementById("idTeachExp").value = _id;
+												}
+												
+												function editEduInfo(identifier){
+													var _id = identifier.getAttribute("data-id");
+													var EditMajor = identifier.getAttribute("data-major");
+													var EditInstitution = identifier.getAttribute("data-institution");
+													var EditThesis = identifier.getAttribute("data-thesis");
+													var EditStrata = identifier.getAttribute("data-strata");
+													var EditFromDate = identifier.getAttribute("data-fromdate");
+													var EditToDate = identifier.getAttribute("data-todate");
+													var EditScore = identifier.getAttribute("data-score");
+													
+													$("#editEducationModal").modal("show");
+													document.getElementById("EditEduMajors").value = EditMajor;
+													document.getElementById("EditEduStrata").value = EditStrata;
+													document.getElementById("EditEduCampus").value = EditInstitution;
+													document.getElementById("EditEduThesis").value = EditThesis;
+													document.getElementById("EditEduScore").value = EditScore;
+													document.getElementById("EditEduFromDateV").value = EditFromDate;
+													document.getElementById("EditEduToDateV").value = EditToDate;
+													document.getElementById("idEduBackground").value = _id;
+												}
+												
+												function EditOver(identifier){
+													var id = identifier.getAttribute("data-id");
+													var Bt = identifier.getAttribute("data-bt");
+													var BtName = Bt + "Bt-" + id;
+													var value = document.getElementById(BtName).style.visibility = 'visible';
+												}
+												
+												function EditOut(identifier){
+													var id = identifier.getAttribute("data-id");
+													var Bt = identifier.getAttribute("data-bt");
+													var BtName = Bt + "Bt-" + id;
+													document.getElementById(BtName).style.visibility = "hidden";
+												}
+												
+												function imgProfileModal(){
+													$("#editImgProfileModal").modal("show");
+												}
+												
+												function imgSelfieModal(){
+													$("#editImgSelfieModal").modal("show");
+												}
+												
+												function imgCardModal(){
+													$("#editImgCardModal").modal("show");
+												}
+												
+												function imgIjazahModal(){
+													$("#editImgIjzModal").modal("show");
+												}
+												
+												function validateSize(identifier){
+													var nameField = identifier.getAttribute("data-name");
+													var inputFile = document.getElementById(nameField);
+													if(inputFile.files[0].size > 1000000){
+														alert("File terlalu besar, maksimal 1Mb");
+														inputFile.value = "";
+													};
+												}
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>Data Pribadi</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="col-md-9">
+													<table class="table">
+														<thead>
+															<td>&nbsp;</td>
+															<td>
+																<button type="button" id="btnEditData" class="btn btn-warning" onclick="openEdit()">Edit Informasi Data</button>
+																<button type="button" id="btnSimpanData" disabled class="btn btn-success" onclick="saveData()">Simpan</button>
+																<button type="button" id="btnBatalData" disabled class="btn btn-info" onclick="cancelEdit()">Batal</button>
+															</td>
+														</thead>
+														<tbody>
+														<form class="p-20" name="editBasicForm" id="editBasicForm" action="/profile/basicinfo" method="POST">
+															<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+															<!--
+															<tr>
+																<th>UID</th>
+																<th><%= ContentData.getIdentities._id %></th>
+															</tr>
+															//-->
+															<tr>
+																<th>Nama</th>
+																<td><input type="text" class="form-control" name="EditdataName" id="EditdataName" placeholder="Masukkan nama anda"></td>
+															</tr>
+															<tr>
+																<th>Alamat (Domisili)</th>
+																<td><input type="text" class="form-control" name="EditdataAddress" id="EditdataAddress" placeholder="Alamat domisili anda"></td>
+															</tr>
+															<tr>
+																<th>Kota (Domisili)</th>
+																<td><input type="text" class="form-control" name="EditdataCity" id="EditdataCity" placeholder="Kota domisili anda"></td>
+															</tr>
+															<tr>
+																<th>Provinsi (Domisili)</th>
+																<td><input type="text" class="form-control" name="EditdataProvince" id="EditdataProvince" placeholder="Provinsi domisili anda"></td>
+															</tr>
+															<tr>
+																<th>Kodepos</th>
+																<td><input type="text" maxlength="4" class="form-control" name="EditdataPostal" id="EditdataPostal" placeholder="Kodepos anda" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></td>
+															</tr>
+															<tr>
+																<th>Jenis Kelamin</th>
+																<td><select class="form-control" name="EditdataGender" id="EditdataGender">
+																		<option value="-">None</option>
+																		<option value="male">Pria</option>
+																		<option value="female">Wanita</option>
+																	</select>
+																</td>
+															</tr>
+															<!--
+															<tr>
+																<th>Email</th>
+																<td><input type="text" class="form-control" name="EditdataEmail" id="EditdataEmail" placeholder="Masukkan email aktif anda"></td>
+															</tr>
+															//-->
+															<tr>
+																<th>Phone</th>
+																<td><input type="text" minlength="11" maxlength="13" class="form-control" name="EditdataPhone" id="EditdataPhone" placeholder="Masukkan nomer telp anda" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></td>
+															</tr>
+															<tr>
+																<th>Agama</th>
+																<td>
+																	<select class="form-control" name="EditdataReligion" id="EditdataReligion">
+																		<option value="-">-</option>
+																		<option value="moslem">Islam</option>
+																		<option value="catholic">Katolik</option>
+																		<option value="protestant">Protestan</option>
+																		<option value="buddhist">Budha</option>
+																		<option value="hinduism">Hindu</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<th>Tanggal Lahir</th>
+																<td><input type="text" class="form-control date" name="EditdataBDate" id="EditdataBDate" placeholder="Masukkan tanggal lahir anda"></td>
+															</tr>
+															<tr>
+																<th>Tempat Lahir</th>
+																<td><input type="text" class="form-control" name="EditdataBPlace" id="EditdataBPlace" placeholder="Tempat lahir anda"></td>
+															</tr>
+															<tr>
+																<th>No. Kartu Identitas</th>
+																<td><input type="text" class="form-control" name="EditdataIDCNumber" id="EditdataIDCNumber" placeholder="Nomer kartu identitas anda"></td>
+															</tr>
+															<tr>
+																<th>Tipe Kartu Identitas</th>
+																<td>
+																	<select class="form-control" name="EditdataIDCType" id="EditdataIDCType">
+																		<option value="-">-</option>
+																		<option value="ktp">KTP</option>
+																		<option value="kitas">KITAS</option>
+																		<option value="sim">SIM</option>
+																		<option value="paspor">PASPOR</option>
+																	</select>
+																</td>
+															</tr>
+															<tr>
+																<th>Tentang Saya</th>
+																<td><input type="text" maxlength="160" class="form-control" name="EditdataDesc" id="EditdataDesc" placeholder="Deskripsi tentang diri anda maksimal 160 huruf"></td>
+															</tr>
+															<tr>
+																<th>Video Pendek (Youtube)</th>
+																<td><input type="text" class="form-control" name="EditdataYLink" id="EditdataYLink" placeholder="Masukkan link video youtube anda"></td>
+															</tr>
+															<!--
+															<tr>
+																<th>Tipe User</th>
+																<td>
+																<% var usertypeDesc = ContentData.userType; %>
+																<% if(usertypeDesc == "Pteacher") usertypeDesc = "Tutor (Pending)"%>
+																<% if(usertypeDesc == "Bteacher") usertypeDesc = "Tutor (Blokir)"%>
+																<%= usertypeDesc %>
+																</td>
+															</tr>
+															//-->
+															<tr>
+																<td>&nbsp;</td>
+																<td>&nbsp;</td>
+															</tr>
+														</form>
+														</tbody>
+													</table>
+													<div class="row">
+														&nbsp;
+													</div>
+													<!--
+													<table class="table">
+														<thead>
+															<tr>
+																<% if(ContentData.emailStatus == true){ %>
+																<td><button type="button" class="btn btn-success"><i class="fa fa-check"></i>Email Tervalidasi</button></td>
+																<td>Terima Kasih, telah melakukan validasi email</td>
+																<% } else { %>
+																<td><button type="button" class="btn btn-warning" onclick='location.replace("/profile/sendemail")'><i class="fa fa-exclamation-triangle"></i>Validasi Email</button></td>
+																<td>Mohon validasi email anda! Silahkan klik tombol di sebelah kiri</td>
+																<% } %>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><button 
+																	type="button" 
+																	class="btn btn-success" 
+																	onclick="onCallEditBasicInfo(this)" 
+																	data-id="<%= ContentData.getIdentities._id %>"
+																	data-name="<%= ContentData.peopleName %>"
+																	data-gender="<%= ContentData.getPeopleInfo.gender %>"
+																	data-address="<%= ContentData.getPeopleInfo.address %>"
+																	data-city="<%= ContentData.getPeopleInfo.city %>"
+																	data-province="<%= ContentData.getPeopleInfo.province %>"
+																	data-postalcode=""
+																	data-bplace="<%= ContentData.getPeopleInfo.birthPlace %>"
+																	data-bdate="<%= ContentData.getPeopleInfo.birthDate %>"
+																	data-religion="<%= ContentData.getPeopleInfo.religion %>"
+																	data-cardnumber="<%= ContentData.getPeopleInfo.cardId %>"
+																	data-cardtype="<%= ContentData.getPeopleInfo.cardType %>"
+																	><i class="fa fa-check"></i>Edit info dasar</button></td>
+																<td>Edit info dasar seperti alamat domisili, agama, tanggal lahir, dll</td>
+															</tr>
+														
+															<tr>
+																<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#editImageModal"><i class="fa fa-check"></i>Edit Gambar</button></td>
+																<td>Ganti gambar seperti profile picture, kartu identitas, selfie dan ijazah</td>
+															</tr>
+														
+															<tr>
+																<td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#editPassModal"><i class="fa fa-check"></i>Edit Password</button></td>
+																<td>Ganti password akun anda</td>
+															</tr>
+														
+														</tbody>
+													</table>
+													//-->
+												</div>
+												<div class="col-md-3">
+													<table class="table">
+														<colgroup>
+															<col span="1" style="width: 20%;">
+															<col span="1" style="width: 60%;">
+															<col span="1" style="width: 20%;">
+														</colgroup>
+														<thead>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<th><div class="text-center">Foto Profil</div></th>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<% if(ContentData.profileImg != ""){ %>
+																<th><img src="<%= ContentData.profileImg.thumbnail %>" alt="User Profile" class="img-responsive" onclick="imgProfileModal()"></th>
+																<% } else { %>
+																<th><img src="/images/noimage.png" alt="User Profile" class="img-responsive" onmouseover="this.src = '/images/noimage2.png';" onmouseout="this.src = '/images/noimage.png';" onclick="imgProfileModal()"></th>
+																<% } %>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<th><div class="text-center">Foto Selfie</div></th>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<% if(ContentData.selfieImg != ""){ %>
+																<th><img src="<%= ContentData.selfieImg.thumbnail %>" alt="User Selfie" class="img-responsive" onclick="imgSelfieModal()"></th>
+																<% } else { %>
+																<th><img src="/images/noimage.png" alt="User Selfie" class="img-responsive" onmouseover="this.src = '/images/noimage2.png';" onmouseout="this.src = '/images/noimage.png';" onclick="imgSelfieModal()"></th>
+																<% } %>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<th><div class="text-center">Kartu ID</div></th>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<% if(ContentData.idcardImg != ""){ %>
+																<th><img src="<%= ContentData.idcardImg.thumbnail %>" alt="User IDCard" class="img-responsive" onclick="imgCardModal()"></th>
+																<% } else { %>
+																<th><img src="/images/noimage.png" alt="User IDCard" class="img-responsive" onmouseover="this.src = '/images/noimage2.png';" onmouseout="this.src = '/images/noimage.png';" onclick="imgCardModal()"></th>
+																<% } %>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<th><div class="text-center">Ijazah</div></th>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+															<tr>
+																<th><div class="text-center">&nbsp;</div></th>
+																<% if(ContentData.certificateImg != ""){ %>
+																<th><img src="<%= ContentData.certificateImg.thumbnail %>" alt="User Certificate" class="img-responsive" onclick="imgIjazahModal()"></th>
+																<% } else { %>
+																<th><img src="/images/noimage.png" alt="User Certificate" class="img-responsive" onmouseover="this.src = '/images/noimage2.png';" onmouseout="this.src = '/images/noimage.png';" onclick="imgIjazahModal()"></th>
+																<% } %>
+																<th><div class="text-center">&nbsp;</div></th>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>Pengalaman Mengajar<button type="button" data-toggle="modal" data-target="#addTeachingModal" class="close" style="margin-right: 50px !important" aria-label="Close"><span aria-hidden="true" class="panel-control-icon fa fa-plus"></span></button>
+													</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="col-md-12">
+												<% var TeachData = ContentData.getTeachExp; %>
+												<% if(TeachData.length > 0){ %>
+													<table class="table">
+														<colgroup>
+															<col span="1" style="width: 85%;">
+															<col span="1" style="width: 15%;">
+														</colgroup>
+														<tbody>
+														<% for(var tc=0; tc<TeachData.length; tc++){ var temptech = TeachData[tc]; %>
+														<% var toDate=temptech.toDate %>
+														<% var getGrade = ContentData.getGrade; %>
+														<% var GradeObj = getGrade.find(o => o._id == temptech.grade); %>
+														<% var idn=tc+1; %>
+														<% if(toDate== "")toDate="Now" %>
+															<tr data-id="<%= idn %>" data-bt="Teach" onmouseover="EditOver(this)" onmouseout="EditOut(this)"><td><h6 style="margin-top: 0 !important; line-height: 1.1 !important; margin-bottom: 0 !important;">
+																<%= temptech.school %> - <%= temptech.city %><br>
+																<%= temptech.course %> - <%= GradeObj.name %> (<%= temptech.status %>)<br>
+																<small><%= temptech.fromDate %> - <%= toDate %><br>
+																Portofolio: <%= temptech.desc %></small>
+															</h6></td>
+															<td>
+																<button 
+																	id="TeachBt-<%= idn %>"
+																	name="TeachBt-<%= idn %>"
+																	style="visibility: hidden"
+																	type="button"
+																	class="close"
+																	onClick="editTeachInfo(this)"
+																	data-id="<%= temptech._id %>"
+																	data-grade="<%= temptech.grade %>"
+																	data-course="<%= temptech.course %>"
+																	data-school="<%= temptech.school %>"
+																	data-fromdate="<%= temptech.fromDate %>"
+																	data-todate="<%= temptech.toDate %>"
+																	data-status="<%= temptech.status %>"
+																	data-city="<%= temptech.city %>"
+																	data-porto="<%= temptech.desc %>"
+																	aria-label="Close"><span aria-hidden="true" class="panel-control-icon glyphicon glyphicon-pencil"></span></button>
+															</td>
+															</tr>
+														<% } %>
+														</tbody>
+													</table>
+												<% } else { %>
+													<div class="text-left">Anda belum mencantumkan pengalaman mengajar, Silahkan tambahkan sekarang!</div>
+												<% } %>
+												</div>
+											</div>
+										</div>
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>Latarbelakang Pendidikan<button type="button" data-toggle="modal" data-target="#addEducationModal" class="close" style="margin-right: 50px !important" aria-label="Close"><span aria-hidden="true" class="panel-control-icon fa fa-plus"></span></button>
+													</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="col-md-12">
+												<% var EduData = ContentData.getEduBg; %>
+												<% if(EduData.length > 0){ %>
+													<table class="table">
+														<colgroup>
+															<col span="1" style="width: 85%;">
+															<col span="1" style="width: 15%;">
+														</colgroup>
+														<tbody>
+														<% for(var eb=0; eb<EduData.length; eb++){ var tempedu = EduData[eb]; %>
+														<% var idn=tc+1; %>
+															<tr data-id="<%= idn %>" data-bt="Ed" onmouseover="EditOver(this)" onmouseout="EditOut(this)"><td><h6 style="margin-top: 0 !important; line-height: 1.1 !important; margin-bottom: 0 !important;">
+																<%= tempedu.major %> (<%= tempedu.strata.toUpperCase() %>) <%= tempedu.institution %><br>
+																<%= tempedu.fromDate %> - <%= tempedu.toDate %><br>
+																<small><%= tempedu.thesis %> (Score: <%= tempedu.score %>)</small>
+															</h6></td>
+															<td>
+																<button 
+																	id="EdBt-<%= idn %>" 
+																	name="EdBt-<%= idn %>" 
+																	style="visibility: hidden" 
+																	type="button" 
+																	class="close" 
+																	onClick="editEduInfo(this)"
+																	data-id="<%= tempedu._id %>"
+																	data-major="<%= tempedu.major %>"
+																	data-strata="<%= tempedu.strata %>"
+																	data-institution="<%= tempedu.institution %>"
+																	data-fromdate="<%= tempedu.fromDate %>"
+																	data-todate="<%= tempedu.toDate %>"
+																	data-thesis="<%= tempedu.thesis %>"
+																	data-score="<%= tempedu.score %>"
+																	aria-label="Close"><span aria-hidden="true" class="panel-control-icon glyphicon glyphicon-pencil"></span></button>
+															</td>
+															</tr>
+														<% } %>
+														</tbody>
+													</table>
+												<% } else { %>
+													<div class="text-left">Anda belum mencantumkan latar belakang pendidikan, Silahkan tambahkan sekarang!</div>
+												<% } %>
+												</div>
+											</div>
+										</div>
+										<% if(ContentData.getIdentities.userType == "public" || ContentData.getIdentities.userType == "pteacher" ){ %>
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>Ingin menjadi Tutor?</h5>
+												</div>
+											</div>
+											<form class="p-20" name="formBecomeTeacher" id="formBecomeTeacher" action="/profile/becometeacher" method="POST">
+											<div class="panel-body">
+												<div class="col-md-12">
+													<!-- <div class="text-left">To become a teacher, you must complete your information profile. If your profile data has been completed, please read and accept terms & condition below:<br> //-->
+													<div class="text-left">Sebis Edu bertujuan untuk memberikan kesempatan untuk meningkatkan kualitas siswa melalui pengalaman belajar yang lebih menyenangkan dan personal, mencari Tutor Pengajar yang bersemangat untuk memberikan kursus privat secara daring.<br>
+														Mengajar adalah pekerjaan yang ideal untuk sesorang yang mencari pekerjaan yang mandiri, fleksibel namun tetap dengan penghasilan yang baik.. Sebagai Tutor Pengajar di Sebis Edu, Anda dapat mengelola waktu Anda sendiri, dan terhubung dengan ribuan siswa potensial. Mengadakan kelas sendiri secara online.
+														<a href="https://docs.google.com/gview?url=<%= ContentData.baseurl %>/doc/loker_detail_v1.1.docx&embedded=true" target="_blank"><strong><u>Klik disini untuk info lebih lanjut</u></strong></a><br><br>
+														<label>
+															<input type="checkbox" name="cbOne" id="cbOne" class="blue-style" >
+															Setujui Syarat & Ketentuan Untuk Menjadi Tutor: <a href="https://docs.google.com/gview?url=<%= ContentData.baseurl %>/doc/tnc_Pengajar_v1.1.docx&embedded=true" target="_blank"><strong><u>Baca File</u></strong></a>
+														</label>
+														<label>
+															<input type="checkbox" name="cbTwo" id="cbTwo" class="blue-style" >
+															Setujui Syarat & Ketentuan Penggunaan Platform: <a href="https://docs.google.com/gview?url=<%= ContentData.baseurl %>/doc/tnc_Penggunaan_Platform_v1.1.docx&embedded=true" target="_blank"><strong><u>Baca File</u></strong></a>
+														</label>
+														<!-- <strong>By click the button below, you just accepted for terms & condition (T&C Become a Teacher and T&C Use This Platform)!!!</strong>//-->
+														<label>
+															*Proses pengajuan akan memakan waktu maksimal 3 hari kerja
+														</label>
+													</div><br>
+													<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+													<% if(ContentData.getIdentities.userType == "public"){ %>
+													<button type="button" class="btn btn-primary btn-lg btn-block" onclick="becomeTeacher()"><i class="fa fa-send-o"></i>Kirim Informasi Data</button>
+													<% } %>
+													<% if(ContentData.getIdentities.userType == "pteacher"){ %>
+													<button type="button" class="btn btn-warning btn-lg btn-block"><i class="fa fa-hourglass-half"></i>Pengajuan anda untuk menjadi tutor sedang dalam proses</button>
+													<% } %>
+												</div>
+											</div>
+											</form>
+										</div>
+										<% } %>
+                                    </div>
+									<%- include("../modal/profile-modal.ejs") %>

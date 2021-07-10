@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		
+		
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-signin-client_id" content="<%= GClientID() %>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Options Admin - Responsive Web Application Kit</title>
+
+<!-- ========== COMMON STYLES ========== -->
+<link rel="stylesheet" href="/options_admin/css/bootstrap.min.css" media="screen" >
+<link rel="stylesheet" href="/options_admin/css/font-awesome.min.css" media="screen" >
+<link rel="stylesheet" href="/options_admin/css/animate-css/animate.min.css" media="screen" >
+<link rel="stylesheet" href="/options_admin/css/lobipanel/lobipanel.min.css" media="screen" >
+
+<!-- ========== PAGE STYLES ========== -->
+<link rel="stylesheet" href="/options_admin/css/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
+<link rel="stylesheet" href="/options_admin/css/icheck/skins/line/blue.css" >
+<link rel="stylesheet" href="/options_admin/css/icheck/skins/line/red.css" >
+<link rel="stylesheet" href="/options_admin/css/icheck/skins/line/green.css" >
+<link rel="stylesheet" href="/options_admin/css/sweet-alert/sweetalert.css" media="screen" >
+<link rel="stylesheet" href="/options_admin/css/switchery/switchery.min.css" >
+<link rel="stylesheet" href="/options_admin/css/x-editable/css/bootstrap-editable.css" >
+<link rel="stylesheet" type="text/css" href="/options_admin/css/date-picker/jquery.timepicker.css" />
+<link rel="stylesheet" type="text/css" href="/options_admin/css/date-picker/bootstrap-datepicker.css" />
+
+<!-- ========== THEME CSS ========== -->
+<link rel="stylesheet" href="/options_admin/css/main.css" media="screen" >
+
+<!-- ========== MODERNIZR ========== -->
+<script src="/options_admin/js/modernizr/modernizr.min.js"></script>
+		<link rel="stylesheet" href="/options_admin/css/icheck/skins/line/blue.css" >
+        <link rel="stylesheet" href="/options_admin/css/icheck/skins/line/red.css" >
+        <link rel="stylesheet" href="/options_admin/css/icheck/skins/line/green.css" >
+    </head>
+    <body class="top-navbar-fixed">
+        <div class="main-wrapper">
+            <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
+            <div class="content-wrapper">
+                <div class="content-container">
+					<div class="main-page">
+
+                        <section class="section">
+                            <div class="container-fluid">
+                                <div class="col-md-offset-3 col-md-6 mt-50 pt-50">
+                                    <div class="panel">
+                                        <div class="panel-body p-30">
+                                            <div class="error-box">
+												<% if(Codes == "200"){ %>
+												<i class="fa fa-check error-icon" style="color: #4cae4c !important;"></i>
+												<% }else{ %>
+												<i class="fa fa-exclamation-triangle error-icon"></i>
+												<% } %>
+                                                <p class="sub-title"><%= Title %></p>
+                                                <p class="text-muted"><%= Messages %></p>
+                                                <a href="/login" class="btn btn-primary btn-lg btn-rounded">Go To Login Page</a>
+                                            </div>
+                                            <!-- /.error-box -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.container-fluid -->
+                        </section>
+
+
+                    </div>
+                    <!-- /.main-page -->
+                </div>
+                <!-- /.content-container -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- /.main-wrapper -->
+
+        <!-- ========== COMMON JS FILES ========== -->
+        <script src="/options_admin/js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="/options_admin/js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/options_admin/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/options_admin/js/pace/pace.min.js"></script>
+        <script src="/options_admin/js/lobipanel/lobipanel.min.js"></script>
+        <script src="/options_admin/js/iscroll/iscroll.js"></script>
+
+        <!-- ========== PAGE JS FILES ========== -->
+        <script src="/options_admin/js/prism/prism.js"></script>
+		<script src="/options_admin/js/ckeditor/ckeditor.js"></script>
+
+        <!-- ========== THEME JS ========== -->
+        <script src="/options_admin/js/main.js"></script>
+        <!-- ========== JS ========== -->
+		
+        <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
+    </body>
+</html>

@@ -1,0 +1,204 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												function replaceEditor(){
+													
+													CKEDITOR.replace( 'dataContentCK', {
+														width: '100%',
+														height: 500
+													});
+													CKEDITOR.replace( 'dataContentCK2', {
+														width: '100%',
+														height: 500
+													});
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+												};
+												window.onload = replaceEditor;
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idArticle");
+													swal({
+														title: "Are you sure?",
+														text: "You will not be able to recover this article!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Yes, delete it!",
+														cancelButtonText: "No, cancel please!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Cancelled", "Your article not deleted.", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>List Article</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+											
+											<% if(ContentData.getArticle != ""){ var articles = ContentData.getArticle %>
+											<script>
+												function onCallEditArticle(identifier){
+													
+													var _id = identifier.getAttribute("data-idArticle");
+													var title = identifier.getAttribute("data-titleArticle");
+													var subtitle = identifier.getAttribute("data-subtitleArticle");
+													var tags = identifier.getAttribute("data-tags");
+													var category = identifier.getAttribute("data-category");
+													var konten = identifier.getAttribute("data-content");
+													var isPublish = identifier.getAttribute("data-publish");
+													var checkSwitch = document.getElementById("replacer2");
+													
+													$("#editArticleModal").modal("show");
+													document.getElementById("idArticle").value = _id;
+													document.getElementById("EditdataTitle").value = title;
+													document.getElementById("EditdataSubtitle").value = subtitle;
+													document.getElementById("EditdataTags").value = tags;
+													document.getElementById("EditdataCategory").value = category;
+													if(isPublish=='0') checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published2" name="published2" />';
+													else checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published2" name="published2" checked />';
+													
+													CKEDITOR.instances['dataContentCK2'].setData(konten);
+													replaceSwitcher();
+												};
+												</script>
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Date Created</th>
+															<th>Title</th>
+															<th>Subtitle</th>
+															<th>Date Modified</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+													<% for(let i = 0; i < articles.length; i++){ %>
+														<tr>
+															<th scope="row"><%= ContentData.pagingCounter+i; %>.</th>
+															<th><%= articles[i].created_at %></th>
+															<th><%= articles[i].title %></th>
+															<th><%= articles[i].subtitle %></th>
+															<th><%= articles[i].updated_at %></th>
+															<th>
+															<form action="/article/<%= articles[i]._id %>?_method=DELETE" method="POST" id="form-<%= articles[i]._id %>">
+																<% if(articles[i].published < 1) { %>
+																	<button type="button" class="btn btn-warning icon-only"><i class="fa fa-exclamation-triangle"></i></button>
+																<% } else { %>
+																	<button type="button" class="btn btn-success icon-only"><i class="fa fa-check"></i></button>
+																<% } %>
+																<button
+																	type="button"
+																	class="btn btn-primary icon-only tombolEdit"
+																	onclick="onCallEditArticle(this);"
+																	data-idArticle="<%= articles[i]._id %>"
+																	data-titleArticle="<%= articles[i].title %>"
+																	data-subtitleArticle="<%= articles[i].subtitle %>"
+																	data-tags="<%= articles[i].tags %>"
+																	data-category="<%= articles[i].category %>"
+																	data-content="<%= articles[i].content %>"
+																	data-headerImg="<%= articles[i].headerImage %>"
+																	data-thumbImg="<%= articles[i].thumbnail %>"
+																	data-publish="<%= articles[i].published %>"
+																><i class="fa fa-pencil"></i></button>
+																<button 
+																	type="button" 
+																	class="btn btn-danger icon-only" 
+																	id="delete-button" 
+																	onClick="deleteModal(this)"
+																	data-idArticle="<%= articles[i]._id %>"
+																	><i class="fa fa-trash-o"></i></button>
+															</form>
+															</th>
+														</tr>
+													<% } %>
+													</tbody>
+												</table>
+												<% if(ContentData.totalPages > 1){ %>
+												<form action="/article" method="POST" id="formNextPage" name="formNextPage">
+												<nav class="text-center">
+                                                	<ul class="pagination rounded-corners">
+                                                		<li>
+                                                			<a href="#" aria-label="Previous">
+                                                				<span aria-hidden="true">&laquo;</span>
+                                                			</a>
+                                                		</li>
+														<% for(let j = 0; j < ContentData.totalPages; j++){ var PageLink = j+1; %>
+                                                		<% if(ContentData.currPage == PageLink) { %>
+														<li class="active">
+														<% } else { %>
+														<li>
+														<% } %>
+														<a
+															href="#"
+															<% if(ContentData.currPage != PageLink) { %>
+															data-nextPage="<%= PageLink %>"
+															onClick="nxPage(this)"
+															<% } %>
+															><%= PageLink %></a></li>
+														<% } %>
+                                                		<li>
+                                                			<a href="#" aria-label="Next">
+                                                				<span aria-hidden="true">&raquo;</span>
+                                                			</a>
+                                                		</li>
+														<input type="hidden" value="" id="nextPage" name="nextPage" />
+                                                	</ul>
+                                                </nav>
+												</form>
+												<% } %>
+											<% } else { %>
+												<div class="alert alert-danger" role="alert"> <strong>No article yet!</strong> Please create one article. </div>
+											<% } %>											
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include('../modal/article-modal.ejs') %>
+									

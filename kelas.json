@@ -1,0 +1,217 @@
+[{
+  "_id": {
+    "$oid": "60d2a8fd166e761664fa5040"
+  },
+  "name": "SD",
+  "grade": "1",
+  "tograde": "3",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-23 10:16:08",
+  "updated_at": "2021-06-23 10:16:08",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d2d8f49350dc2948d5f8bf"
+  },
+  "name": "SD",
+  "grade": "4",
+  "tograde": "6",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-23 13:46:24",
+  "updated_at": "2021-06-23 13:46:24",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d2d9009350dc2948d5f8c0"
+  },
+  "name": "SMP",
+  "grade": "7",
+  "tograde": "9",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-23 13:46:24",
+  "updated_at": "2021-06-23 13:46:24",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d2d9129350dc2948d5f8c1"
+  },
+  "name": "SMA (SAINS)",
+  "grade": "10",
+  "tograde": "12",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-23 13:46:24",
+  "updated_at": "2021-06-23 13:46:24",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d2d91b9350dc2948d5f8c2"
+  },
+  "name": "SMA",
+  "grade": "10",
+  "tograde": "12",
+  "curriculum": "0",
+  "disable": "enable",
+  "created_at": "2021-06-23 13:46:24",
+  "updated_at": "2021-06-23 13:46:24",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42bf3a7d4272cacb41c44"
+  },
+  "name": "PRIMARY",
+  "grade": "1",
+  "tograde": "3",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c00a7d4272cacb41c45"
+  },
+  "name": "PRIMARY",
+  "grade": "4",
+  "tograde": "6",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c18a7d4272cacb41c46"
+  },
+  "name": "LOW SECONDARY",
+  "grade": "7",
+  "tograde": "8",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c28a7d4272cacb41c47"
+  },
+  "name": "UP SECONDARY",
+  "grade": "9",
+  "tograde": "10",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c3da7d4272cacb41c48"
+  },
+  "name": "ADVANCED",
+  "grade": "11",
+  "tograde": "12",
+  "curriculum": "1",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c52a7d4272cacb41c49"
+  },
+  "name": "PRIMARY YEAR",
+  "grade": "1",
+  "tograde": "3",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c61a7d4272cacb41c4a"
+  },
+  "name": "PRIMARY YEAR",
+  "grade": "4",
+  "tograde": "6",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c70a7d4272cacb41c4b"
+  },
+  "name": "MIDDLE YEAR",
+  "grade": "7",
+  "tograde": "8",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c7ea7d4272cacb41c4c"
+  },
+  "name": "MIDDLE YEAR",
+  "grade": "9",
+  "tograde": "10",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d42c8da7d4272cacb41c4d"
+  },
+  "name": "DIPLOMA",
+  "grade": "11",
+  "tograde": "12",
+  "curriculum": "2",
+  "disable": "enable",
+  "created_at": "2021-06-24 13:51:18",
+  "updated_at": "2021-06-24 13:51:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d93e0a1695a20e8489836e"
+  },
+  "name": "PEMULA",
+  "grade": "1",
+  "tograde": "12",
+  "curriculum": "3",
+  "disable": "enable",
+  "created_at": "2021-06-28 10:11:15",
+  "updated_at": "2021-06-28 10:11:15",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d93e191695a20e8489836f"
+  },
+  "name": "MENENGAH",
+  "grade": "1",
+  "tograde": "12",
+  "curriculum": "3",
+  "disable": "enable",
+  "created_at": "2021-06-28 10:11:15",
+  "updated_at": "2021-06-28 10:11:15",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60d93e261695a20e84898370"
+  },
+  "name": "LANJUTAN",
+  "grade": "1",
+  "tograde": "12",
+  "curriculum": "3",
+  "disable": "enable",
+  "created_at": "2021-06-28 10:11:15",
+  "updated_at": "2021-06-28 10:11:15",
+  "__v": 0
+}]

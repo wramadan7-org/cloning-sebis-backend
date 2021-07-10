@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "60cabf7ef9612d0e78a011b2"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "fromDate": "10/2025",
+  "toDate": "11/2026",
+  "institution": "US",
+  "major": "PGPAUD",
+  "thesis": "sebis",
+  "strata": "s2",
+  "score": "3.85",
+  "created_at": "2021-06-17 10:20:30",
+  "updated_at": "2021-06-17 10:47:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60cac47dc116af25a49d4682"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "fromDate": "10/2026",
+  "toDate": "12/2027",
+  "institution": "US",
+  "major": "TEKNIK",
+  "thesis": "sebis",
+  "strata": "s2",
+  "score": "3.40",
+  "created_at": "2021-06-17 10:41:49",
+  "updated_at": "2021-06-17 10:47:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60dbdb5a86b9972090ddd25b"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "fromDate": "01/2016",
+  "toDate": "02/2016",
+  "institution": "UNIVERSITAS",
+  "major": "PGSD",
+  "thesis": "judul thesis",
+  "strata": "s1",
+  "score": "3",
+  "created_at": "2021-06-30 09:47:54",
+  "updated_at": "2021-06-30 09:51:44",
+  "__v": 0
+}]

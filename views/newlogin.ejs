@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="<%= GClientID() %>">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:100,100i,400">
+  <style>
+    body {
+      background-color: #e6e6e6;
+    }
+    h1{
+      color: #212529;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+
+    }
+    h3{
+      color: #212529;
+      font-family: "Roboto", sans-serif;
+      font-weight: 100;
+
+    }
+    .center{
+      margin-top: 10%;
+      text-align:center;
+    }
+	.g-signin2{
+	  width: 100%;
+	}
+
+	.g-signin2 > div{
+	  margin: 0 auto;
+	}
+  </style>
+</head>
+
+<body>
+<div class='center'>
+	<div style="width:320px; padding-top:10px;border-style: outset;">
+		<img src="https://www.nssc.org/images/design/register-icon.png" alt="Logo" style="max-width:100px; max-height:100px;">
+		<h1>Email Database</h1>
+		<h3>Lorem Ipsum Dolor.</h3>
+		<br><br><br>
+		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="300" data-height="50" data-longtitle="true"></div>
+	</div>
+  <!--<a href="#" onclick="signOut();">Sign out</a>-->
+ </div>
+  <script>
+    function onSignIn(googleUser) {
+      // Useful data for your client-side scripts:
+		var profile = googleUser.getBasicProfile();
+
+		var loc = '<%= locationID %>';
+			
+		loc	+= '/' + profile.getEmail();
+		loc += '/' + googleUser.getAuthResponse().id_token;
+		loc += '/' + profile.getName();
+			
+		//alert.message('Logged in as: ' + googleUser.getBasicProfile().getName());
+		console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+		location.replace(loc);
+    }
+
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function() {
+        console.log('User signed out.');
+      });
+    }
+  </script>
+</body>
+
+</html>

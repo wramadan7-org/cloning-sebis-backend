@@ -1,0 +1,211 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+												};
+												window.onload = onLoad;
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idCourse");
+													swal({
+														title: "Are you sure?",
+														text: "You will not be able to recover this Course!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Yes, delete it!",
+														cancelButtonText: "No, cancel please!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Cancelled", "Your course not deleted.", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>List Course</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+											
+											<% if(ContentData.getCourse != ""){ var course = ContentData.getCourse %>
+											<script>
+												function onCallEditCourse(identifier){
+													
+													var _id = identifier.getAttribute("data-idCourse");
+													var NameCourse = identifier.getAttribute("data-nameCourse");
+													var DescCourse = identifier.getAttribute("data-descCourse");
+													var TypeCourse = identifier.getAttribute("data-typeCourse");
+													var Year = identifier.getAttribute("data-year");
+													var isDisable = identifier.getAttribute("data-disable");
+													var GradeCourse = identifier.getAttribute("data-gradeCourse");
+													var checkSwitch = document.getElementById("replacer2");
+													var studyId = GradeCourse +"_"+ TypeCourse;
+													
+													$("#editCourseModal").modal("show");
+													document.getElementById("idCourseMaterial").value = _id;
+													document.getElementById("EditdataStudy").value = studyId;
+													document.getElementById("EditdataYear").value = Year;
+													document.getElementById("EditdataName").value = NameCourse;
+													document.getElementById("EditdataDesc").value = DescCourse;
+													if(isDisable=='disable') checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published2" name="published2" />';
+													else checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published2" name="published2" checked />';
+													
+													replaceSwitcher();
+												};
+												</script>
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Name</th>
+															<th>Desc</th>
+															<th>Grade</th>
+															<th>Type</th>
+															<th>Modified</th>
+															<th>Status</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+													<% for(let i = 0; i < course.length; i++){ %>
+													<% if(course[i].desc.length > 27) {  var Descc = course[i].desc.substring(0, 25) + "..."; } else { %>
+													<% var Descc = course[i].desc; } %>
+														<tr>
+															<th scope="row"><%= ContentData.pagingCounter+i; %>.</th>
+															<th><%= course[i].name %></th>
+															<th><%= Descc %></th>
+															<% var getGrade = ContentData.getGrade; %>
+															<% var getTyCourse = ContentData.getTypeCourse; %>
+															<% var GradeObj = getGrade.find(o => o._id == course[i].gradeId); %>
+															<% var TcObj = getTyCourse.find(o => o._id == course[i].typeId); %>
+															<th><%= GradeObj.name %></th>
+															<th><%= TcObj.name %></th>
+															<th><%= course[i].updated_at.substring(0,10) %></th>
+															<th>
+															<% if(course[i].status == 2) { %>
+																<button readonly type="button" class="btn btn-success"><i class="fa fa-check"></i>Approved</button>
+															<% } else if(course[i].status == 1) { %>
+																<button type="button" class="btn btn-warning"><i class="fa fa-send-o"></i>Submitted</button>
+															<% } else if(course[i].status == 0) { %>
+																<button type="button" class="btn btn-black"><i class="fa fa-cog"></i> Draft </button>
+															<% } else { %>
+																<button type="button" class="btn btn-danger"><i class="fa fa-exclamation-triangle"></i>Rejected</button>
+															<% } %>
+															</th>
+															<th>
+															<form action="/course/<%= course[i]._id %>?_method=DELETE" method="POST" id="form-<%= course[i]._id %>">
+																<button
+																	type="button"
+																	class="btn btn-primary icon-only tombolEdit"
+																	onclick="onCallEditCourse(this)"
+																	data-idCourse="<%= course[i]._id %>"
+																	data-nameCourse="<%= course[i].name %>"
+																	data-descCourse="<%= course[i].desc %>"
+																	data-typeCourse="<%= course[i].typeId %>"
+																	data-year="<%= course[i].year %>"
+																	data-disable="<%= course[i].disable %>"
+																	data-gradeCourse="<%= course[i].gradeId %>"
+																><i class="fa fa-pencil"></i></button>
+																<!--
+																<button 
+																	type="button" 
+																	class="btn btn-danger icon-only" 
+																	id="delete-button" 
+																	onClick="deleteModal(this)"
+																	data-idCourse="<%= course[i]._id %>"
+																	><i class="fa fa-trash-o"></i></button>
+																	//-->
+															</form>
+															</th>
+														</tr>
+													<% } %>
+													</tbody>
+												</table>
+												<% if(ContentData.totalPages > 1){ %>
+												<form action="/course" method="POST" id="formNextPage" name="formNextPage">
+												<nav class="text-center">
+                                                	<ul class="pagination rounded-corners">
+                                                		<li>
+                                                			<a href="#" aria-label="Previous">
+                                                				<span aria-hidden="true">&laquo;</span>
+                                                			</a>
+                                                		</li>
+														<% for(let j = 0; j < ContentData.totalPages; j++){ var PageLink = j+1; %>
+                                                		<% if(ContentData.currPage == PageLink) { %>
+														<li class="active">
+														<% } else { %>
+														<li>
+														<% } %>
+														<a
+															href="#"
+															<% if(ContentData.currPage != PageLink) { %>
+															data-nextPage="<%= PageLink %>"
+															onClick="nxPage(this)"
+															<% } %>
+															><%= PageLink %></a></li>
+														<% } %>
+                                                		<li>
+                                                			<a href="#" aria-label="Next">
+                                                				<span aria-hidden="true">&raquo;</span>
+                                                			</a>
+                                                		</li>
+														<input type="hidden" value="" id="nextPage" name="nextPage" />
+                                                	</ul>
+                                                </nav>
+												</form>
+												<% } %>
+											<% } else { %>
+												<div class="alert alert-danger" role="alert"> <strong>No course yet!</strong> Please create one course. </div>
+											<% } %>											
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include('../modal/coursematerial-modal.ejs') %>
+									

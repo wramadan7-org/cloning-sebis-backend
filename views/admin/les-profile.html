@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SEBIS Les Admin | Profile</title>
+
+        <!-- ========== COMMON STYLES ========== -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" >
+        <link rel="stylesheet" href="css/font-awesome.min.css" media="screen" >
+        <link rel="stylesheet" href="css/animate-css/animate.min.css" media="screen" >
+        <link rel="stylesheet" href="css/lobipanel/lobipanel.min.css" media="screen" >
+
+        <!-- ========== PAGE STYLES ========== -->
+        <link rel="stylesheet" href="css/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
+        <link rel="stylesheet" href="css/jquery-steps/jquery.steps.css" >
+
+        <!-- ========== THEME CSS ========== -->
+        <link rel="stylesheet" href="css/main.css" media="screen" >
+
+        <link rel="stylesheet" href="css/prism/prism.css" media="screen" > <!-- USED FOR DEMO HELP - YOU CAN REMOVE IT -->
+        <link rel="stylesheet" href="css/dropzone/dropzone.min.css" >
+        <link rel="stylesheet" href="css/sweet-alert/sweetalert.css" media="screen" >
+        <link rel="stylesheet" type="text/css" href="css/date-picker/jquery.timepicker.css" />
+        <link rel="stylesheet" type="text/css" href="css/date-picker/bootstrap-datepicker.css" />
+        <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
+
+        <style>
+            .img-picker {
+                object-fit: contain;
+                width: 300px;
+                height: 150px;
+            }
+        </style>
+
+
+        <!-- ========== MODERNIZR ========== -->
+        <script src="js/modernizr/modernizr.min.js"></script>
+    </head>
+    <body class="top-navbar-fixed">
+        
+            <div class="main-wrapper">
+
+                <!-- ========== TOP NAVBAR ========== -->
+                <nav class="navbar top-navbar bg-white box-shadow">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="navbar-header no-padding">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="images/sebisles_dark.png" alt="Logo SEBIS Les" class="logo">
+                                </a>
+                                <span class="small-nav-handle hidden-sm hidden-xs"><i class="fa fa-outdent"></i></span>
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </button>
+                                <button type="button" class="navbar-toggle mobile-nav-toggle" >
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            </div>
+                            <!-- /.navbar-header -->
+
+                            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                <ul class="nav navbar-nav" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <li class="hidden-sm hidden-xs"><a href="#" class="full-screen-handle"><i class="fa fa-arrows-alt"></i></a></li>
+                                </ul>
+                                <!-- /.nav navbar-nav -->
+
+                                <ul class="nav navbar-nav navbar-right" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    <!-- /.dropdown -->
+                                    <li><a href="#" class=""><i class="fa fa-bell"></i></a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ current_user.name }} <span class="caret"></span></a>
+                                        <ul class="dropdown-menu profile-dropdown">
+                                            <li class="profile-menu bg-gray">
+                                                <div class="">
+                                                    <img :src="current_user.profile_img_url" :alt="current_user.name" class="img-circle profile-img">
+                                                    <div class="profile-name">
+                                                        <h6>{{ current_user.name }}</h6>
+                                                        <a href="#">Lihat Profil</a>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                            <li><a href="#"><i class="fa fa-sliders"></i> Account Details</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#" class="color-danger text-center"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- /.dropdown -->
+                                </ul>
+                                <!-- /.nav navbar-nav navbar-right -->
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+
+                <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
+                <div class="content-wrapper">
+                    <div class="content-container">
+
+                        <!-- ========== LEFT SIDEBAR ========== -->
+                        <div class="left-sidebar bg-black-300 box-shadow">
+                            <div class="sidebar-content">
+                                <div class="user-info">
+                                    <img :src="current_user.profile_img_url" :alt="current_user.name" class="img-circle profile-img" style="max-width: 100px">
+                                    <h6 class="title">{{ current_user.name }}</h6>
+                                    <small class="info">{{ current_user.level }} <span class="text-success"><i class="fa fa-check"></i></span> <span class="text-warning"><i class="fa fa-recycle"></i></span> <span class="text-danger"><i class="fa fa-close"></i></span></small>
+                                </div>
+                                <!-- /.user-info -->
+
+                                <div class="sidebar-nav">
+                                    <ul class="side-nav color-gray">
+                                        <li class="nav-header">
+                                            <span class="">Admin Menu</span>
+                                        </li>
+                                        <li class=""><a href="beranda.html"><i class="fa fa-dashboard"></i> <span>Beranda</span></a></li>
+                                        <li class=""><a href="#"><i class="fa fa-graduation-cap"></i> <span>Studi</span></a></li>
+                                        <li class="active"><a href="#"><i class="fa fa-user"></i> <span>Profil</span></a></li>
+                                        <li class=""><a href="#"><i class="fa fa-calendar"></i> <span>Jadwal</span></a></li>
+                                    </ul>
+                                    <!-- /.side-nav -->
+<!--                                    <div class="purchase-btn hidden-sm hidden-xs">-->
+<!--                                        <a href="https://themeforest.net/item/options-admin-responsive-web-application-ui-kit/19796742?license=regular&open_purchase_for_item_id=19796742&purchasable=source&ref=salttechno" target="_blank" class="btn btn-success btn-labeled">Logout</a>-->
+<!--                                    </div>-->
+                                </div>
+                                <!-- /.sidebar-nav -->
+                            </div>
+                            <!-- /.sidebar-content -->
+                        </div>
+                        <!-- /.left-sidebar -->
+
+                        <div class="main-page">
+						<div id="app">
+                            <div class="container-fluid">
+                                <!-- /.row -->
+                                <div class="row breadcrumb-div">
+                                    <div class="col-md-6">
+                                        <ul class="breadcrumb">
+                                            <li><a href="beranda.html"><i class="fa fa-home"></i> Beranda</a></li>
+                                            <li class="active">Profile</li>
+                                        </ul>
+                                    </div>
+                                    <!-- /.col-md-6 -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.container-fluid -->
+
+                            <section class="section">
+                                <div class="container-fluid">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-info left-icon-alert" role="alert">
+                                                <strong>
+                                                    Anda belum melengkapi data diri, harap melengkapi data diri dengan benar.
+                                                </strong>
+                                                <p>
+                                                    Data anda tersimpan aman dalam sistem kami.
+                                                </p>
+                                            </div>
+                                            <!-- /.alert alert-info -->
+                                        </div>
+                                        <!-- /.col-md-12 -->
+                                    </div>
+                                    <!-- /.row -->
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <form-wizard ref="profileFormWizard" next-button-text="Berikutnya" back-button-text="Kembali" finish-button-text="Update Profil" @on-complete="onComplete" color="gray" class="bg-white" title="" subtitle="" error-color="#a94442">
+
+                                                <tab-content title="Informasi Dasar" icon="fa fa-user" :before-change="beforeTab1">
+                                                    <form id="formTab1" ref="formTab1">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-lg-9">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Nama Lengkap <sup class="color-danger">*</sup></label>
+                                                                    <input type="email" class="form-control" placeholder="Nama lengkap" required v-model="user.name">
+                                                                    <!--                                                                <span class="help-block form-error">Nama lengkap tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Jenis Kelamin <sup class="color-danger">*</sup></label>
+                                                                    <select class="form-control" v-model="user.gender">
+                                                                        <option value="male">Pria</option>
+                                                                        <option value="female">Wanita</option>
+                                                                    </select>
+                                                                    <!--                                                                <span class="help-block form-error">Jenis kelamin tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-4">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">No. HP <sup class="color-danger">*</sup></label>
+                                                                    <input type="text" class="form-control" placeholder="08xxxxxxxxxx" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required v-model="user.phone">
+                                                                    <!--                                                                <span class="help-block form-error">Nomor HP tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-2">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Agama <sup class="color-danger">*</sup></label>
+                                                                    <select class="form-control" required v-model="user.religion">
+                                                                        <option value="islam">Islam</option>
+                                                                        <option value="katolik">Katolik</option>
+                                                                        <option value="protestan">Protestan</option>
+                                                                        <option value="budha">Budha</option>
+                                                                        <option value="hindu">Hindu</option>
+                                                                        <option value="konghucu">Konghucu</option>
+                                                                    </select>
+                                                                    <!--                                                                <span class="help-block form-error">Agama tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tempat Lahir <sup class="color-danger">*</sup></label>
+                                                                    <input type="text" class="form-control" placeholder="Surabaya" required v-model="user.birth_place">
+                                                                    <!--                                                                <span class="help-block form-error">Tempat lahir tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tanggal Lahir <sup class="color-danger">*</sup></label>
+                                                                    <div class='input-group date table-adjust' id='datepickerBasic'>
+                                                                        <input type='text' class="form-control" required v-model="user.birth_date">
+                                                                        <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar">
+                                                                    </span></span>
+                                                                    </div>
+                                                                    <!--                                                                <span class="help-block form-error">Tempat lahir tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </tab-content>
+
+                                                <tab-content title="Data Diri" icon="fa fa-home" :before-change="beforeTab2">
+                                                    <form id="formTab2" ref="formTab2">
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tipe Kartu Identitas <sup class="color-danger">*</sup></label>
+                                                                    <select class="form-control" required v-model="user.id_type">
+                                                                        <option value="ktp">KTP</option>
+                                                                        <option value="kitas">KITAS</option>
+                                                                        <option value="sim">SIM</option>
+                                                                        <option value="paspor">PASPOR</option>
+                                                                    </select>
+                                                                    <!--                                                                <span class="help-block form-error">Tipe kartu identitas tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-9">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">No. Kartu Identitas <sup class="color-danger">*</sup></label>
+                                                                    <input type="number" class="form-control" placeholder="331605xxxxxxxxxx" required v-model="user.id_number">
+<!--                                                                    <span class="help-block form-error">Nomor kartu identitas tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Alamat (Domisili)<sup class="color-danger">*</sup></label>
+                                                                    <input type="text" class="form-control" placeholder="9blv lantai 23" required v-model="user.address">
+                                                                    <!--                                                                <span class="help-block form-error">Alamat tidak boleh kosong</span> -->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Kota (Domisili)<sup class="color-danger">*</sup></label>
+                                                                    <input type="text" class="form-control" placeholder="Surabaya" required v-model="user.city">
+                                                                    <!--                                                                <span class="help-block form-error">Kota tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Provinsi (Domisili) <sup class="color-danger">*</sup></label>
+                                                                    <input type="text" class="form-control" placeholder="Jawa Timur" required v-model="user.state">
+                                                                    <!--                                                                <span class="help-block form-error">Provinsi tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Kode POS <sup class="color-danger">*</sup></label>
+                                                                    <input type="number" class="form-control" placeholder="61117" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="5" required v-model="user.postal_code">
+                                                                    <!--                                                                <span class="help-block form-error">Kode POS tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tentang Saya<sup class="color-danger">*</sup></label>
+                                                                    <textarea rows="3" type="text" class="form-control" placeholder="Saya memiliki minat mengajar yang tinggi" required v-model="user.about_me" maxlength="160"></textarea>
+                                                                    <span class="help-block form-error">Tentang saya tidak boleh kosong</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Link Kanal Youtube<sup class="color-danger">*</sup></label>
+                                                                    <input type="text" class="form-control" placeholder="https://www.youtube.com/channel/UCHIFUfMxs6QUlvvteSeVnOA" required v-model="user.ytlink">
+                                                                    <!--                                                                <span class="help-block form-error">Link kanal youtube tidak boleh kosong</span>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </tab-content>
+
+                                                <tab-content title="Pengalaman Mengajar" icon="fa fa-industry" :before-change="beforeTab3">
+                                                    <div class="panel">
+                                                        <div class="panel-heading">
+                                                            <button type="button" class="btn-sm" style="border: none" @click="modalAddTeachingExp">
+                                                                <span>Tambah Pengalaman Mengajar <i class="panel-control-icon fa fa-plus"></i></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <table v-for="(exp, index) in user.teaching_experiences">
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6 style="margin-top: 0 !important; line-height: 1.1 !important; margin-bottom: 0 !important;">
+                                                                            {{ exp.school }} - {{ exp.city }}
+                                                                            <br/>
+                                                                            {{ exp.subject }} - {{ exp.class }} ({{ exp.teaching_status }})
+                                                                            <br/>
+                                                                            <small>
+                                                                                {{ exp.from }} - {{ exp.to }}
+                                                                                <br/>
+                                                                                Portofolio: {{ exp.portofolio }}
+                                                                            </small>
+                                                                        </h6>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn-sm" style="border: none" @click="user.teaching_experiences.splice(index, 1)">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </tab-content>
+
+                                                <tab-content title="Latar Belakang Pendidikan" icon="fa fa-graduation-cap" :before-change="beforeTab4">
+                                                    <div class="panel">
+                                                        <div class="panel-heading">
+                                                            <button type="button" class="btn-sm" style="border: none" @click="modalAddEducation">
+                                                                <span>Tambah Latar Belakang Pendidikan <i class="panel-control-icon fa fa-plus"></i></span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <table v-for="(education, index) in user.educations">
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6 style="margin-top: 0 !important; line-height: 1.1 !important; margin-bottom: 0 !important;">
+                                                                            {{ education.major }} {{ education.level }} - {{ education.college }}
+                                                                            <br/>
+                                                                            {{ education.from }} - {{ education.to }}
+                                                                            <br/>
+                                                                            <small>
+                                                                                IPK: {{ education.score }}
+                                                                            </small>
+                                                                        </h6>
+                                                                    </td>
+                                                                    <td>
+                                                                        <button type="button" class="btn-sm" style="border: none" @click="user.educations.splice(index, 1)">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </tab-content>
+
+                                                <tab-content title="Upload Berkas Foto" icon="fa fa-upload">
+                                                    <form>
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="profileImgPicker">
+                                                                        Foto Profile <sup class="color-danger">*</sup>
+                                                                        <br/>
+                                                                        <img class="img-picker" id="profileImgPreview" :src="user.profile_img_url ? siteUrl + user.profile_img_url : 'http://dummyimage.com/400x200/f5f5f5/000.jpg&text=Click+here+to+upload+your+image'" alt="image-profile" /></label>
+                                                                    <input id="profileImgPicker" style="display: none" type="file" accept="image/*" @change="imgProfileChange">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="idImgPicker">
+                                                                        Foto KTP <sup class="color-danger">*</sup>
+                                                                        <br/>
+                                                                        <img class="img-picker" id="idImgPreview" :src="user.id_card_img_url ? siteUrl + user.id_card_img_url : 'http://dummyimage.com/400x200/f5f5f5/000.jpg&text=Click+here+to+upload+your+image'" alt="image-profile" /></label>
+                                                                    <input id="idImgPicker" style="display: none" type="file" accept="image/*" @change="imgIdChange">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="selfieImgPicker">
+                                                                        Foto Wajah Dengan Memegang KTP <sup class="color-danger">*</sup>
+                                                                        <br/>
+                                                                        <img class="img-picker" id="selfieImgPreview" :src="user.selfie_card_img_url ? siteUrl + user.selfie_card_img_url : 'http://dummyimage.com/400x200/f5f5f5/000.jpg&text=Click+here+to+upload+your+image'" alt="image-profile" />
+                                                                    </label>
+                                                                    <input id="selfieImgPicker" style="display: none" type="file" accept="image/*" @change="imgSelfieChange">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label for="diplomaImgPicker">
+                                                                        Foto Ijazah Terakhir <sup class="color-danger">*</sup>
+                                                                        <br/>
+                                                                        <img class="img-picker" id="diplomaImgPreview" :src="user.diploma_img_url ? siteUrl + user.diploma_img_url : 'http://dummyimage.com/400x200/f5f5f5/000.jpg&text=Click+here+to+upload+your+image'" alt="image-profile" />
+                                                                    </label>
+                                                                    <input id="diplomaImgPicker" style="display: none" type="file" accept="image/*" @change="imgDiplomaChange">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </tab-content>
+
+<!--                                                <tab-content title="Upload Berkas Foto" icon="fa fa-upload">-->
+<!--                                                    <div class="row">-->
+<!--                                                        <div class="col-md-8 col-md-offset-2 mb-20">-->
+<!--                                                            <form action="/file-upload"-->
+<!--                                                                  class="dropzone"-->
+<!--                                                                  id="my-awesome-dropzone">-->
+<!--                                                                <div class="dz-message needsclick">-->
+<!--                                                                    Drop files here or click to upload.<br />-->
+<!--                                                                    <span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>-->
+<!--                                                                </div>-->
+<!--                                                            </form>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+<!--                                                </tab-content>-->
+                                            </form-wizard>
+
+
+                                            <!-- / Modal Add Teaching Experience /-->
+                                            <div class="modal fade" id="addTeachingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                <div role="document" class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <form class="p-20" @submit.prevent="addTeachingExperience">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" id="myModalLabel">Tambah Pengalaman Mengajar<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-9">
+                                                                        <div class="form-group">
+                                                                            <label>Nama Sekolah</label>
+                                                                            <input type="text" class="form-control" placeholder="SMP 1" v-model="teaching_experience.school" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label>Kota</label>
+                                                                            <input type="text" class="form-control" placeholder="Surabaya" v-model="teaching_experience.city" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group">
+                                                                            <label>Tingkat Kelas</label>
+                                                                            <select class="form-control" v-model="teaching_experience.class" required>
+                                                                                <option v-for="grade in grades" :value="grade">{{ grade }}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-7">
+                                                                        <div class="form-group">
+                                                                            <label><br>Mata Pelajaran</label>
+                                                                            <input type="text" class="form-control" placeholder="Matematika" v-model="teaching_experience.subject" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label>Status Mengajar</label>
+                                                                            <select class="form-control" v-model="teaching_experience.teaching_status" required>
+                                                                                <option v-for="teaching_status in teaching_statuses" :value="teaching_status.value">{{ teaching_status.description }}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Portofolio</label>
+                                                                            <textarea rows="2" type="text" class="form-control" placeholder="Tulis portofolio anda disini" v-model="teaching_experience.portofolio" required></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Dari</label>
+                                                                            <div class='input-group date table-adjust' id='teachFromDate'>
+                                                                                <input type='text' class="form-control" name='TeachFromDateV' v-model="teaching_experience.from" required>
+                                                                                <span class="input-group-addon">
+                                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <div class="form-group">
+                                                                            <label>&nbsp;</label>
+                                                                            <div class="text-center">-</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group">
+                                                                            <label>Sampai</label>
+                                                                            <div class='input-group date table-adjust' id='teachToDate'>
+                                                                                <input type='text' class="form-control" v-model="teaching_experience.to" required>
+                                                                                <span class="input-group-addon">
+                                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <div class="btn-group" role="group">
+                                                                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                                                                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- / Modal Add Educational Background /-->
+                                            <div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                <div role="document" class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <form class="p-20" @submit.prevent="addEducationBackground">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Tambah Latar Belakang Pendidikan<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-md-9">
+                                                                        <div class="form-group">
+                                                                            <label>Jurusan Kuliah</label>
+                                                                            <input type="text" class="form-control" placeholder="PGSD" v-model="education.major" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label>Strata</label>
+                                                                            <select class="form-control" v-model="education.level" required>
+                                                                                <option v-for="level in education_levels" :value="level.value">{{ level.description }}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Nama Perguruan Tinggi</label>
+                                                                            <input type="text" class="form-control" placeholder="Universitas xxxxx" v-model="education.college" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <div class="form-group">
+                                                                            <label>Judul Thesis</label>
+                                                                            <input type="text" class="form-control" placeholder="Masukkan thesis anda" v-model="education.thesis" required>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group">
+                                                                            <label>IPK</label>
+                                                                            <input type="text" class="form-control" placeholder="IPK anda" v-model="education.score" required>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label>Dari</label>
+                                                                            <div class='input-group date table-adjust' id='eduFromDate'>
+                                                                                <input type='text' class="form-control" v-model="education.from" required>
+                                                                                <span class="input-group-addon">
+                                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <div class="form-group">
+                                                                            <label>&nbsp;</label>
+                                                                            <div class="text-center">-</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label for="EduToDate">Sampai</label>
+                                                                            <div class='input-group date table-adjust' id='eduToDate'>
+                                                                                <input type='text' class="form-control" v-model="education.to" required>
+                                                                                <span class="input-group-addon">
+                                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <div class="btn-group" role="group">
+                                                                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                                                                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- /.col-md-6 -->
+                                    </div>
+                                    <!-- /.row -->
+
+                                </div>
+                                <!-- /.container-fluid -->
+                            </section>
+                            <!-- /.section -->
+						</div>
+                        </div>
+                        <!-- /.main-page -->
+
+                    </div>
+                    <!-- /.content-container -->
+                </div>
+                <!-- /.content-wrapper -->
+
+            </div>
+        
+        <!-- /.main-wrapper -->
+
+        <!-- ========== COMMON JS FILES ========== -->
+        <script src="js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/pace/pace.min.js"></script>
+        <script src="js/lobipanel/lobipanel.min.js"></script>
+        <script src="js/iscroll/iscroll.js"></script>
+
+        <!-- ========== PAGE JS FILES ========== -->
+        <script src="js/prism/prism.js"></script>
+        <script src="js/jquery-validate/jquery.validate.min.js"></script>
+        <script src="js/jquery-steps/jquery.steps.min.js"></script>
+
+        <!-- ========== THEME JS ========== -->
+        <script src="js/main.js"></script>
+
+        <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
+        <script type="text/javascript" src="js/date-picker/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="js/date-picker/jquery.timepicker.js"></script>
+        <script type="text/javascript" src="js/date-picker/datepair.js"></script>
+        <script type="text/javascript" src="js/date-picker/moment.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="js/prism/prism.js"></script>
+        <!-- <script src="js/dropzone/dropzone.min.js"></script> //-->
+        <script src="js/sweet-alert/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@1.0.14/dist/browser-image-compression.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
+        <script>
+
+            const siteUrl = 'http://192.168.1.10:3000'
+            const baseUrl = 'http://192.168.1.10:3000/profile/editRawData/606e89504cf4671f9cd32b3b/ilham@example.com'
+            const uploadImageUrl = 'http://192.168.1.10:3000/profile/sendImg/606e89504cf4671f9cd32b3b/ilham@example.com'
+
+            const compressOptions = {
+                maxSizeMB: 1,
+                maxWidthOrHeight: 1920,
+                useWebWorker: true,
+            }
+
+            const app = new Vue({
+                el: '#app',
+                mounted() {
+                    function uploadImage(name, imgFile) {
+                        return new Promise((resolve, reject) => {
+                            let formData = new FormData()
+                            formData.append(name, imgFile)
+                            axios.post(uploadImageUrl, formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }).then((res) => {
+                                resolve(res.data.urlpath)
+                            }).catch((err) => reject(err))
+                        })
+                    }
+                    $('#datepickerBasic').datetimepicker({
+                        viewMode: 'years',
+                        format: 'DD/MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.user.birth_date = $('#datepickerBasic input').val()
+                    })
+                    $('#teachFromDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.teaching_experience.from = $('#teachFromDate input').val()
+                    })
+                    $('#teachToDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.teaching_experience.to = $('#teachToDate input').val()
+                    })
+                    $('#eduFromDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.education.from = $('#eduFromDate input').val()
+                    })
+                    $('#eduToDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                            this.education.to = $('#eduToDate input').val()
+                    })
+                    
+                },
+                created() {
+                    // aktivasi jika profile terisi semua
+                    // this.$refs.formWizard.activateA
+                    if (localStorage.getItem('userProfile') === null) {
+                        localStorage.setItem('userProfile', null)
+                    } else {
+                        this.getProfileFromLocal()
+                    }
+                    
+                },
+                data() {
+                    return {
+                        siteUrl: 'http://192.168.1.10:3000/',
+                        // user profile
+                        user: {
+                            // step 1
+                            uid: "",
+                            name: "",
+                            gender: "",
+                            phone: "",
+                            religion: "",
+                            birth_place: "",
+                            birth_date: "",
+                            // step 2
+                            id_type: "",
+                            id_number: "",
+                            address: "",
+                            city: "",
+                            state: "",
+                            postal_code: "",
+                            about_me: "",
+                            ytlink: "",
+                            // step 3
+                            teaching_experiences: [
+                            ],
+                            // step 4
+                            educations: [
+                            ],
+                            // step 5
+                            profile_img_url: "",
+                            selfie_card_img_url: "",
+                            id_card_img_url: "",
+                            diploma_img_url: "",
+                        },
+                        // end of user profile
+
+                        // temporary user input
+                        teaching_experience: {
+                            school: '',
+                            city: '',
+                            class: '',
+                            subject: '',
+                            teaching_status: '',
+                            from: '',
+                            to: '',
+                            portofolio: '',
+                        },
+                        education: {
+                            major: '',
+                            level: '',
+                            college: '',
+                            thesis: '',
+                            from: '',
+                            to: '',
+                            score: '',
+                        },
+                        // end of temporary user input
+
+                        // user fields
+                        education_levels: [
+                            {
+                                value: 's1',
+                                description: 'S1',
+                            },
+                            {
+                                value: 's2',
+                                description: 'S2',
+                            },
+                            {
+                                value: 's3',
+                                description: 'S3',
+                            },
+                        ],
+                        grades: [
+                            'I',
+                            'II',
+                            'III',
+                            'IV',
+                            'V',
+                            'VI',
+                            'VII',
+                            'VIII',
+                            'IX',
+                            'X',
+                            'XI',
+                            'XII',
+                        ],
+                        teaching_statuses: [
+                            {
+                                value: 'freelance',
+                                description: 'Freelance',
+                            },
+                            {
+                                value: 'contract',
+                                description: 'Contract',
+                            },
+                            {
+                                value: 'fulltime',
+                                description: 'FullTime',
+                            },
+                            {
+                                value: 'private',
+                                description: 'Private',
+                            },
+                        ],
+                        // end of user fields
+                    }
+                },
+                methods: {
+                    getProfileFromLocal() {
+                        this.user = JSON.parse(localStorage.getItem('userProfile'))
+                    },
+                    saveProfileToLocal() {
+                        localStorage.setItem('userProfile', JSON.stringify(this.user))
+                    },
+                    updateProfile() {
+                        return new Promise((resolve, reject) => {
+                            axios.post(baseUrl, this.user).then((res) => {
+                                resolve(res)
+                            }).catch(err => reject(err))
+                        })
+                    },
+                    onComplete() {
+                        this.updateProfile().then(() => {
+                            swal('Sukses', 'Data berhasil disimpan!', 'success')
+                        })
+                    },
+                    modalAddTeachingExp() {
+                        this.teaching_experience = {
+                            school: '',
+                            city: '',
+                            class: '',
+                            subject: '',
+                            teaching_status: '',
+                            from: '',
+                            to: '',
+                            portofolio: '',
+                        }
+                        $('#addTeachingModal').modal('show')
+                    },
+                    modalAddEducation() {
+                        this.education = {
+                            major: '',
+                            level: '',
+                            college: '',
+                            thesis: '',
+                            from: '',
+                            to: '',
+                            score: '',
+                        }
+                        $('#addEducationModal').modal('show')
+                    },
+                    addTeachingExperience() {
+                        this.user.teaching_experiences.push(this.teaching_experience)
+                        $('#addTeachingModal').modal('hide')
+                        this.saveProfileToLocal()
+                    },
+                    addEducationBackground() {
+                        this.user.educations.push(this.education)
+                        $('#addEducationModal').modal('hide')
+                        this.saveProfileToLocal()
+                    },
+                    beforeTab1() {
+                        this.saveProfileToLocal()
+                        if (this.user.name && this.user.gender && this.user.phone && this.user.religion && this.user.birth_place && this.user.birth_date)
+                            return true
+                        else {
+                            swal("Gagal", "Harap melengkapi informasi dasar!", "error")
+                            return false
+                        }
+                    },
+                    beforeTab2() {
+                        this.saveProfileToLocal()
+                        if (this.user.id_type && this.user.id_number && this.user.address && this.user.city && this.user.state && this.user.postal_code && this.user.about_me && this.user.ytlink)
+                            return true
+                        else {
+                            swal("Gagal", "Harap melengkapi data diri dengan benar!", "error")
+                            return false
+                        }
+                    },
+                    beforeTab3() {
+                        this.saveProfileToLocal()
+                        if (this.user.teaching_experiences && this.user.teaching_experiences.length > 0)
+                            return true
+                        else {
+                            swal("Gagal", "Anda belum mengisi pengalaman mengajar!", "error")
+                            return false
+                        }
+                    },
+                    beforeTab4() {
+                        this.saveProfileToLocal()
+                        if (this.user.educations && this.user.educations.length > 0)
+                            return true
+                        else {
+                            swal("Gagal", "Anda belum mengisi latar belakang pendidikan!", "error")
+                            return false
+                        }
+                    },
+                    uploadImage(name, imgFile) {
+                        return new Promise((resolve, reject) => {
+                            let formData = new FormData()
+                            formData.append(name, imgFile)
+                            axios.post(uploadImageUrl, formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }).then((res) => {
+                                resolve(res.data.urlpath)
+                            }).catch((err) => reject(err))
+                        })
+                    },
+                    imgProfileChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+
+                            reader.onload = function (e) {
+                                $('#profileImgPreview').attr('src', e.target.result)
+                            }
+
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgProfile', newFile).then((path) => {
+                                    // set value
+                                    this.user.profile_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                                // reader.readAsDataURL(newFile)
+                                // return newFile
+                            })
+                        }
+                    },
+                    imgIdChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+                            reader.onload = function (e) {
+                                $('#idImgPreview').attr('src', e.target.result)
+                            }
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgIDCard', newFile).then((path) => {
+                                    // set value
+                                    this.user.id_card_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                            })
+                        }
+                    },
+                    imgSelfieChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+                            reader.onload = function (e) {
+                                $('#selfieImgPreview').attr('src', e.target.result)
+                            }
+
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgSelfie', newFile).then((path) => {
+                                    // set value
+                                    this.user.selfie_card_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                            })
+                        }
+                    },
+                    imgDiplomaChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+                            reader.onload = function (e) {
+                                $('#diplomaImgPreview').attr('src', e.target.result)
+                            }
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgCertificate', newFile).then((path) => {
+                                    // set value
+                                    this.user.diploma_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                            })
+                        }
+                    },
+            }
+            })
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,767 @@
+<!-- Modal Add-->
+<!--
+<div class="modal fade" id="editBasicInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+		<form class="p-20" name="editBasicForm" id="editBasicForm" action="/profile/basicinfo" method="POST">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Data Pribadi<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+					<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="form-group">
+								<label for="EditdataName">Nama</label>
+								<input type="text" class="form-control" name="EditdataName" id="EditdataName" placeholder="Enter Your Name">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataGender">Jenis Kelamin</label>
+								<select class="form-control" name="EditdataGender" id="EditdataGender">
+									<option value="-">None</option>
+									<option value="male">Pria</option>
+									<option value="female">Wanita</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="EditdataAddress">Alamat (Domisili)</label>
+								<input type="text" class="form-control" name="EditdataAddress" id="EditdataAddress" placeholder="Your address">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataCity">Kota (Domisili)</label>
+								<input type="text" class="form-control" name="EditdataCity" id="EditdataCity" placeholder="City">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataProvince">Provinsi (Domisili)</label>
+								<input type="text" class="form-control" name="EditdataProvince" id="EditdataProvince" placeholder="Province">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataPostal">Kodepos</label>
+								<input type="text" class="form-control" name="EditdataPostal" id="EditdataPostal" placeholder="Postal/Zip Code">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataBPlace">Tempat Lahir</label>
+								<input type="text" class="form-control" name="EditdataBPlace" id="EditdataBPlace" placeholder="Where you birth?">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataBDate">Tanggal Lahir</label>
+								<input type="text" class="form-control date" name="EditdataBDate" id="EditdataBDate" placeholder="Enter Course Name">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataReligion">Agama</label>
+								<select class="form-control" name="EditdataReligion" id="EditdataReligion">
+									<option value="-">-</option>
+									<option value="moslem">Islam</option>
+									<option value="catholic">Katolik</option>
+									<option value="protestant">Protestan</option>
+									<option value="buddhist">Budha</option>
+									<option value="hinduism">Hindu</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="form-group">
+								<label for="EditdataIDCNumber">No. Kartu Identitas</label>
+								<input type="text" class="form-control" name="EditdataIDCNumber" id="EditdataIDCNumber" placeholder="Your ID Card Number">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataIDCType">Jenis Kartu Identitas</label>
+								<select class="form-control" name="EditdataIDCType" id="EditdataIDCType">
+									<option value="-">-</option>
+									<option value="ktp">KTP</option>
+									<option value="kitas">KITAS</option>
+									<option value="sim">SIM</option>
+									<option value="paspor">PASPOR</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="form-group">
+								<label for="EditdataYLink">Video Link (Youtube)</label>
+								<input type="text" class="form-control" name="EditdataYLink" id="EditdataYLink" placeholder="Refer your link video if you have on Youtube">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditdataPhone">Telp (HP)</label>
+								<input type="text" class="form-control" name="EditdataPhone" id="EditdataPhone" placeholder="Your active phone number for verification">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="EditdataDesc">Ceritakan tentang anda (Max: 160 Huruf)</label>
+								<input type="text" maxlength="160" class="form-control" name="EditdataDesc" id="EditdataDesc" placeholder="Describe your self with a couple words">
+							</div>
+						</div>
+					</div>
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+					<button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</form>
+		</div>
+    </div>
+</div>
+<!-- /.Modal Add-->
+
+<!-- Modal Edit Profile Pic //-->
+<div class="modal fade" id="editImgProfileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editImageForm" id="editImageForm" action="/profile/img?_csrf=<%= ContentData.tokens %>" method="POST" enctype="multipart/form-data">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Edit Foto Profil<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="imgProfile">Foto Profil</label>
+							<input type="file" accept=".jpg, .png, .jpeg" class="form-control" name="imgProfile" id="imgProfile" placeholder="Select image " data-name="imgProfile" onchange="validateSize(this)">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+<!-- End Profile Pic //-->
+
+<!-- Modal Edit Selfie Pic //-->
+<div class="modal fade" id="editImgSelfieModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editImageForm" id="editImageForm" action="/profile/img?_csrf=<%= ContentData.tokens %>" method="POST" enctype="multipart/form-data">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Edit Foto Selfie<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="imgSelfie">Foto Selfie</label>
+							<input type="file" accept=".jpg, .png, .jpeg" class="form-control" name="imgSelfie" id="imgSelfie" placeholder="Select image " data-name="imgSelfie" onchange="validateSize(this)">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+<!-- End Selfie Pic //-->
+
+<!-- Modal Edit CardID Pic //-->
+<div class="modal fade" id="editImgCardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editImageForm" id="editImageForm" action="/profile/img?_csrf=<%= ContentData.tokens %>" method="POST" enctype="multipart/form-data">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Edit Foto Kartu ID<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="imgIDCard">Foto Kartu ID</label>
+							<input type="file" accept=".jpg, .png, .jpeg" class="form-control" name="imgIDCard" id="imgIDCard" placeholder="Select image " data-name="imgIDCard" onchange="validateSize(this)">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+<!-- End CardID Pic //-->
+
+<!-- Modal Edit Ijazah Pic //-->
+<div class="modal fade" id="editImgIjzModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editImageForm" id="editImageForm" action="/profile/img?_csrf=<%= ContentData.tokens %>" method="POST" enctype="multipart/form-data">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Edit Foto Ijazah<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="imgCertificate">Foto Ijazah</label>
+							<input type="file" accept=".jpg, .png, .jpeg" class="form-control" name="imgCertificate" id="imgCertificate" placeholder="Select image " data-name="imgCertificate" onchange="validateSize(this)">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+<!-- End Ijazah Pic //-->
+
+<!-- Modal Edit Image-->
+<!--
+<div class="modal fade" id="editImageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div role="document" class="modal-dialog">
+		 <div class="modal-content">
+		 <form class="p-20" name="editImageForm" id="editImageForm" action="/profile/img?_csrf=<%= ContentData.tokens %>" method="POST" enctype="multipart/form-data">
+            <div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">Image Edit<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+			</div>
+			<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="imgProfile">Foto Profil</label>
+								<input type="file" class="form-control" name="imgProfiles" id="imgProfile" placeholder="Select image ">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="imgSelfie">Foto Selfie</label>
+								<input type="file" class="form-control" name="imgSelfies" id="imgSelfie" placeholder="Select image ">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="imgIDCard">Scan Kartu Identitas</label>
+								<input type="file" class="form-control" name="imgIDCards" id="imgIDCard" placeholder="Select image ">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="imgCertificate">Scan Ijazah</label>
+								<input type="file" class="form-control" name="imgCertificates" id="imgCertificate" placeholder="Select image ">
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+<!-- / Modal Image Viewer /-->
+<div class="modal fade" id="imageViewerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width: 900px; margin: 30px auto;">
+        <div class="modal-content">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<img src="/images/605da73ec7b8a52990c9ebf9.png" alt="User Avatar" class="img-responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- / Modal Add Teaching Experience /-->
+<div class="modal fade" id="addTeachingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="addTeachExp" id="addTeachExp" action="/profile/addteachexp" method="POST">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add Teaching Experience<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="form-group">
+							<label for="TeachSchool">Nama Sekolah</label>
+							<input type="text" class="form-control" name="TeachSchool" id="TeachSchool" placeholder="Enter Your School Name">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="TeachCity">Kota</label>
+							<input type="text" class="form-control" name="TeachCity" id="TeachCity" placeholder="Enter City Location">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="TeachGrade">Tingkat Kelas</label>
+							<select class="form-control" name="TeachGrade" id="TeachGrade">
+							<% var Grade = ContentData.getGrade; %>
+							<% for(var cg=0; cg<Grade.length; cg++){ var tempGrade = Grade[cg]; %>
+								<option value="<%= tempGrade._id %>"><%= tempGrade.name %></option>
+							<% } %>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="form-group">
+							<label for="TeachCourse"><br>Mata Pelajaran</label>
+							<input type="text" class="form-control" name="TeachCourse" id="TeachCourse" placeholder="Enter Teach Course">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="TeachStatus">Status Mengajar</label>
+							<select class="form-control" name="TeachStatus" id="TeachStatus">
+								<option value="freelance">Freelance</option>
+								<option value="contract">Contract</option>
+								<option value="fulltime">FullTime</option>
+								<option value="private">Private</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="TeachFromDate">Dari</label>
+							<div class='input-group date table-adjust' id='TeachFromDate' name='TeachFromDate'>
+								<input type='text' class="form-control" name='TeachFromDateV'/>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="-">&nbsp;</label>
+							<div class="text-center">-</div>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="TeachToDate">Sampai</label>
+							<div class='input-group date table-adjust' id='TeachToDate' name='TeachToDate'>
+								<input type='text' class="form-control" name='TeachToDateV'/>
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="TeachPorto">Portofolio</label>
+							<input type="text" class="form-control" name="TeachPorto" id="TeachPorto" placeholder="Enter Your Portofolio">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+<!-- / Modal Add Educational Background /-->
+<div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="addEduBackground" id="addEduBackground" action="/profile/addeducation" method="POST">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Tambah Latar Belakang Pendidikan<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="form-group">
+							<label for="EduMajors">Jurusan Kuliah</label>
+							<input type="text" class="form-control" name="EduMajors" id="EduMajors" placeholder="Enter Your College Majors">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="EduStrata">Strata</label>
+							<select class="form-control" name="EduStrata" id="EduStrata">
+								<option value="s1">S1</option>
+								<option value="s2">S2</option>
+								<option value="s3">S3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="EduCampus">Nama Perguruan Tinggi</label>
+							<input type="text" class="form-control" name="EduCampus" id="EduCampus" placeholder="Enter Your Campus/College Name">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="EduThesis">Judul Thesis</label>
+							<input type="text" class="form-control" name="EduThesis" id="EduThesis" placeholder="Enter Your Thesis Title">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EduFromDate">Dari</label>
+							<div class='input-group date table-adjust' id='EduFromDate' name='EduFromDate'>
+								<input type='text' class="form-control" name='EduFromDateV' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group">
+							<label for="-">&nbsp;</label>
+							<div class="text-center">-</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EduToDate">Sampai</label>
+							<div class='input-group date table-adjust' id='EduToDate' name='EduToDate'>
+								<input type='text' class="form-control" name='EduToDateV' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="EduScore">IPK</label>
+							<input type="text" class="form-control" name="EduScore" id="EduScore" placeholder="Enter Your IPK Score">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+<!-- / Modal Edit Teaching Experience /-->
+<div class="modal fade" id="editTeachingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editTeachExp" id="editTeachExp" action="/profile/editteachexp"  method="POST">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Ganti Pengalaman Mengajar<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<input type="hidden" name="idTeachExp" id="idTeachExp" />
+				<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="form-group">
+							<label for="EditTeachSchool">Nama Sekolah</label>
+							<input type="text" class="form-control" name="EditTeachSchool" id="EditTeachSchool" placeholder="Enter Your School Name">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="EditTeachCity">Kota</label>
+							<input type="text" class="form-control" name="EditTeachCity" id="EditTeachCity" placeholder="Enter City Location">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="EditTeachGrade">Tingkat Kelas</label>
+							<select class="form-control" name="EditTeachGrade" id="EditTeachGrade">
+							<% var Grade = ContentData.getGrade; %>
+							<% for(var cg=0; cg<Grade.length; cg++){ var tempGrade = Grade[cg]; %>
+								<option value="<%= tempGrade._id %>"><%= tempGrade.name %></option>
+							<% } %>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="form-group">
+							<label for="EditTeachCourse">Mata Pelajaran</label>
+							<input type="text" class="form-control" name="EditTeachCourse" id="EditTeachCourse" placeholder="Enter Teach Course">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="EditTeachStatus">Status Mengajar</label>
+							<select class="form-control" name="EditTeachStatus" id="EditTeachStatus">
+								<option value="freelance">Freelance</option>
+								<option value="contract">Contract</option>
+								<option value="fulltime">FullTime</option>
+								<option value="private">Private</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="EditTeachFromDate">Dari</label>
+							<div class='input-group date table-adjust' id='EditTeachFromDate' name='EditTeachFromDate'>
+								<input type='text' class="form-control" name='EditTeachFromDateV' id='EditTeachFromDateV' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<label for="-">&nbsp;</label>
+							<div class="text-center">-</div>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="form-group">
+							<label for="EditTeachToDate">Sampai</label>
+							<div class='input-group date table-adjust' id='EditTeachToDate' name='EditTeachToDate'>
+								<input type='text' class="form-control" name='EditTeachToDateV' id='EditTeachToDateV' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="EditTeachPorto">Portofolio</label>
+							<input type="text" class="form-control" name="EditTeachPorto" id="EditTeachPorto" placeholder="Enter Your Portofolio">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+<!-- / Modal Edit Educational Background /-->
+<div class="modal fade" id="editEducationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editEduBackground" id="editEduBackground" action="/profile/editeducation" method="POST">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Ganti Latar Belakang Pendidikan<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<input type="hidden" name="idEduBackground" id="idEduBackground" />
+				<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+				<div class="row">
+					<div class="col-md-9">
+						<div class="form-group">
+							<label for="EditEduMajors">Jurusan Kuliah</label>
+							<input type="text" class="form-control" name="EditEduMajors" id="EditEduMajors" placeholder="Enter Your College Majors">
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="EditEduStrata">Strata</label>
+							<select class="form-control" name="EditEduStrata" id="EditEduStrata">
+								<option value="s1">S1</option>
+								<option value="s2">S2</option>
+								<option value="s3">S3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="EditEduCampus">Nama Perguruan Tinggi</label>
+							<input type="text" class="form-control" name="EditEduCampus" id="EditEduCampus" placeholder="Enter Your Campus/College Name">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label for="EditEduThesis">Judul Thesis</label>
+							<input type="text" class="form-control" name="EditEduThesis" id="EditEduThesis" placeholder="Enter Your Thesis Title">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EditEduFromDate">Dari</label>
+							<div class='input-group date table-adjust' id='EditEduFromDate' name='EditEduFromDate'>
+								<input type='text' class="form-control" name='EditEduFromDateV' id='EditEduFromDateV' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group">
+							<label for="-">&nbsp;</label>
+							<div class="text-center">-</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EditEduToDate">Sampai</label>
+							<div class='input-group date table-adjust' id='EditEduToDate' name='EditEduToDate'>
+								<input type='text' class="form-control" name='EditEduToDateV' id='EditEduToDateV' />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+                            </div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<label for="EditEduScore">IPK</label>
+							<input type="text" class="form-control" name="EditEduScore" id="EditEduScore" placeholder="Enter Your IPK Score">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+
+<!-- / Modal Edit Password /-->
+<div class="modal fade" id="editPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+		<form class="p-20" name="editPasswordForm" id="editPasswordForm" action="/profile/pass" method="POST">
+		<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Ganti Password<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EditPassOld">Password Lama</label>
+							<input type="password" class="form-control" name="EditPassOld" id="EditPassOld" placeholder="Enter Your Old Password">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EditPassNew">Password Baru</label>
+							<input type="password" class="form-control" name="EditPassNew" id="EditPassNew" placeholder="Enter Your New Password">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="EditPassAgain">Ulangi Password Baru</label>
+							<input type="password" class="form-control" name="EditPassAgain" id="EditPassAgain" placeholder="Enter Again Your New Password">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="btn-group" role="group">
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<%- include("header-meta") %>
+    </head>
+    <body class="top-navbar-fixed">
+		<script>
+		console.log("<%= ContentData.getIdentities.pushType %>");
+		function initGoogle() {
+			gapi.load('auth2', function() {
+				var auth2 = gapi.auth2.init({client_id: '<%= GClientID() %>'});
+				//gapi.auth2.init();
+			});
+		}
+		
+		function googleLogout(identifier) {
+			var GStatus = identifier.getAttribute("data-google");
+			if(GStatus == "google"){
+				gapi.auth2.getAuthInstance().disconnect().then(function () {
+					localStorage.removeItem("userProfile");
+					location.replace('/logout');
+				}); 
+			} else {
+				localStorage.removeItem("userProfile");
+				location.replace('/logout');
+			}
+		}
+		</script>
+        <div class="main-wrapper">
+			<%- include("top-nav.ejs") %>
+
+            <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
+            <div class="content-wrapper">
+                <div class="content-container">
+					<%- include("left-sidebar.ejs") %>
+					<%- include("main-page.ejs") %>
+                </div>
+                <!-- /.content-container -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- /.main-wrapper -->
+
+        <!-- ========== COMMON JS FILES ========== -->
+        <script src="/options_admin/js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="/options_admin/js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/options_admin/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/options_admin/js/pace/pace.min.js"></script>
+        <script src="/options_admin/js/lobipanel/lobipanel.min.js"></script>
+        <script src="/options_admin/js/iscroll/iscroll.js"></script>
+
+        <!-- ========== PAGE JS FILES ========== -->
+        <script src="/options_admin/js/prism/prism.js"></script>
+		<script src="/options_admin/js/ckeditor/ckeditor.js"></script>
+
+        <!-- ========== THEME JS ========== -->
+        <script src="/options_admin/js/main.js"></script>
+        <!-- ========== JS ========== -->
+		<% if(ContentScript != ""){ %>
+			<%- include(ContentScript) %>
+		<% } %>
+		<% if(ContentData.Google) { %>
+		<script src="https://apis.google.com/js/platform.js?onload=initGoogle" async defer></script>
+		<% } %>
+        <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
+    </body>
+</html>

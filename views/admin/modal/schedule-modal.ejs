@@ -1,0 +1,87 @@
+<!-- Modal Add-->
+<div class="modal fade" id="addScheduleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+													<form action="" method="POST" id="addEventForm">
+													<div class="row">
+														<div class="col-md-2">
+															<div class="form-group">
+																<label for="dataHour">Hour</label>
+																<select class="form-control" name="dataHour" id="dataHour">
+																<% for(let HH=0; HH<24; HH++){ var HO = HH %>
+																	<% if(HO < 10) HO = "0"+HO %>
+																	<option value="<%= HH %>"><%= HO %></option>
+																<% } %>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-2">
+															<div class="form-group">
+																<label for="dataMinute">Minute</label>
+																<select class="form-control" name="dataMinute" id="dataMinute">
+																<% for(let MM=0; MM<60; MM++){ var MO = MM %>
+																	<% if(MO < 10) MO = "0"+MO %>
+																	<option value="<%= MM %>"><%= MO %></option>
+																<% } %>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="addScheduleBtn">&nbsp;</label>
+																<button type="button" class="btn btn-success btn-block" name="addScheduleBtn" id="addScheduleBtn"><i class="fa fa-check"></i>Add Schedule</button>
+															</div>
+														</div>
+													</div>
+													</form>
+													<div class="row">
+														<div class="modal-header">
+															<h4 class="modal-title">List Schedule</h4>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">&nbsp;</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12" id="scheduleList">
+														<table class="table table-striped table-bordered">
+															<colgroup>
+																<col span="1" style="width: 20%;">
+																<col span="1" style="width: 25%;">
+																<col span="1" style="width: 45%;">
+																<col span="1" style="width: 10%;">
+															</colgroup>
+															<thead>
+																<tr>
+																	<th>Time</th>
+																	<th>Grade Course</th>
+																	<th colspan=2>Title</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td>13:00-14:00</td>
+																	<td>X - SEJARAH</td>
+																	<td>Manusia Prasejarah</td>
+																	<td>
+																		<button type="button" class="btn btn-danger icon-only" id="delete-button" onClick="deleteModal(this)" data-idStudy="1231j12v31j2j"><i class="fa fa-trash-o"></i></button>
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+														</div>
+													</div>
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="reset" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>
+<!-- /.Modal Add-->

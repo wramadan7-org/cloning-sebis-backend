@@ -1,0 +1,177 @@
+[{
+  "_id": {
+    "$oid": "605da73ec7b8a52990c9ebf9"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "news",
+  "tags": "#GoodJob",
+  "title": "Coba Saya",
+  "subtitle": "saya coba upload artikel",
+  "headerImage": "images/605da73ec7b8a52990c9ebf9.png",
+  "content": "<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n<p style=\"text-align:center\">&nbsp;</p>\r\n\r\n<p style=\"text-align:center\"><em><u>Isi artikel satu..</u></em></p>\r\n\r\n<p style=\"text-align:center\"><strong>hjsadagsjgdjahsd</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n",
+  "published": "0",
+  "thumbnail": "images/thumbnails/thumb-605da73ec7b8a52990c9ebf9.png",
+  "created_at": "2021-03-26 15:13:27",
+  "updated_at": "2021-03-31 13:20:10",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "605da7bec7b8a52990c9ebfa"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "#HelloWorld",
+  "title": "Judul yang bagus",
+  "subtitle": "Bagus",
+  "headerImage": "images/605da7bec7b8a52990c9ebfa.png",
+  "content": "<p>&nbsp;</p>\r\n\r\n<h2>ini adalah isi artikel dua lima dua lima :)</h2>\r\n",
+  "published": "1",
+  "thumbnail": "images/thumbnails/thumb-605da7bec7b8a52990c9ebfa.png",
+  "created_at": "2021-03-26 15:13:27",
+  "updated_at": "2021-04-03 09:26:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067d26cfb43f904b0761a73"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "#aaa",
+  "title": "Sdfsd3",
+  "subtitle": "asdasd",
+  "headerImage": "",
+  "content": "<p style=\"text-align:right\"><strong><s><u>This is content article..</u></s></strong></p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 09:26:19",
+  "updated_at": "2021-04-03 10:32:51",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067d282fb43f904b0761a74"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "#ASDAS",
+  "title": "Absf",
+  "subtitle": "adsfe",
+  "headerImage": "",
+  "content": "<p>This is content article..asdasdas</p>\r\n\r\n<p>asdasdasd</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 09:26:19",
+  "updated_at": "2021-04-03 10:31:37",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067d2a9fb43f904b0761a75"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "",
+  "title": "Kelima padanfa",
+  "subtitle": "kelima pandadawa mati di hjakimi masa",
+  "headerImage": "",
+  "content": "<p>This is content article..asd asd as dasd asd</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 09:26:19",
+  "updated_at": "2021-04-03 09:26:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067d2c0fb43f904b0761a76"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "#asdas",
+  "title": "Asdas",
+  "subtitle": "dasdas",
+  "headerImage": "",
+  "content": "<p>This is content article..a asdas dasd dgdfg df gdfg dfg dfgfdfg d</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 09:26:19",
+  "updated_at": "2021-04-03 10:31:45",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067d2d4fb43f904b0761a77"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "asdas",
+  "title": "Plokir",
+  "subtitle": "usush",
+  "headerImage": "",
+  "content": "<p>This is content article.. asda s das dsdasda</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 09:26:19",
+  "updated_at": "2021-04-03 09:26:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067dbeda1d5cd064883586a"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "video",
+  "tags": "#gegeeg",
+  "title": "123123",
+  "subtitle": "dsadas",
+  "headerImage": "",
+  "content": "<p>This is content article..dasfasdasd asd as<br />\r\nsjadkjsks skjss</p>\r\n\r\n<p>ahjsjssaas</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Reagrds,</p>\r\n\r\n<p>&nbsp;</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 10:06:39",
+  "updated_at": "2021-04-19 09:18:57",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067dc02a1d5cd064883586b"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "sdfsd",
+  "title": "Lililsdfsd",
+  "subtitle": "sdfsd",
+  "headerImage": "",
+  "content": "<p>This is content article..</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 10:06:39",
+  "updated_at": "2021-04-03 10:32:31",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067dc0aa1d5cd064883586c"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "r3r3",
+  "title": "Sdfsd",
+  "subtitle": "we33",
+  "headerImage": "",
+  "content": "<p>This is content article..</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 10:06:39",
+  "updated_at": "2021-04-03 10:32:38",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6067dc18a1d5cd064883586d"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "category": "blog",
+  "tags": "kjjfj",
+  "title": "Kfjfkfka",
+  "subtitle": "09iufij",
+  "headerImage": "",
+  "content": "<p>This is content article..</p>\r\n",
+  "published": "1",
+  "thumbnail": "",
+  "created_at": "2021-04-03 10:06:39",
+  "updated_at": "2021-04-03 10:32:21",
+  "__v": 0
+}]

@@ -1,0 +1,135 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+													$('#imageViewerModal')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+												
+												
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+													
+												};
+												window.onload = onLoad;
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+												
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											
+											<div class="panel-body">
+											<form class="p-20" name="editBasicForm" id="editBasicForm" action="/profile/basicinfo" method="POST">
+												<div class="col-md-3">
+													<label for="EditdataName">.: Search Filter Data :.</label>
+													<input type="text" class="form-control" name="EditdataName" id="EditdataName" placeholder="Search course study here">
+												</div>
+												<div class="col-md-3">
+													<label for="EditdataName">&nbsp;</label>
+													<select class="form-control">
+														<option value="-">Select Grade Here</option>
+														<option value="sd">SD [I - VI]</option>
+														<option value="smp">SMP [VII - IX]</option>
+														<option value="sma">SMA [X - XII]</option>
+													</select>
+												</div>
+												<div class="col-md-3">
+													<label for="EditdataName">&nbsp;</label>
+													<select class="form-control">
+														<option value="-">Select Course Here</option>
+														<option value="sd">B.INGGRIS</option>
+														<option value="smp">B.INDONESIA</option>
+														<option value="sma">MATEMATIKA</option>
+														<option value="sma">SAINS</option>
+														<option value="sma">IPA</option>
+														<option value="sma">KIMIA</option>
+														<option value="sma">RPL</option>
+													</select>
+												</div>
+												<div class="col-md-3">
+													<label for="EditdataName">&nbsp;</label>
+													<button type="reset" class="btn btn-black"><i class="fa fa-times"></i>Reset</button>
+													<button type="submit" class="btn btn btn-success"><i class="fa fa-check"></i>Search</button>
+												</div>
+											</form>
+											</div>
+										</div>	
+										<div class="panel border-black no-border border-3-top">
+											<div class="panel-body">
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Grade</th>
+															<th>Course</th>
+															<th>Teacher</th>
+															<th>Study</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>1.</td>
+															<th>X</th>
+															<th>Sejarah</th>
+															<td>Vincenzo</td>
+															<td>Kehidupan Masa Prasejarah</td>
+														</tr>
+														<tr>
+															<td>2.</td>
+															<th>XI</th>
+															<th>Matematika</th>
+															<td>Salistya</td>
+															<td>Perhitungan Peluang Dasar</td>
+														</tr>
+														<tr>
+															<td>3.</td>
+															<th>IX</th>
+															<th>Sains</th>
+															<td>Widyakarma</td>
+															<td>Efek Rumah Kaca Mempengaruhi Ekosistem</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+                                    </div>
+									
+									<%- //include("../modal/profile-modal.ejs") %>

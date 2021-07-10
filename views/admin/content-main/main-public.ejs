@@ -1,0 +1,27 @@
+                            <div class="row">
+                                <div class="col-md-12">
+									<% if(ContentData.getIdentities.userType == "public"){ %>
+                                    <div class="alert alert-info left-icon-alert" role="alert">
+                                        <strong>
+                                            Anda belum melengkapi data diri, harap melengkapi data diri dengan benar.
+                                        </strong>
+                                        <p>
+                                            Silahkan klik <a href="/profile"><strong>DISINI</strong></a> untuk melengkapi profil!
+                                        </p>
+                                    </div>
+									<% } %>
+									<% if(ContentData.getIdentities.userType == "pteacher"){ %>
+									<div class="alert alert-info left-icon-alert" role="alert">
+                                        <strong>
+                                            Terima kasih telah berpartisipasi untuk menjadi tutor online (Tulen) di aplikasi SebisLes.
+                                        </strong>
+                                        <p>
+                                            Team verifikator kami akan segera memeriksa dan mengecek kelengkapan data yang anda kirimkan. Jika anda masuk dalam kualifikasi, maka kami akan segera menghubungi anda via whatsapp untuk melakukan interview kelayakan anda menjadi tutor online (Tulen) di aplikasi SebisLes.
+                                        </p>
+                                    </div>
+									<% } %>
+                                    <!-- /.alert alert-info -->
+                                </div>
+                                <!-- /.col-md-12 -->
+                            </div>
+                            <!-- /.row -->

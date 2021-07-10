@@ -1,0 +1,66 @@
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-outline-primary btn-sm"
+      data-toggle="modal"
+      data-target="#add-modal"
+    >
+      Add
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table
+        class="table table-bordered"
+        id="dataTable"
+        width="100%"
+        cellspacing="0"
+      >
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>NIK</th>
+            <th>Jabatan</th>
+            <th>Divisi</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+		<% for(let i = 0; i < karyawan.length; i++){ %>
+          <tr>
+            <td><%= i +1 %>.</td>
+            <td><%= karyawan[i].nama %></td>
+            <td><%= karyawan[i].nik %></td>
+            <td><%= karyawan[i].jabatan %></td>
+            <td><%= karyawan[i].divisi %></td>
+            <td class="text-center">
+			<form action="/karyawan/<%= karyawan[i].id %>?_method=DELETE"
+			    method="POST">
+              <a
+				 href="javascript:void()"
+				 class="btn btn-outline-warning btn-sm button-update"
+				 data-id="<%= karyawan[i].id %>"
+				 data-nama="<%= karyawan[i].nama %>"
+				 data-nik="<%= karyawan[i].nik %>"
+				 data-jabatan="<%= karyawan[i].jabatan %>"
+				 data-divisi="<%= karyawan[i].divisi %>"
+				>Edit</a
+              >
+			  
+              <button type="submit" class="btn btn-outline-danger btn-sm"
+			    onClick="return confirm('Do you want delete this data?');">
+                Delete
+              </button>
+			  </form>
+            </td>
+          </tr>
+		<% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

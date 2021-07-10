@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Options Admin - Responsive Web Application Kit - Login</title>
+
+        <!-- ========== COMMON STYLES ========== -->
+        <link rel="stylesheet" href="/options_admin/css/bootstrap.min.css" media="screen" >
+        <link rel="stylesheet" href="/options_admin/css/font-awesome.min.css" media="screen" >
+        <link rel="stylesheet" href="/options_admin/css/animate-css/animate.min.css" media="screen" >
+
+        <!-- ========== PAGE STYLES ========== -->
+        <link rel="stylesheet" href="/options_admin/css/icheck/skins/flat/blue.css" >
+
+        <!-- ========== THEME CSS ========== -->
+        <link rel="stylesheet" href="/options_admin/css/main.css" media="screen" >
+
+        <!-- ========== MODERNIZR ========== -->
+        <script src="/options_admin/js/modernizr/modernizr.min.js"></script>
+    </head>
+    <body class="">
+        <div class="main-wrapper">
+
+            <div class="login-bg-color bg-black-300">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="panel login-box">
+                            <div class="panel-heading">
+                                <div class="panel-title text-center">
+                                    <h4>Register User</h4>
+                                </div>
+                            </div>
+                            <div class="panel-body p-20">
+								<form class="col-md-10 col-md-offset-1" action="" method="POST">
+									<div class="form-group">
+										<label for="inputName">Full Name</label>
+										<input type="text" class="form-control" id="inputName" name="inputName" placeholder="Enter Your Full Name">
+									</div>
+									<div class="form-group">
+										<label for="inputEmail">Email address</label>
+										<input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Enter Your Email Id">
+									</div>
+									<div class="form-group">
+										<label for="inputPassword">Password</label>
+										<input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Enter Strong Password">
+									</div>
+									<div class="checkbox">
+										<label>
+											<input type="checkbox"> I accept <a href="#" class="color-primary">terms & conditions</a>
+										</label>
+									</div>
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</form>
+                            </div>
+                        </div>
+                        <!-- /.panel -->
+                        <p class="text-muted text-center"><small>Copyright © Sebis Curse 2021</small></p>
+                    </div>
+                    <!-- /.col-md-6 col-md-offset-3 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /. -->
+
+        </div>
+        <!-- /.main-wrapper -->
+
+        <!-- ========== COMMON JS FILES ========== -->
+        <script src="/options_admin/js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="/options_admin/js/jquery-ui/jquery-ui.min.js"></script>
+        <script src="/options_admin/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/options_admin/js/pace/pace.min.js"></script>
+        <script src="/options_admin/js/lobipanel/lobipanel.min.js"></script>
+        <script src="/options_admin/js/iscroll/iscroll.js"></script>
+
+        <!-- ========== PAGE JS FILES ========== -->
+        <script src="/options_admin/js/icheck/icheck.min.js"></script>
+
+        <!-- ========== THEME JS ========== -->
+        <script src="/options_admin/js/main.js"></script>
+        <script>
+            $(function(){
+                $('input.flat-blue-style').iCheck({
+                    checkboxClass: 'icheckbox_flat-blue'
+                });
+            });
+        </script>
+
+    </body>
+</html>

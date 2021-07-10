@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "60d69eada6b975007cd3c361"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60d42c3da7d4272cacb41c48",
+  "typeId": "60d43c54516e920ca0270216",
+  "status": "0",
+  "disable": "enable",
+  "created_at": "2021-06-26 10:27:41",
+  "updated_at": "2021-06-26 10:27:41",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60debd2bb40d020460f6e118"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60d42c3da7d4272cacb41c48",
+  "typeId": "60d43cbe516e920ca0270219",
+  "status": "0",
+  "disable": "enable",
+  "created_at": "2021-07-01 10:27:41",
+  "updated_at": "2021-07-01 10:27:41"
+},{
+  "_id": {
+    "$oid": "60debd97b40d020460f6e119"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "gradeId": "60d42c3da7d4272cacb41c48",
+  "typeId": "60d43d0c516e920ca027021c",
+  "status": "0",
+  "disable": "enable",
+  "created_at": "2021-07-01 10:27:41",
+  "updated_at": "2021-07-01 10:27:41"
+}]

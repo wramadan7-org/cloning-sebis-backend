@@ -1,0 +1,183 @@
+<!-- Modal Add-->
+<div class="modal fade" id="addArticleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/article/add" method="POST" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal title <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+             
+												
+
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="dataTitle">Title</label>
+																<input type="text" class="form-control" name="dataTitle" id="dataTitle" placeholder="Enter Your Title Article">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="dataSubtitle">Subtitle</label>
+																<input type="text" class="form-control" name="dataSubtitle" id="dataSubtitle" placeholder="Enter Desired subtitle">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+													</div>
+
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="dataTags">Tags</label>
+																<input type="text" class="form-control" name="dataTags" id="dataTags" placeholder="Enter Your #TagsHere">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="dataCategory">Category</label>
+																<select class="form-control" name="dataCategory" id="dataCategory">
+																	<option value="blog">Blog</option>
+																	<option value="video">Video</option>
+																	<option value="news">News</option>
+																</select>
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+													</div>
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="imgfile">Header Image</label>
+																<input type="file" class="form-control" name="imgfile" id="imgfile" placeholder="Select image header">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="published">Publish?</label>
+																<div class="mb-20" name="replacer" id="replacer">
+																	<input type="checkbox" class="js-switch-small" id="published" name="published" checked />
+																</div>
+															</div>
+														</div>
+													</div>
+													
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="dataContentCK">Content Article</label>
+																<textarea name="dataContentCK" id="dataContentCK" rows="10" cols="80">
+																This is content article..
+																</textarea>
+															</div>
+														</div>
+														<!-- /.col-md-12 -->
+													</div>			 
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="reset" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+        </form>
+		</div>
+    </div>
+</div>
+<!-- /.Modal Add-->
+
+<!-- Modal Edit -->
+<div class="modal fade" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/article?_method=PUT" method="POST" enctype="multipart/form-data">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Edit Article Data <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+             
+												
+
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="EditdataTitle">Title</label>
+																<input type="text" class="form-control" name="EditdataTitle" id="EditdataTitle" placeholder="Enter Your Title Article">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="EditdataSubtitle">Subtitle</label>
+																<input type="text" class="form-control" name="EditdataSubtitle" id="EditdataSubtitle" placeholder="Enter Desired subtitle">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+													</div>
+
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="EditdataTags">Tags</label>
+																<input type="text" class="form-control" name="EditdataTags" id="EditdataTags" placeholder="Enter Your #TagsHere">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="EditdataCategory">Category</label>
+																<select class="form-control" name="EditdataCategory" id="EditdataCategory">
+																	<option value="blog">Blog</option>
+																	<option value="video">Video</option>
+																	<option value="news">News</option>
+																</select>
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+													</div>
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="imgfile2">Replace Header Image</label>
+																<input type="file" class="form-control" name="imgfile2" id="imgfile2" placeholder="Select image header">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="published2">Publish?</label>
+																<div class="mb-20" name="replacer2" id="replacer2">
+																	<input type="checkbox" class="js-switch-small" id="published2" name="published2" />
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="dataContentCK2">Content Article</label>
+																<textarea name="dataContentCK2" id="dataContentCK2" rows="10" cols="80">
+																This is content article..
+																</textarea>
+															</div>
+														</div>
+														<!-- /.col-md-12 -->
+													</div>
+			</div>
+            <div class="modal-footer">
+				<input type="hidden" name="idArticle" id="idArticle" />
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+			</form>
+        </div>
+    </div>
+</div>
+<!-- /.Modal Edit-->

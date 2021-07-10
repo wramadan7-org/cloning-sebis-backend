@@ -1,0 +1,447 @@
+<!-- Modal Add-->
+<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Mentor Detail<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>UID</th>
+										<th id="idMentor">00000000000</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>Nama</th>
+										<td id="EditDataName">-----</td>
+									</tr>
+									<tr>
+										<th>Alamat (Domisili)</th>
+										<td id="EditDataAddress">-----</td>
+									</tr>
+									<tr>
+										<th>Kota (Domisili)</th>
+										<td id="EditDataCity">-----</td>
+									</tr>
+									<tr>
+										<th>Provinsi (Domisili)</th>
+										<td id="EditDataProvince">-----</td>
+									</tr>
+									<tr>
+										<th>Email</th>
+										<td id="EditDataEmail">-----</td>
+									</tr>
+									<tr>
+										<th>Phone</th>
+										<td id="EditDataPhone">-----</td>
+									</tr>
+									<tr>
+										<th>Jenis Kelamin</th>
+										<td id="EditDataGender">-----</td>
+									</tr>
+									<tr>
+										<th>Agama</th>
+										<td id="EditDataReligion">-----</td>
+									</tr>
+									<tr>
+										<th>Tanggal Lahir</th>
+										<td id="EditDataBDate">-----</td>
+									</tr>
+									<tr>
+										<th>Tempat Lahir</th>
+										<td id="EditDataBPlace">-----</td>
+									</tr>
+									<tr>
+										<th>No. Kartu Identitas</th>
+										<td id="EditDataCardId">-----</td>
+									</tr>
+									<tr>
+										<th>Jenis Kartu Identitas</th>
+										<td id="EditDataCardType">-----</td>
+									</tr>
+									<tr>
+										<th>Video Pendek (Youtube)</th>
+										<td>
+											<a data-toggle="modal" href="#videoViewer" id="EditDataVideo"></a>
+										</td>
+									</tr>
+									<tr>
+										<th>Tentang Tentor</th>
+										<td id="EditDataAbout">-----</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="row">
+						<div class="modal-header">
+							<h4>Status & Poin Persetujuan Tentor</h4>
+						</div>
+					</div>
+					<form class="p-20" name="formAppMentor" id="formAppMentor" action="/mentor/approveMentor" method="POST">
+					<input type="hidden" value="" id="idTeacher" name="idTeacher" />
+					<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditDataAppDoc">Kelengkapan Dokumen:</label>
+								<select class="form-control" name="EditDataAppDoc" id="EditDataAppDoc">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditDataAppData"><br>Kelengkapan Data:</label>
+								<select class="form-control" name="EditDataAppData" id="EditDataAppData">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditDataAppEdu">Background Pendidikan:</label>
+								<select class="form-control" name="EditDataAppEdu" id="EditDataAppEdu">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditDataAppExp">Pengalaman Mengajar:</label>
+								<select class="form-control" name="EditDataAppExp" id="EditDataAppExp">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditDataAppKnown"><br>Pengetahuan:</label>
+								<select class="form-control" name="EditDataAppKnown" id="EditDataAppKnown">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="EditDataAppPoint"><br>Total Nilai Poin:</label>
+								<select class="form-control" name="EditDataAppPoint" id="EditDataAppPoint">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label for="EditDataAppStatus">Status:</label>
+								<select class="form-control" name="EditDataAppStatus" id="EditDataAppStatus">
+									<option value="3">Tolak</option>
+									<option value="2">Blokir</option>
+									<option value="0">Tunda</option>
+									<option value="1">Setujui</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div class="form-group">
+								<label for="EditDataAppNote">*Catatan:</label>
+								<input type="text" class="form-control" name="EditDataAppNote" id="EditDataAppNote" placeholder="Approval Note">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="approvalBtn">&nbsp;</label>
+								<button type="button" class="btn btn-success btn-block" name="approvalBtn" id="approvalBtn" onclick="ApproveMentor()"><i class="fa fa-check"></i>Submit</button>
+							</div>
+						</div>
+					</div>
+					</form>
+					<div class="row">
+						<div class="modal-header">
+							<h4>Gambar & Foto Tentor</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="text-center">Foto Profil</div>
+							<a data-toggle="modal" href="#imgViewerPp" id="imgPp"></a>
+						</div>
+						<div class="col-md-3">
+							<div class="text-center">Foto Selfie</div>
+							<a data-toggle="modal" href="#imgViewerSelfie" id="imgSelfie"></a>
+						</div>
+						<div class="col-md-3">
+							<div class="text-center">Kartu Identitas</div>
+							<a data-toggle="modal" href="#imgViewerIdcard" id="imgCard"></a>
+						</div>
+						<div class="col-md-3">
+							<div class="text-center">Foto Ijazah</div>
+							<a data-toggle="modal" href="#imgViewerCertificate" id="imgCertificate"></a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="modal-header">
+							<h4>List Studi Tentor</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" id="studyTeacherList"></div>
+					</div>
+					<!--
+					<div class="row">
+						<div class="modal-header">
+							<h4>Add Study</h4>
+						</div>
+					</div>
+					<form class="p-20" action="/mentor" method="POST">
+						<div class="row">
+							<div class="col-md-3">
+								<div class="form-group">
+									<label for="EditdataGrade">Grade</label>
+									<select class="form-control" name="EditdataGrade" id="EditdataGrade">
+									<% var CGrade = ContentData.getGrade; %>
+									<% for(let gr=0; gr<CGrade.length; gr++){ %>
+										<option value="<%= CGrade[gr]._id %>"><%= CGrade[gr].name %></option>
+									<% } %>
+									</select>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="EditdataType">Course Type</label>
+									<select class="form-control" name="EditdataType" id="EditdataType">
+									<% var TypeCourse = ContentData.getTypeCourse; %>
+									<% for(let tc=0; tc<TypeCourse.length; tc++){ %>
+										<option value="<%= TypeCourse[tc]._id %>"><%= TypeCourse[tc].name %></option>
+									<% } %>
+									</select>
+								</div>
+							</div>
+							<input type="hidden" value="" id="idTeacher" name="idTeacher" />
+							<div class="col-md-2">
+								<div class="form-group">
+								<label for="addStudy">&nbsp;</label>
+								<button type="submit" class="btn btn-success" id="addStudy"><i class="fa fa-check"></i>Add</button>
+								</div>
+							</div>
+						</div>
+					</form>
+					//-->
+					<div class="row">
+						<div class="modal-header">
+							<h4>Pengalaman Mengajar</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" id="teachingExpList"></div>
+					</div>
+					<div class="row">
+						<div class="modal-header">
+							<h4>Background Pendidikan</h4>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12" id="eduBackgroundList"></div>
+					</div>
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+    </div>
+</div>
+
+<!-- / Modal Image Viewer /-->
+<div class="modal fade" id="imgViewerSelfie" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 900px; margin: 30px auto;">
+        <div class="modal-content">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<img id="imgShowSelfie" src="" alt="User Selfie" class="img-responsive">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="imgViewerPp" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 900px; margin: 30px auto;">
+        <div class="modal-content">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<img id="imgShowPp" src="" alt="User Profile Pic" class="img-responsive">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="imgViewerIdcard" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 900px; margin: 30px auto;">
+        <div class="modal-content">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<img id="imgShowIdcard" src="" alt="User ID Card" class="img-responsive">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="imgViewerCertificate" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 900px; margin: 30px auto;">
+        <div class="modal-content">
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<img id="imgShowCertificate" src="" alt="User Certificate" class="img-responsive">
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="videoViewer" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 600px; margin: 30px auto;">
+        <div class="modal-content">
+		<!--
+			<div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+		//-->
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<!--<iframe id="youtubeFrame" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>//-->
+						<iframe id="youtubeFrame" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,198 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													//alert('Pesan');
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+													
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+													swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+												};
+												window.onload = onLoad;
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idMenu");
+												
+													swal({
+														title: "Are you sure?",
+														text: "You will not be able to recover this item menu!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Yes, delete it!",
+														cancelButtonText: "No, cancel please!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Cancelled", "Item Menu not Deleted.", "error");
+														} else {
+															var form = document.getElementById("form-"+formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>List Menu</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+											
+											<% if(ContentData.getMenu != ""){ var Menus = ContentData.getMenu %>
+											<script>
+												function onCallEditArticle(identifier){
+													
+													var _id = identifier.getAttribute("data-idMenu");
+													var nameMenu = identifier.getAttribute("data-nameMenu");
+													var uriMenu = identifier.getAttribute("data-uriMenu");
+													var uTypeMenu = identifier.getAttribute("data-userType");
+													var htmlMenu = identifier.getAttribute("data-htmlMenu");
+													var isPublish = identifier.getAttribute("data-publish");
+													var menuParent = identifier.getAttribute("data-parent");
+													var checkSwitch = document.getElementById("replacer2");
+													
+													if(menuParent == "") menuParent = "-";
+													
+													$("#editMenuData").modal("show");
+													document.getElementById("idMenu").value = _id;
+													document.getElementById("EditdataName").value = nameMenu;
+													document.getElementById("EditdataUserType").value = uTypeMenu;
+													document.getElementById("EditdataURI").value = uriMenu;
+													document.getElementById("EditdataHTML").value = htmlMenu;
+													document.getElementById("EditdataParent").value = menuParent;
+													if(isPublish=='disable') checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published2" name="published2" />';
+													else checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published2" name="published2" checked />';
+													
+													replaceSwitcher();
+												};
+												</script>
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Name</th>
+															<th>URI</th>
+															<th>User Type</th>
+															<th>Date Modified</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+													<% for(let i = 0; i<Menus.length; i++){ %>
+														<tr>
+															<th scope="row"><%= ContentData.pagingCounter + i; %>.</th>
+															<th><%= Menus[i].name %></th>
+															<th><%= Menus[i].uri %></th>
+															<th><%= Menus[i].userType %></th>
+															<th><%= Menus[i].updated_at %></th>
+															<th>
+															<form action="/menu/<%= Menus[i]._id %>?_method=DELETE" method="POST" id="form-<%= Menus[i]._id %>" >
+																<% if(Menus[i].disable == "disable") { %>
+																	<button type="button" class="btn btn-warning icon-only"><i class="fa fa-exclamation-triangle"></i></button>
+																<% } else { %>
+																	<button type="button" class="btn btn-success icon-only"><i class="fa fa-check"></i></button>
+																<% } %>
+																<button
+																	type="button"
+																	class="btn btn-primary icon-only tombolEdit"
+																	onclick="onCallEditArticle(this);"
+																	data-idMenu="<%= Menus[i]._id %>"
+																	data-nameMenu="<%= Menus[i].name %>"
+																	data-uriMenu="<%= Menus[i].uri %>"
+																	data-htmlMenu="<%= Menus[i].html %>"
+																	data-userType="<%= Menus[i].userType %>"
+																	data-publish="<%= Menus[i].disable %>"
+																	data-parent="<%= Menus[i].parent %>"
+																><i class="fa fa-pencil"></i></button>
+																<button 
+																	type="button" 
+																	class="btn btn-danger icon-only" 
+																	id="delete-button" 
+																	onClick="deleteModal(this)"
+																	data-idMenu="<%= Menus[i]._id %>"
+																	><i class="fa fa-trash-o"></i></button>
+															</form>
+															</th>
+														</tr>
+													<% } %>
+													</tbody>
+												</table>
+												<% if(ContentData.totalPages > 1){ %>
+												<form action="/menu" method="POST" id="formNextPage" name="formNextPage">
+												<nav class="text-center">
+                                                	<ul class="pagination rounded-corners">
+                                                		<li>
+                                                			<a href="#" aria-label="Previous">
+                                                				<span aria-hidden="true">&laquo;</span>
+                                                			</a>
+                                                		</li>
+														<% for(let j = 0; j < ContentData.totalPages; j++){ var PageLink = j+1; %>
+                                                		<% if(ContentData.currPage == PageLink) { %>
+														<li class="active">
+														<% } else { %>
+														<li>
+														<% } %>
+														<a
+															href="#"
+															<% if(ContentData.currPage != PageLink) { %>
+															data-nextPage="<%= PageLink %>"
+															onClick="nxPage(this)"
+															<% } %>
+															><%= PageLink %></a></li>
+														<% } %>
+                                                		<li>
+                                                			<a href="#" aria-label="Next">
+                                                				<span aria-hidden="true">&raquo;</span>
+                                                			</a>
+                                                		</li>
+														<input type="hidden" value="" id="nextPage" name="nextPage" />
+                                                	</ul>
+                                                </nav>
+												</form>
+												<% } %>
+											<% } else { %>
+												<div class="alert alert-danger" role="alert"> <strong>No menu yet!</strong> Please create one menu. </div>
+											<% } %>											
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include('../modal/menu-modal.ejs') %>
+									

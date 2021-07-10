@@ -1,0 +1,693 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+													replaceSwitcher();
+													searchLoad();
+													$('#videoViewer')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+													$('#imgViewerPp')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+													$('#imgViewerSelfie')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+													$('#imgViewerIdcard')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+													$('#imgViewerCertificate')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+												
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+													
+												};
+												window.onload = onLoad;
+												
+												function endisSwitch(identifier){
+													var formid = identifier.getAttribute("data-idStudy");
+													if(identifier.getAttribute("data-statusId") == "0"){
+														var swalTitle = "Apakah anda yakin menyetujui studi ini?";
+														var swalMsg = "Tutor dapat membuat jadwal mengajar apabila disetujui";
+													} else {
+														var swalTitle = "Apakah anda yakin untuk menunda studi ini?";
+														var swalMsg = "Tutor tidak dapat membuat jadwal apabila ditunda";
+													}
+														
+													swal({
+														title: swalTitle,
+														text: swalMsg,
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Ya, Saya Yakin!",
+														cancelButtonText: "Tidak, Batalkan!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Dibatalkan", "Studi tutor tidak berubah.", "error");
+															$('#editCourseModal').modal("hide");
+														} else {
+															var form = document.getElementById("formApp-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function ApproveMentor(){
+													var mentorstatus = document.getElementById("EditDataAppStatus").value;
+													
+													if(mentorstatus == "0"){
+														var swalTitle = "Apakah anda yakin untuk pending tutor ini?";
+														var swalMsg = "Tutor yang terpending tidak dapat membuat jadwal mengajar!";
+													} else if(mentorstatus == "1"){
+														var swalTitle = "Apakah anda yakin untuk menyetujui tutor ini?";
+														var swalMsg = "Tutor yang disetujui dapat membuat jadwal mengajar";
+													} else if(mentorstatus == "2"){
+														var swalTitle = "Apakah anda yakin untuk memblokir tutor ini?";
+														var swalMsg = "Tutor yang di blokir harus membuat akun baru";
+													} else {
+														var swalTitle = "Apakah anda yakin untuk menolak tutor ini?";
+														var swalMsg = "Tutor yang di tolak dapat mengedit data profil kembali";
+													}
+													
+													swal({
+														title: swalTitle,
+														text: swalMsg,
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Ya, Saya Yakin!",
+														cancelButtonText: "Tidak, Batalkan!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Batal", "Status tutor tidak berubah.", "error");
+															$('#editCourseModal').modal("hide");
+														} else {
+															var form = document.getElementById("formAppMentor");
+															form.submit();
+														}
+													});
+												};
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idStudy");
+													swal({
+														title: "Apakah anda yakin?",
+														text: "Anada tidak dapat mengembalikan studi ini!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Ya, Saya Yakin!",
+														cancelButtonText: "Tidak, Batalkan!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Batal", "Studi tutor tidak berubah.", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+												
+												function onResetBtn(){
+													document.getElementById("EditsearchName").value = "";
+													document.getElementById("EditsearchEmail").value = "";
+													document.getElementById("EditsearchTelp").value = "";
+													document.getElementById("formSearch").submit();
+												};
+												
+												function searchLoad(){
+													document.getElementById("EditsearchName").value = "<%= ContentData.searchName %>";
+													document.getElementById("EditsearchEmail").value = "<%= ContentData.searchEmail %>";
+													document.getElementById("EditsearchTelp").value = "<%= ContentData.searchTelp %>";
+												};
+												
+									</script>
+									
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<form class="p-20" name="formSearch" id="formSearch" action="/mentor/search" method="POST">
+												<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<label for="EditsearchName">Nama:</label>
+																<input type="text" class="form-control" name="EditsearchName" id="EditsearchName" placeholder="Nama Orang">
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<label for="EditsearchEmail">Email:</label>
+																<input type="text" class="form-control" name="EditsearchEmail" id="EditsearchEmail" placeholder="contoh@email.com">
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<label for="EditsearchTelp">Telp:</label>
+																<input type="text" class="form-control" name="EditsearchTelp" id="EditsearchTelp" placeholder="081xxx000xxx">
+															</div>
+														</div>
+														<div class="col-md-1">
+															<div class="form-group">
+																
+															</div>
+														</div>
+														<div class="col-md-1">
+															<div class="form-group">
+																<label for="searchBtn">&nbsp;</label>
+																<button type="submit" class="btn btn-success btn-block" name="searchBtn" id="searchBtn"><i class="fa fa-search"></i></button>
+															</div>
+														</div>
+														<div class="col-md-1">
+															<div class="form-group">
+																<label for="searchRst">&nbsp;</label>
+																<button type="button" class="btn btn-success btn-block" name="searchRst" id="searchRst" onclick="onResetBtn()"><i class="fa fa-refresh"></i></button>
+															</div>
+														</div>
+													</div>
+												</form>
+											</div>
+											<div class="panel-body">
+											<% if(ContentData.getTeacher != ""){ var Teacher = ContentData.getTeacher %>
+											<% var TeacherInfo = ContentData.PeopleInfo %>
+											<% var PeopleID = ContentData.People %>
+											<% var Studys = ContentData.teacherStudy %>
+											<% var TeachingExp = ContentData.teacherExp %>
+											<% var EduBackground = ContentData.teacherEdu %>
+											<% var TeacherRates = ContentData.teacherRate %>
+											<script>
+												function onCallEditCourse(identifier){
+													var _id = identifier.getAttribute("data-identitiesId");
+													var TeacherName = identifier.getAttribute("data-name");
+													var TeacherType = identifier.getAttribute("data-userType");
+													var TeacherPoint = identifier.getAttribute("data-userPoint");
+													var Address = identifier.getAttribute("data-address");
+													var Gender = identifier.getAttribute("data-gender");
+													var Religion = identifier.getAttribute("data-religion");
+													var birthDate = identifier.getAttribute("data-birthDate");
+													var birthPlace = identifier.getAttribute("data-birthPlace");
+													var cardId = identifier.getAttribute("data-cardId");
+													var cardType = identifier.getAttribute("data-cardType");
+													var longData = identifier.getAttribute("data-long");
+													var ppImg = identifier.getAttribute("data-ppImg");
+													var selfieimg = identifier.getAttribute("data-selfieImg");
+													var cardimg = identifier.getAttribute("data-cardImg");
+													var certificateimg = identifier.getAttribute("data-certificateImg");
+													var selfieThumb = identifier.getAttribute("data-selfieThumb");
+													var cardThumb = identifier.getAttribute("data-cardThumb");
+													var certificateThumb = identifier.getAttribute("data-certificateThumb");
+													var ppThumb = identifier.getAttribute("data-ppThumb");
+													var hasPp = identifier.getAttribute("data-ppImgV");
+													var hasSelfie = identifier.getAttribute("data-selfieImgV");
+													var hasCard = identifier.getAttribute("data-cardImgV");
+													var hasCertificate = identifier.getAttribute("data-certificateImgV");
+													var teachlong = identifier.getAttribute("data-explong");
+													var edulong = identifier.getAttribute("data-edulong");
+													var Province = identifier.getAttribute("data-province");
+													var City = identifier.getAttribute("data-city");
+													var Email = identifier.getAttribute("data-email");
+													var Phone = identifier.getAttribute("data-phone");
+													var About = identifier.getAttribute("data-about");
+													var ShortVideo = identifier.getAttribute("data-shortvideo");
+													var rateDoc = identifier.getAttribute("data-RateDoc");
+													var rateData = identifier.getAttribute("data-RateData");
+													var rateEdu = identifier.getAttribute("data-RateEdu");
+													var rateExp = identifier.getAttribute("data-RateExp");
+													var rateKnown = identifier.getAttribute("data-RateKnown");
+													var rateNote = identifier.getAttribute("data-RateNote");
+													
+													if (TeacherType == 'teacher' || TeacherType == 'administrator') 
+														TeacherType = '1';
+													else if (TeacherType == 'pteacher') 
+														TeacherType = '0';
+													else if (TeacherType == 'bteacher') 
+														TeacherType = '2';
+													else 
+														TeacherType = '3';
+														
+													if(TeacherPoint == '') TeacherPoint = "0";
+													if(rateDoc == "") rateDoc = "0";
+													if(rateData == "") rateData = "0";
+													if(rateEdu == "") rateEdu = "0";
+													if(rateExp == "") rateExp = "0";
+													if(rateKnown == "") rateKnown = "0";
+													
+													selfieThumb = '<img src="'+selfieimg+'" alt="user-selfie" class="img-responsive">';
+													cardThumb = '<img src="'+cardimg+'" alt="user-cardid" class="img-responsive">';
+													certificateThumb = '<img src="'+certificateimg+'" alt="user-certificate" class="img-responsive">';
+													ppThumb = '<img src="'+ppImg+'" alt="user-picture" class="img-responsive">';
+													
+													if(longData < 1){
+														document.getElementById("studyTeacherList").innerHTML = "<div>List Studi Belum Tersedia Sekarang.</div>";
+													} else {
+														var tablee = 	'<table class="table table-striped table-bordered">';
+														tablee += 	'<colgroup>';
+														tablee +=  	'<col span="1" style="width: 15%;">';
+														tablee +=	'<col span="1" style="width: 75%;">';
+														tablee +=	'<col span="1" style="width: 10%;">';
+														//tablee +=	'<col span="1" style="width: 10%;">';
+														tablee +=	'</colgroup>';
+														tablee +=	'<thead>';
+														tablee +=	'<tr>';
+														tablee +=	'<th>Tingkat</th>';
+														tablee +=	'<th>Mata Pelajaran</th>';
+														tablee +=	'<th>Disetujui?</th>';
+														//tablee +=	'<th></th>';
+														tablee +=	'</tr>';
+														tablee +=	'</thead>';
+														tablee +=	'<tbody>';
+														for(var ui=0; ui < longData; ui++){
+															var GradeID = identifier.getAttribute("data-gradeId["+ ui +"]");
+															var CourseID = identifier.getAttribute("data-courseId["+ ui +"]");
+															var StudyID = identifier.getAttribute("data-studyId["+ ui +"]");
+															var StatusID = identifier.getAttribute("data-statusId["+ ui +"]");
+													
+															tablee += '<tr>';
+															tablee += '<td>'+ GradeID +'</td>';
+															tablee += '<td>'+ CourseID +'</td>';
+															tablee += '<td><form action="/mentor/approveStudy" method="POST" id="formApp-'+ StudyID +'">';
+															tablee += '<div class="mb-20" name="replacer" id="replacer" onClick="endisSwitch(this)" data-idStudy = "'+ StudyID +'" data-statusId="'+ StatusID +'">';
+															tablee += '<input type="checkbox" class="js-switch-small" id="published" name="published" ';
+															if(StatusID == "0")
+																tablee += '/>';
+															else
+																tablee += 'checked />';
+															tablee += '<input type="hidden" name="studyId" value="'+ StudyID +'" />';
+															tablee += '<input type="hidden" name="identitiesId" value="'+ _id +'" />';
+															tablee += '<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">';
+															tablee += '</div></form></td>';
+															//tablee += '<td>';
+															//tablee += '<form action="/mentor/'+ StudyID +'?_method=DELETE" method="POST" id="form-'+ StudyID +'">';
+															//tablee += '<button type="button" class="btn btn-danger icon-only" id="delete-button" onClick="deleteModal(this)"';
+															//tablee += 'data-idStudy="'+ StudyID +'"><i class="fa fa-trash-o"></i></button>';
+															//tablee += '</form>';
+															//tablee += '</td>';
+															tablee += '</tr>';
+														}
+														tablee +=	'</tbody>';
+														tablee +=	'</table>';
+														
+														document.getElementById("studyTeacherList").innerHTML = tablee;
+													}
+													
+													if(teachlong < 1){
+														document.getElementById("teachingExpList").innerHTML = "<div>Tutor ini belum memiliki pengalaman mengajar</div>";
+													} else {
+														var tablee = '<table><colgroup><col span="1" style="width: 85%;"><col span="1" style="width: 15%;"></colgroup><tbody>';
+														for(var ui=0; ui < teachlong; ui++){
+															var dataA = identifier.getAttribute("data-expa["+ ui +"]");
+															var dataB = identifier.getAttribute("data-expb["+ ui +"]");
+															var dataC = identifier.getAttribute("data-expc["+ ui +"]");
+															var dataD = identifier.getAttribute("data-expd["+ ui +"]");
+															
+															tablee += '<tr><td style="border-bottom: 1px solid #ddd;">';
+															tablee += '<h6 style="margin-top: 0 !important; line-height: 1.1 !important; margin-bottom: 0 !important;">';
+															tablee += dataA + '<br>';
+															tablee += dataB + '<br>';
+															tablee += '<small>' + dataC + '<br>';
+															tablee += 'Portofolio: ' + dataD;
+															tablee += '</small></h6></td><td>&nbsp;</td></tr>';
+														}
+														tablee += '</tbody></table>';
+														
+														document.getElementById("teachingExpList").innerHTML = tablee;
+													}
+													
+													if(edulong < 1){
+														document.getElementById("eduBackgroundList").innerHTML = "<div>Tutor ini belum memiliki background pendidikan</div>";
+													} else {
+														var tablee = '<table><colgroup><col span="1" style="width: 85%;"><col span="1" style="width: 15%;"></colgroup><tbody>';
+														for(var ui=0; ui < edulong; ui++){
+															var dataA = identifier.getAttribute("data-edua["+ ui +"]");
+															var dataB = identifier.getAttribute("data-edub["+ ui +"]");
+															var dataC = identifier.getAttribute("data-educ["+ ui +"]");
+															
+															tablee += '<tr><td style="border-bottom: 1px solid #ddd;">';
+															tablee += '<h6 style="margin-top: 0 !important; line-height: 1.1 !important; margin-bottom: 0 !important;">';
+															tablee += dataA + '<br>';
+															tablee += dataB + '<br>';
+															tablee += '<small>' + dataC;
+															tablee += '</small></h6></td><td>&nbsp;</td></tr>';
+														}
+														tablee += '</tbody></table>';
+														
+														document.getElementById("eduBackgroundList").innerHTML = tablee;
+													}
+													
+													if(Gender == '' || Gender==null) Gender = '-----';
+													if(Religion == '' || Religion==null) Religion = '-----';
+													if(birthDate == '' || birthDate==null) birthDate = '-----';
+													if(birthPlace == '' || birthPlace==null) birthPlace = '-----';
+													if(cardId == '' || cardId==null) cardId = '-----';
+													if(cardType == '' || cardType==null) cardType = '-----';
+													
+													$("#editCourseModal").modal("show");
+													document.getElementById("idMentor").innerHTML = _id;
+													document.getElementById("idTeacher").value = _id;
+													document.getElementById("EditDataName").innerHTML = TeacherName;
+													document.getElementById("EditDataAddress").innerHTML = Address;
+													document.getElementById("EditDataGender").innerHTML = Gender;
+													document.getElementById("EditDataReligion").innerHTML = Religion;
+													document.getElementById("EditDataBDate").innerHTML = birthDate;
+													document.getElementById("EditDataBPlace").innerHTML = birthPlace;
+													document.getElementById("EditDataCardId").innerHTML = cardId;
+													document.getElementById("EditDataCardType").innerHTML = cardType;
+													document.getElementById("EditDataCity").innerHTML = City;
+													document.getElementById("EditDataProvince").innerHTML = Province;
+													document.getElementById("EditDataEmail").innerHTML = Email;
+													document.getElementById("EditDataPhone").innerHTML = Phone;
+													document.getElementById("EditDataAbout").innerHTML = About;
+													document.getElementById("EditDataVideo").innerHTML = ShortVideo;
+													document.getElementById("EditDataAppStatus").value = TeacherType;
+													document.getElementById("EditDataAppPoint").value = TeacherPoint;
+													document.getElementById("EditDataAppDoc").value = rateDoc;
+													document.getElementById("EditDataAppData").value = rateData;
+													document.getElementById("EditDataAppEdu").value = rateEdu;
+													document.getElementById("EditDataAppExp").value = rateExp;
+													document.getElementById("EditDataAppKnown").value = rateKnown;
+													document.getElementById("EditDataAppNote").value = rateNote;
+													//document.getElementById("EditDataVideo").setAttribute("data-uri", 'https://youtu.be/4Js-XbNj6Tk');
+													document.getElementById("imgPp").innerHTML = ppThumb;
+													//document.getElementById("imgPp").setAttribute("data-img", ppImg);
+													document.getElementById("imgSelfie").innerHTML = selfieThumb;
+													//document.getElementById("imgSelfie").setAttribute("data-img", selfieimg);
+													document.getElementById("imgCard").innerHTML = cardThumb;
+													//document.getElementById("imgCard").setAttribute("data-img", cardimg);
+													document.getElementById("imgCertificate").innerHTML = certificateThumb;
+													//document.getElementById("imgCertificate").setAttribute("data-img", certificateimg);
+													
+													if(hasPp==0)
+														document.getElementById("imgPp").setAttribute("href", "");
+													else
+														document.getElementById("imgPp").setAttribute("href", "#imgViewerPp");
+													if(hasSelfie==0)
+														document.getElementById("imgSelfie").setAttribute("href", "");
+													else
+														document.getElementById("imgSelfie").setAttribute("href", "#imgViewerSelfie");
+													if(hasCard==0)
+														document.getElementById("imgCard").setAttribute("href", "");
+													else
+														document.getElementById("imgCard").setAttribute("href", "#imgViewerIdcard");
+													if(hasCertificate==0)
+														document.getElementById("imgCertificate").setAttribute("href", "");
+													else
+														document.getElementById("imgCertificate").setAttribute("href", "#imgViewerCertificate");
+													if(ShortVideo == "")
+														document.getElementById("EditDataVideo").setAttribute("href", "");
+													else {
+														document.getElementById("EditDataVideo").setAttribute("href", "#videoViewer");
+														if(ShortVideo!="") ShortVideo = ShortVideo.substr(17);
+														ShortVideo = 'https://www.youtube.com/embed/' + ShortVideo;
+													}
+													
+													document.getElementById("imgShowPp").src = ppImg; 
+													document.getElementById("imgShowSelfie").src = selfieimg; 
+													document.getElementById("imgShowIdcard").src = cardimg; 
+													document.getElementById("imgShowCertificate").src = certificateimg; 
+													document.getElementById("youtubeFrame").src = ShortVideo; 
+													
+													replaceSwitcher();
+												};
+												</script>
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Nama</th>
+															<th>Telephone</th>
+															<th>Alamat (Domisili)</th>
+															<th>Status</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+													<% for(let i = 0; i < Teacher.length; i++){ %>
+													<%
+														var TRateDoc = "";
+														var TRateData = "";
+														var TRateEdu = "";
+														var TRateExp = "";
+														var TRateKnown = "";
+													%>
+													<% if(TeacherRates[i] !== undefined && TeacherRates[i] != null && TeacherRates[i] != ""){ %>
+													<% TRateDoc = TeacherRates[i].find(o => o.rateName == "document"); %>
+													<% TRateData = TeacherRates[i].find(o => o.rateName == "data"); %>
+													<% TRateEdu = TeacherRates[i].find(o => o.rateName == "education"); %>
+													<% TRateExp = TeacherRates[i].find(o => o.rateName == "experience"); %>
+													<% TRateKnown = TeacherRates[i].find(o => o.rateName == "knowledge"); %>
+													<% } %>
+													<% if(TeacherInfo[i].address.length > 27) {  var Address = TeacherInfo[i].address.substring(0, 25) + "..."; } else { %>
+													<% var Address = TeacherInfo[i].address; } %>
+														<tr>
+															<th scope="row"><%= ContentData.pagingCounter+i; %>.</th>
+															<th><%= PeopleID[i].name %></th>
+															<th><%= PeopleID[i].phone %></th>
+															<th><%= Address %></th>
+															<th>
+															
+															<% if(Teacher[i].userType == "teacher") { %>
+																<button readonly type="button" class="btn btn-success"><i class="fa fa-check"></i>Disetujui</button>
+															<% } else if(Teacher[i].userType == "pteacher") { %>
+																<button type="button" class="btn btn-warning"><i class="fa fa-send-o"></i>Pending</button>
+															<% } else if(Teacher[i].userType == "rteacher") { %>
+																<button type="button" class="btn btn-info"><i class="fa fa-reply"></i>Ditolak</button>
+															<% } else { %>
+																<button type="button" class="btn btn-danger"><i class="fa fa-exclamation-triangle"></i>Diblokir</button>
+															<% } %>
+															</th>
+															<th>
+															<form action="/mentor/<%= Teacher[i]._id %>?_method=DELETE" method="POST" id="form-<%= Teacher[i]._id %>">
+																<button
+																	type="button"
+																	class="btn btn-primary icon-only tombolEdit"
+																	onclick="onCallEditCourse(this)"
+																	data-RateNote="<%= PeopleID[i].secret %>"
+																	data-RateDoc="<%= TRateDoc.rateScore %>"
+																	data-RateData="<%= TRateData.rateScore %>"
+																	data-RateEdu="<%= TRateEdu.rateScore %>"
+																	data-RateExp="<%= TRateExp.rateScore %>"
+																	data-RateKnown="<%= TRateKnown.rateScore %>"
+																	data-userType="<%= Teacher[i].userType %>"
+																	data-userPoint="<%= Teacher[i].number %>"
+																	data-identitiesId="<%= Teacher[i]._id %>"
+																	data-name="<%= PeopleID[i].name %>"
+																	data-address="<%= Address %>"
+																	data-province="<%= TeacherInfo[i].province %>"
+																	data-city="<%= TeacherInfo[i].city %>"
+																	data-email="<%= PeopleID[i].email %>"
+																	data-phone="<%= PeopleID[i].phone %>"
+																	data-about="<%= PeopleID[i].nameEng %>"
+																	data-shortvideo="<%= TeacherInfo[i].avatarUrl %>"
+																	data-gender="<%= TeacherInfo[i].gender %>"
+																	data-religion="<%= TeacherInfo[i].religion %>"
+																	data-birthDate="<%= TeacherInfo[i].birthDate %>"
+																	data-birthPlace="<%= TeacherInfo[i].birthPlace %>"
+																	data-cardId="<%= TeacherInfo[i].cardId %>"
+																	data-cardType="<%= TeacherInfo[i].cardType %>"
+																	<% if(ContentData.getImage[i] != "" && ContentData.getImage[i] !== undefined){ %>
+																	<% var SelfieImg = ContentData.getImage[i].find(o => o.type == "selfie"); %>
+																	<% var IDCardImg = ContentData.getImage[i].find(o => o.type == "idcard"); %>
+																	<% var CertificateImg = ContentData.getImage[i].find(o => o.type == "certificate"); %>
+																	<% var PPImg = ContentData.getImage[i].find(o => o.type == "profile"); %>
+																	<% if(PPImg !== undefined && PPImg != ""){ %>
+																	data-ppImgV = 1
+																	data-ppImg="<%= PPImg.image %>"
+																	data-ppThumb="<%= PPImg.thumbnail %>"
+																	<% } else { %>
+																	data-ppImgV = 0
+																	data-ppImg="images/noimage.png"
+																	data-ppThumb="images/noimage.png"
+																	<% } %>
+																	<% if(SelfieImg !== undefined && SelfieImg != ""){ %>
+																	data-selfieImgV = 1
+																	data-selfieImg="<%= SelfieImg.image %>"
+																	data-selfieThumb="<%= SelfieImg.thumbnail %>"
+																	<% } else { %>
+																	data-selfieImgV = 0
+																	data-selfieImg="images/noimage.png"
+																	data-selfieThumb="images/noimage.png"
+																	<% } %>
+																	<% if(IDCardImg !== undefined && IDCardImg != ""){ %>
+																	data-cardImgV = 1
+																	data-cardImg="<%= IDCardImg.image %>"
+																	data-cardThumb="<%= IDCardImg.thumbnail %>"
+																	<% } else { %>
+																	data-cardImgV = 0
+																	data-cardImg="images/noimage.png"
+																	data-cardThumb="images/noimage.png"
+																	<% } %>
+																	<% if(CertificateImg !== undefined && CertificateImg != ""){ %>
+																	data-certificateImgV = 1
+																	data-certificateImg="<%= CertificateImg.image %>"
+																	data-certificateThumb="<%= CertificateImg.thumbnail %>"
+																	<% } else { %>
+																	data-certificateImgV = 0
+																	data-certificateImg="images/noimage.png"
+																	data-certificateThumb="images/noimage.png"
+																	<% } } else {%>
+																	data-ppImgV = 0
+																	data-selfieImgV = 0
+																	data-cardImgV = 0
+																	data-certificateImgV = 0
+																	data-ppImg="images/noimage.png"
+																	data-ppThumb="images/noimage.png"
+																	data-selfieImg="images/noimage.png"
+																	data-selfieThumb="images/noimage.png"
+																	data-cardImg="images/noimage.png"
+																	data-cardThumb="images/noimage.png"
+																	data-certificateImg="images/noimage.png"
+																	data-certificateThumb="images/noimage.png"
+																	<% } %>
+																	<% if(Studys[i]!="" && Studys[i]!== undefined) { var tempStudys = Studys[i] %>
+																	data-long=<%= tempStudys.length %>
+																	<% for(var tm=0; tm<tempStudys.length; tm++){ %>
+																	<% var getGrade = ContentData.getGrade; %>
+																	<% var getTyCourse = ContentData.getTypeCourse; %>
+																	<% var GradeObj = getGrade.find(o => o._id == tempStudys[tm].gradeId); %>
+																	<% var TcObj = getTyCourse.find(o => o._id == tempStudys[tm].typeId); %>
+																	data-gradeId[<%= tm %>] = "<%= GradeObj.name %>"
+																	data-courseId[<%= tm %>] = "<%= TcObj.name %>"
+																	data-statusId[<%= tm %>] = "<%= tempStudys[tm].status %>"
+																	data-studyId[<%= tm %>] = "<%= tempStudys[tm]._id %>"
+																	<% } %>
+																	<% } else { %>
+																	data-long=0
+																	<% } %>
+																	<% if(TeachingExp[i]!="" && TeachingExp[i]!== undefined) { var tempTeachExp = TeachingExp[i] %>
+																	data-explong=<%= tempTeachExp.length %>
+																	<% for(var te=0; te<tempTeachExp.length; te++){ %>
+																	<% var toDate=tempTeachExp[te].toDate %>
+																	<% var getGrade = ContentData.getGrade; %>
+																	<% var GradeObj = getGrade.find(o => o._id == tempTeachExp[te].grade); %>
+																	<% if(toDate== "")toDate="Now" %>
+																	data-expa[<%= te %>] = "<%= tempTeachExp[te].school %> - <%= tempTeachExp[te].city %>"
+																	data-expb[<%= te %>] = "<%= tempTeachExp[te].course %> - <%= GradeObj.name %> (<%= tempTeachExp[te].status %>)"
+																	data-expc[<%= te %>] = "<%= tempTeachExp[te].fromDate %> - <%= toDate %>"
+																	data-expd[<%= te %>] = "<%= tempTeachExp[te].desc %>"
+																	<% } %>
+																	<% } else {%>
+																	data-explong=0
+																	<% } %>
+																	<% if(EduBackground[i]!="" && EduBackground[i]!== undefined) { var tempEduBgn = EduBackground[i] %>
+																	data-edulong=<%= tempEduBgn.length %>
+																	<% for(var eb=0; eb<tempEduBgn.length; eb++){ %>
+																	data-edua[<%= eb %>]= "<%= tempEduBgn[eb].major %> (<%= tempEduBgn[eb].strata.toUpperCase() %>) <%= tempEduBgn[eb].institution %>"
+																	data-edub[<%= eb %>]= "<%= tempEduBgn[eb].fromDate %> - <%= tempEduBgn[eb].toDate %>"
+																	data-educ[<%= eb %>]= "<%= tempEduBgn[eb].thesis %> (Score: <%= tempEduBgn[eb].score %>)"
+																	<% } %>
+																	<% } else { %>
+																	data-edulong=0
+																	<% } %>
+																><i class="fa fa-pencil"></i></button>
+															</form>
+															</th>
+														</tr>
+													<% } %>
+													</tbody>
+												</table>
+												<% if(ContentData.totalPages > 1){ %>
+												<form action="/mentor" method="POST" id="formNextPage" name="formNextPage">
+												<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+												<nav class="text-center">
+                                                	<ul class="pagination rounded-corners">
+                                                		<li>
+                                                			<a href="#" aria-label="Previous">
+                                                				<span aria-hidden="true">&laquo;</span>
+                                                			</a>
+                                                		</li>
+														<% for(let j = 0; j < ContentData.totalPages; j++){ var PageLink = j+1; %>
+                                                		<% if(ContentData.currPage == PageLink) { %>
+														<li class="active">
+														<% } else { %>
+														<li>
+														<% } %>
+														<a
+															href="#"
+															<% if(ContentData.currPage != PageLink) { %>
+															data-nextPage="<%= PageLink %>"
+															onClick="nxPage(this)"
+															<% } %>
+															><%= PageLink %></a></li>
+														<% } %>
+                                                		<li>
+                                                			<a href="#" aria-label="Next">
+                                                				<span aria-hidden="true">&raquo;</span>
+                                                			</a>
+                                                		</li>
+														<input type="hidden" value="" id="nextPage" name="nextPage" />
+                                                	</ul>
+                                                </nav>
+												</form>
+												<% } %>
+											<% } else { %>
+												<div class="alert alert-danger" role="alert"> <strong>Tidak ada tutor untuk sementara ini!</strong>.</div>
+											<% } %>											
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include('../modal/mentor-modal.ejs') %>
+									

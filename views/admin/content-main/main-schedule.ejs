@@ -1,0 +1,308 @@
+									<link rel="stylesheet" href="/js-calendar-main/app.css">
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function dayEvent(identifier){
+													var dataDay = identifier.getAttribute("data-day");
+													var dataMonth = identifier.getAttribute("data-month");
+													var dataYear = identifier.getAttribute("data-year");
+													var dataHour = document.getElementById("dataHour");
+													var dataMinute = document.getElementById("dataMinute");
+													var totalData = identifier.getAttribute("total-data");
+													var dayId = identifier.getAttribute("data-day");
+													
+													var textMonth = '';
+													var modalTitle = document.getElementById("myModalLabel");
+													var buttonAdd = document.getElementById("addScheduleBtn");
+													dataHour.value='0';
+													dataMinute.value='0';
+													var titleComponent = '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>';
+													var titleText = '';
+													
+													switch (dataMonth){
+														case '11':
+															textMonth = 'December';
+															break;
+														case '10':
+															textMonth = 'November';
+															break;
+														case '9':
+															textMonth = 'October';
+															break;
+														case '8':
+															textMonth = 'September';
+															break;
+														case '7':
+															textMonth = 'August';
+															break;
+														case '6':
+															textMonth = 'July';
+															break;
+														case '5':
+															textMonth = 'June';
+															break;
+														case '4':
+															textMonth = 'May';
+															break;
+														case '3':
+															textMonth = 'April';
+															break;
+														case '2':
+															textMonth = 'March';
+															break;
+														case '1':
+															textMonth = 'February';
+															break;
+														default:
+															textMonth = 'January';
+													};
+													
+													titleText = 'Add Schedule on ' + dataDay + ' ' + textMonth + ' ' + dataYear;
+													modalTitle.innerHTML = titleText + titleComponent;
+													//alert(dataYear+'-'+dataMonth+'-'+dataDay);
+													buttonAdd.setAttribute("data-date", dataYear+'/'+dataMonth+'/'+dataDay);
+													buttonAdd.setAttribute("onclick", "fetchpost(this)");
+													buttonAdd.setAttribute("total-data", totalData);
+													buttonAdd.setAttribute("dayId", dayId);
+													buttonAdd.setAttribute("_csrf", "<%= ContentData.tokens %>");
+													buttonAdd.setAttribute("regId", "<%= ContentData.regId %>");
+													
+													if(totalData>0){
+														var htmlTable = '<table class="table table-striped table-bordered" id="listScheduleTable">';
+														htmlTable += '<colgroup><col span="1" style="width: 20%;"><col span="1" style="width: 25%;"><col span="1" style="width: 45%;">';
+														htmlTable += '<col span="1" style="width: 10%;"></colgroup>';
+														htmlTable += '<thead><tr><th>Time</th><th>Grade Course</th><th colspan=2>Title</th></tr></thead>';
+														htmlTable += '<tbody>';
+														
+														for(var tData=0; tData<totalData; tData++){
+															var dataTimeStart = identifier.getAttribute("data-dateStart-" + tData).substr(11, 5);
+															var dataTimeEnd = identifier.getAttribute("data-dateEnd-" + tData).substr(11, 5);
+															var GradeName = identifier.getAttribute("data-gc-" + tData);
+															var CourseName = identifier.getAttribute("data-name-" + tData);
+															var StudyID = identifier.getAttribute("data-studyId-" + tData);
+															var scheduleID = identifier.getAttribute("data-scheduleId-" + tData);
+															
+															htmlTable += '<tr>';
+															htmlTable += '<td>'+dataTimeStart+'-'+dataTimeEnd+'</td>';
+															htmlTable += '<td>'+GradeName+'</td>';
+															htmlTable += '<td>'+CourseName+'</td>';
+															htmlTable += '<td>';
+															htmlTable += '<button type="button" class="btn btn-danger icon-only" id="delete-button" onClick="deleteModal(this)" data-studyId="'+StudyID+'"><i class="fa fa-trash-o"></i></button>';
+															htmlTable += '</td>';
+															htmlTable += '</tr>';
+														}
+														
+														htmlTable += '</tbody></table>';
+														document.getElementById("scheduleList").innerHTML = htmlTable;
+													} else {
+														document.getElementById("scheduleList").innerHTML = "<div>You dont have any schedule on this date</div>";
+													}
+													
+													$("#addScheduleModal").modal("show");
+												};
+												
+												function fetchpost(identifier){
+													// (A) GET FORM DATA
+													let fd = new URLSearchParams();
+													//fd.append("dataCourse", document.getElementById("dataCourse").value);
+													fd.append("dataHour", document.getElementById("dataHour").value);
+													fd.append("dataMinute", document.getElementById("dataMinute").value);
+													fd.append("dataDate", identifier.getAttribute("data-date"));
+													fd.append("regId", identifier.getAttribute("regId"));
+													var token = identifier.getAttribute("_csrf");
+													var DayID = identifier.getAttribute("dayId");
+													var ttlData = identifier.getAttribute("total-data");
+													
+													// (B) FETCH
+													fetch("<%= ContentData.baseurl %>/schedule", {
+														credentials: 'same-origin', // <-- includes cookies in the request
+														headers: {
+															'CSRF-Token': token // <-- is the csrf token as a header
+														},
+														method: 'post',
+														body: fd
+													})
+													.then(function (response) {
+														return response.text();
+													})
+													.then(function (data) {
+														var Values = JSON.parse(data);
+														var buttonAdd = document.getElementById("addScheduleBtn");
+														var elementDay = document.getElementById("dayId-"+DayID);
+														
+														buttonAdd.setAttribute("_csrf", Values._csrf);
+														buttonAdd.setAttribute("regId", Values.regId);
+														
+														if(Values.postStatus == 'success'){
+															var returnData = Values.returnData;
+															
+															var datascheduleId = "data-scheduleId-" + ttlData;
+															var datastudyId = "data-studyId-" + ttlData;
+															var dataclientId = "data-clientId-" + ttlData;
+															var datadateStart = "data-dateStart-" + ttlData;
+															var datadateEnd = "data-dateEnd-" + ttlData;
+															var datastatus = "data-status-" + ttlData;
+															var dataGC = "data-gc-" + ttlData;
+															var dataname = "data-name-" + ttlData;
+															
+															var HourStart = returnData.dateStart.substr(11, 5);
+															var HourEnd = returnData.dateEnd.substr(11, 5);
+															
+															// create table
+															if(ttlData<1){
+																var htmlTable = '<table class="table table-striped table-bordered" id="listScheduleTable">';
+																htmlTable += '<colgroup><col span="1" style="width: 20%;"><col span="1" style="width: 25%;"><col span="1" style="width: 45%;">';
+																htmlTable += '<col span="1" style="width: 10%;"></colgroup>';
+																htmlTable += '<thead><tr><th>Time</th><th>Grade Course</th><th colspan=2>Title</th></tr></thead>';
+																htmlTable += '<tbody>';
+																htmlTable += '</tbody></table>';
+																document.getElementById("scheduleList").innerHTML = htmlTable;
+															}
+															
+															ttlData++;
+															elementDay.setAttribute(datascheduleId, returnData.scheduleId);
+															elementDay.setAttribute(datastudyId, returnData.studyId);
+															elementDay.setAttribute(dataclientId, returnData.clientId);
+															elementDay.setAttribute(datadateStart, returnData.dateStart);
+															elementDay.setAttribute(datadateEnd, returnData.dateEnd);
+															elementDay.setAttribute(datastatus, returnData.status);
+															elementDay.setAttribute(dataGC, returnData.dataGC);
+															elementDay.setAttribute(dataname, returnData.dataName);
+															elementDay.style.color = 'red';
+															elementDay.setAttribute("total-data", ttlData);
+															
+															var TableElement = document.getElementById("listScheduleTable");
+															var tableRow = TableElement.insertRow(ttlData);
+															var cell1 = tableRow.insertCell(0);
+															var cell2 = tableRow.insertCell(1);
+															var cell3 = tableRow.insertCell(2);
+															var cell4 = tableRow.insertCell(3);
+															
+															cell1.innerHTML = HourStart+'-'+HourEnd;
+															cell2.innerHTML = returnData.dataGC;
+															cell3.innerHTML = returnData.dataName;
+															cell4.innerHTML = '<button type="button" class="btn btn-danger icon-only" id="delete-button" onClick="deleteModal(this)" data-idStudy="1231j12v31j2j"><i class="fa fa-trash-o"></i></button>';
+															
+															swal({
+																type: "success",
+																title: "Success !",
+																confirmButtonColor: "#292929",
+																text: Values.postMessage,
+																confirmButtonText: "Ok"
+															});
+														} else {
+															swal("Failed", Values.postMessage, "error");
+														}
+													})
+													.catch(function (error) {
+														swal("Failed", error.message, "error");
+													});
+													
+													// (C) PREVENT HTML FORM SUBMIT
+													return false;
+												};
+
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+												};
+												window.onload = onLoad;
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idCourse");
+													swal({
+														title: "Are you sure?",
+														text: "You will not be able to recover this Course!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Yes, delete it!",
+														cancelButtonText: "No, cancel please!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Cancelled", "Your course not deleted.", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-6 col-md-offset-3">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title text-center">
+													<h4><strong>Calendar Schedule</strong></h4>
+												</div>
+											</div>
+											<div class="panel-body">
+												<div class="calendar">
+													<div class="calendar-header">
+														<span class="month-picker" id="month-picker"></span>
+														<div class="year-picker">
+															<span class="year-change" id="prev-year"><</span>
+															<span id="year"></span>
+															<span class="year-change" id="next-year">></span>
+														</div>
+													</div>
+													<div class="calendar-body">
+														<div class="calendar-week-day">
+															<div>Sun</div>
+															<div>Mon</div>
+															<div>Tue</div>
+															<div>Wed</div>
+															<div>Thu</div>
+															<div>Fri</div>
+															<div>Sat</div>
+														</div>
+														<div class="calendar-days"></div>
+													</div>
+													<div class="month-list" style="display:grid !important; background-color: #fdfdfd;"></div>
+												</div>
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include("../modal/schedule-modal.ejs") %>
+									
+									<script type='text/javascript'>
+									<%- include("../js/app") %>
+									</script>
+									

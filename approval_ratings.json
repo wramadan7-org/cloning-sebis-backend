@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "60bdc126e34cf52eac48548f"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "verifiedId": "",
+  "rateName": "document",
+  "rateScore": "1",
+  "status": "1",
+  "updated_at": "2021-06-07 13:45:19",
+  "created_at": "2021-06-07 13:45:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bdc126e34cf52eac485490"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "verifiedId": "",
+  "rateName": "data",
+  "rateScore": "3",
+  "status": "1",
+  "updated_at": "2021-06-07 13:45:19",
+  "created_at": "2021-06-07 13:45:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bdc126e34cf52eac485491"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "verifiedId": "",
+  "rateName": "education",
+  "rateScore": "5",
+  "status": "1",
+  "updated_at": "2021-06-07 13:45:19",
+  "created_at": "2021-06-07 13:45:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bdc126e34cf52eac485492"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "verifiedId": "",
+  "rateName": "experience",
+  "rateScore": "2",
+  "status": "1",
+  "updated_at": "2021-06-07 13:45:19",
+  "created_at": "2021-06-07 13:45:19",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60bdc126e34cf52eac485493"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "verifiedId": "",
+  "rateName": "knowledge",
+  "rateScore": "4",
+  "status": "1",
+  "updated_at": "2021-06-07 13:45:19",
+  "created_at": "2021-06-07 13:45:19",
+  "__v": 0
+}]

@@ -1,0 +1,175 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												function firstRun(){
+													replaceSwitcher();
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+												};
+												window.onload = firstRun;
+												
+												function endisSwitch(identifier){
+													var formid = identifier.getAttribute("data-idKelas");
+													var form = document.getElementById("form-" + formid);
+													form.submit();
+												};
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idArticle");
+													swal({
+														title: "Apakah anda yakin?",
+														text: "Anda tidak akan dapat mengembalikan data!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Ya, hapus saja!",
+														cancelButtonText: "Batal, akan diperiksa kembali!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Gagal", "Tingkat kelas tidak jadi dihapus", "error");
+														} else {
+															swal("Gagal", "Tingkat kelas telah digunakan oleh mata pelajaran lain!", "error");
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>List Data Master Kelas</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+											
+											<% if(ContentData.getKelas != ""){ var Kelas = ContentData.getKelas %>
+												<script>
+												function onCallEditKelas(identifier){
+													
+													var _id = identifier.getAttribute("data-idKelas");
+													var nameKelas = identifier.getAttribute("data-nameKelas");
+													var gradeKelas = identifier.getAttribute("data-gradeKelas");
+													var togradeKelas = identifier.getAttribute("data-togradeKelas");
+													var kurikulum = identifier.getAttribute("data-kurikulum");
+													
+													$("#editGradeModal").modal("show");
+													document.getElementById("idKelas").value = _id;
+													document.getElementById("EditdataName").value = nameKelas;
+													document.getElementById("EditdataTingkat").value = gradeKelas;
+													document.getElementById("EditdataSampai").value = togradeKelas;
+													document.getElementById("EditdataKurikulum").value = kurikulum;
+													
+													
+												};
+												</script>
+												<table class="table table-hover table-bordered" id="dataTable">
+													<thead>
+														<tr>
+															<th>No</th>
+															<th>Nama</th>
+															<th>Kelas</th>
+															<th>Kurikulum</th>
+															<th>Aktif</th>
+															<th>&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+													<% for(let i = 0; i < Kelas.length; i++){ var N = i+1; %>
+													<% if(Kelas[i].grade == Kelas[i].tograde) { var KGrade = Kelas[i].grade; %>
+													<% } else { var KGrade = Kelas[i].grade +" - "+ Kelas[i].tograde; } %>
+													<% if(Kelas[i].curriculum == "0") { var Kur = "Nasional"; %>
+													<% } else if(Kelas[i].curriculum == "1") { var Kur = "Cambridge Assement"; %>
+													<% } else { var Kur = "International Baccalaureate"; } %>
+														<tr>
+															<th scope="row"><%= N %>.</th>
+															<th><%= Kelas[i].name.toUpperCase() %></th>
+															<th><%= KGrade %></th>
+															<th><%= Kur %></th>
+															<th>
+															<form action="/grade/switch/<%= Kelas[i]._id %>" method="POST" id="form-<%= Kelas[i]._id %>">
+															<input type="hidden" name="_csrf" value="<%= ContentData.tokens %>">
+																<div class="mb-20" name="replacer" id="replacer" onClick="endisSwitch(this)" data-idKelas = "<%= Kelas[i]._id %>">
+																	<input 
+																		data-idKelas = "<%= Kelas[i]._id %>"
+																		type="checkbox" 
+																		class="js-switch-small" 
+																		id="published"
+																		name="published"
+																		<% if(Kelas[i].disable == "enable"){ %>
+																		checked
+																		<% } %>
+																		/>
+																</div>
+															</form>
+															</th>
+															
+															<th>
+															<form action="/grade/<%= Kelas[i]._id %>?_method=DELETE" method="POST" id="form-<%= Kelas[i]._id %>">
+																<button
+																	type="button"
+																	class="btn btn-primary icon-only tombolEdit"
+																	onclick="onCallEditKelas(this);"
+																	data-idKelas="<%= Kelas[i]._id %>"
+																	data-nameKelas="<%= Kelas[i].name %>"
+																	data-gradeKelas="<%= Kelas[i].grade %>"
+																	data-togradeKelas="<%= Kelas[i].tograde %>"
+																	data-kurikulum="<%= Kelas[i].curriculum %>"
+																><i class="fa fa-pencil"></i></button>
+																<button 
+																	type="button" 
+																	class="btn btn-danger icon-only" 
+																	id="delete-button" 
+																	onClick="deleteModal(this)"
+																	data-idKelas="<%= Kelas[i]._id %>"
+																	><i class="fa fa-trash-o"></i></button>
+															</form>
+															</th>
+														</tr>
+													<% } %>
+													</tbody>
+												</table>
+											<% } else { %>
+												<div class="alert alert-danger" role="alert"> <strong>Belum ada master data kelas sekarang</strong> Harap untuk ditambahan. </div>
+											<% } %>											
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- include('../modal/grade-modal.ejs') %>
+									

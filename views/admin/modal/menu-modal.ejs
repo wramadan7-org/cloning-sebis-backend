@@ -1,0 +1,160 @@
+<!-- Modal Add-->
+<div class="modal fade" id="addMenuData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/menu/add" method="POST">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add Menu Data<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="dataName">Name</label>
+																<input type="text" class="form-control" name="dataName" id="dataName" placeholder="Enter Your Menu Name">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="dataUserType">User Type</label>
+																<input type="text" class="form-control" name="dataUserType" id="dataUserType" placeholder="For User Type ?">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+													</div>
+
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="dataURI">URI</label>
+																<input type="text" class="form-control" name="dataURI" id="dataURI" placeholder="Enter Your Menu URI. ex: /home">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="published">Enable?</label>
+																<div class="mb-20" name="replacer" id="replacer">
+																	<input type="checkbox" class="js-switch-small" id="published" name="published" checked />
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="dataHTML">HTML</label>
+																<input type="text" class="form-control" name="dataHTML" id="dataHTML" placeholder="Enter Your HTML Class">
+															</div>
+														</div>
+													</div>	
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="dataParent">Parent Menu</label>
+																<select class="form-control" name="dataParent" id="dataParent">
+																	<option value="-">None</option>
+																	<% if(ContentData.getParent != ""){ var Menus = ContentData.getParent %>
+																	<% for(let i = 0; i<Menus.length; i++){ %>
+																	<option value="<%= Menus[i]._id %>"><%= Menus[i].name %> - <%= Menus[i].userType %></option>
+																	<% } } %>
+																</select>
+															</div>
+														</div>
+													</div>
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="reset" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+        </form>
+		</div>
+    </div>
+</div>
+<!-- /.Modal Add-->
+
+<!-- Modal Edit -->
+<div class="modal fade" id="editMenuData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/menu?_method=PUT" method="POST">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Edit Menu Data <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="EditdataName">Name</label>
+																<input type="text" class="form-control" name="EditdataName" id="EditdataName" placeholder="Enter Your Menu Name">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="EditdataUserType">User Type</label>
+																<input type="text" class="form-control" name="EditdataUserType" id="EditdataUserType" placeholder="For User Type ?">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+													</div>
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="EditdataURI">URI</label>
+																<input type="text" class="form-control" name="EditdataURI" id="EditdataURI" placeholder="Enter Your Menu URI">
+															</div>
+														</div>
+														<!-- /.col-md-6 -->
+
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="published2">Enable?</label>
+																<div class="mb-20" name="replacer2" id="replacer2">
+																	<input type="checkbox" class="js-switch-small" id="published2" name="published2" checked />
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="EditdataHTML">HTML</label>
+																<input type="text" class="form-control" name="EditdataHTML" id="EditdataHTML" placeholder="Enter Your Custom HTML Class">
+															</div>
+														</div>
+														<!-- /.col-md-12 -->
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="EditdataParent">Parent Menu</label>
+																<select class="form-control" name="EditdataParent" id="EditdataParent">
+																	<option value="-">None</option>
+																	<% if(ContentData.getParent != ""){ var Menus = ContentData.getParent %>
+																	<% for(let i = 0; i<Menus.length; i++){ %>
+																	<option value="<%= Menus[i]._id %>"><%= Menus[i].name %> - <%= Menus[i].userType %></option>
+																	<% } } %>
+																</select>
+															</div>
+														</div>
+													</div>
+			</div>
+            <div class="modal-footer">
+				<input type="hidden" name="idMenu" id="idMenu" />
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+			</form>
+        </div>
+    </div>
+</div>
+<!-- /.Modal Edit-->

@@ -1,0 +1,131 @@
+									<script src="/options_admin/js/switchery/switchery.min.js"></script>
+									<script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>	
+									<script>
+												function replaceSwitcher(){
+													var smallElems = Array.prototype.slice.call(document.querySelectorAll('.js-switch-small'));
+													
+													smallElems.forEach(function(html) {
+													  var switchery = new Switchery(html, {
+														  size: 'small'
+													  });
+													});
+												};
+												
+												function replacer(){
+													var checkSwitch = document.getElementById("replacer");
+													checkSwitch.innerHTML = '<input type="checkbox" class="js-switch-small" id="published" name="published" checked />';
+													replaceSwitcher();
+												};
+												
+												function onLoad(){
+													$('#imageViewerModal')
+														.on('show.bs.modal', function () {
+															$('#editCourseModal').modal("hide");
+														})
+														.on('hidden.bs.modal', function () {
+															$('#editCourseModal').modal("show").focus();
+														});
+												
+												
+											<% if(ContentData.Status == "success" || ContentData.Status == "delete") { %>
+													swal({
+														type: "success",
+														title: "Success !",
+														confirmButtonColor: "#292929",
+														text: "<%= ContentData.msg %>",
+														confirmButtonText: "Ok"
+													});
+											<% } %>
+											<% if(ContentData.Status == "error") { %>
+												swal("Failed", "<%= ContentData.msg %>", "error");
+											<% } %>
+													
+												};
+												window.onload = onLoad;
+												
+												function deleteModal(identifier){
+													var formid = identifier.getAttribute("data-idStudy");
+													swal({
+														title: "Are you sure?",
+														text: "You will not be able to recover this study!",
+														type: "warning",
+														showCancelButton: true,
+														confirmButtonColor: "#e74c3c",
+														confirmButtonText: "Yes, delete it!",
+														cancelButtonText: "No, cancel please!",
+														closeOnConfirm: false,
+														closeOnCancel: false
+													}, function(isConfirm){
+														if (!isConfirm) {
+															swal("Cancelled", "Mentor study not deleted.", "error");
+														} else {
+															var form = document.getElementById("form-" + formid);
+															form.submit();
+														}
+													});
+												};
+												
+												function nxPage(identifier){
+													var formNext = identifier.getAttribute("data-nextPage");
+													var form = document.getElementById("formNextPage");
+													
+													document.getElementById("nextPage").value = formNext;
+													form.submit();
+												};
+									</script>
+											
+									<div class="col-md-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<div class="panel-title">
+													<h5>Payment</h5>
+												</div>
+											</div>
+											<div class="panel-body">
+												<table class="table table-striped table-bordered" id="dataTable">
+													<colgroup>
+														<col span="1" style="width: 20%;">
+														<col span="1" style="width: 20%;">
+														<col span="1" style="width: 20%;">
+														<col span="1" style="width: 20%;">
+														<col span="1" style="width: 20%;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th>Student ID</th>
+															<th>Payment Type</th>
+															<th>No. Order</th>
+															<th>Nominal</th>
+															<th>Status</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th>iasjd090a9sd0asdd</th>
+															<td>OVO</td>
+															<td>TR0029202929</td>
+															<td>Rp. 99.999.999,-</td>
+															<td>SUCCESS</td>
+														</tr>
+														<tr>
+															<th>098sajs00990asj09</th>
+															<td>LINK AJA</td>
+															<td>TR00292022129</td>
+															<td>Rp. 32.000.000,-</td>
+															<td>SUCCESS</td>
+														</tr>
+														<tr>
+															<th>098sj9yu2390asj11</th>
+															<td>(VA) BCA</td>
+															<td>TR002112344130</td>
+															<td>Rp. 69.000.000,-</td>
+															<td>SUCCESS</td>
+														</tr>
+													</tbody>
+												</table>										
+											</div>
+										</div>									
+                                    </div>
+									
+									<%- //include('../modal/mentor-modal.ejs') %>
+									

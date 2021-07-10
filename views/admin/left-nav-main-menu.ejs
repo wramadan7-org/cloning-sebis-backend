@@ -1,0 +1,23 @@
+							
+							<div class="sidebar-nav">
+                                <ul class="side-nav color-gray">
+                                    <li class="nav-header">
+                                        <span class="">Admin Menu</span>
+                                    </li>
+									<li class=""><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+									<% if(ContentData.menu != "") { var MENU = ContentData.menu %>
+									<% for(var i = 0; i < MENU.length; i++){ var SUBMENU = ContentData.submenu %>
+									<% if(SUBMENU[i] != "" && SUBMENU[i] != null) { %>
+										<li class="has-children">
+										<a href="#"><i class="<%= MENU[i].html %>"></i> <span><%= MENU[i].name %></span><i class="fa fa-angle-right arrow"></i></a>
+										<ul class="child-nav">
+									<% for(var xSub=0; xSub<SUBMENU[i].length; xSub++){ var tempSub = SUBMENU[i] %>
+										<li><a href="<%= tempSub[xSub].uri %>"><i class="<%= tempSub[xSub].html %>"></i> <span><%= tempSub[xSub].name %></span></a></li>
+									<% } %>
+										</ul></li>
+									<% } else { %>
+										<li><a href="<%= MENU[i].uri %>"><i class="<%= MENU[i].html %>"></i> <span><%= MENU[i].name %></span></a></li>
+									<% } } } %>
+										<li><a href="#" id="lgbtn" name="lgbtn" data-google="<%= ContentData.getIdentities.pushType %>" class="color-danger text-center" onClick="googleLogout(this)"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+                                </ul>
+                            </div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-signin-client_id" content="<%= GClientID() %>">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  </head>
+  <body>
+    <script>
+	var googleUser; // The current user.
+
+	function onSignIn(googleUser) {
+		const profile = googleUser.getBasicProfile();
+		var loc = '<%= locationID %>';
+		
+		loc	+= '/' + profile.getEmail();
+		loc += '/' + googleUser.getAuthResponse().id_token;
+		loc += '/' + profile.getName();
+		
+		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		console.log('Name: ' + profile.getName());
+		console.log('Image URL: ' + profile.getImageUrl());
+		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		
+		location.replace(loc);
+	}
+	</script>
+	
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+	<% if(buttonGoogle){ %>
+		<%- include('buttonGoogle.ejs'); %>
+	<% } %>
+	<div id="insert-post"></div>
+  </body>
+</html>

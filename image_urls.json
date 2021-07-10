@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "608777be325dc6222c7ba5a2"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "type": "profile",
+  "description": "",
+  "image": "images/profile/605841e54171670590690298.png",
+  "thumbnail": "images/profile/thumbnails/thumb-605841e54171670590690298.png",
+  "created_at": "2021-04-27 09:32:30",
+  "updated_at": "2021-04-27 10:04:11",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "608777be325dc6222c7ba5a3"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "type": "idcard",
+  "description": "",
+  "image": "images/idcard/605841e54171670590690298.jpg",
+  "thumbnail": "images/idcard/thumbnails/thumb-605841e54171670590690298.jpg",
+  "created_at": "2021-04-27 09:32:30",
+  "updated_at": "2021-04-27 10:04:11",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "608777be325dc6222c7ba5a4"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "type": "certificate",
+  "description": "",
+  "image": "images/certificate/605841e54171670590690298.png",
+  "thumbnail": "images/certificate/thumbnails/thumb-605841e54171670590690298.png",
+  "created_at": "2021-04-27 09:32:30",
+  "updated_at": "2021-04-27 10:04:11",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60877e6962e03b07804cff05"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "type": "selfie",
+  "description": "",
+  "image": "images/selfie/605841e54171670590690298.jpg",
+  "thumbnail": "images/selfie/thumbnails/thumb-605841e54171670590690298.jpg",
+  "created_at": "2021-04-27 10:00:57",
+  "updated_at": "2021-04-27 10:00:57",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c70b4e1210dd2e4c3da615"
+  },
+  "identitiesId": "60822eba097a230d64702e04",
+  "type": "profile",
+  "description": "",
+  "image": "images/profile/60822eba097a230d64702e04.png",
+  "thumbnail": "images/profile/thumbnails/thumb-60822eba097a230d64702e04.png",
+  "created_at": "2021-06-14 14:54:54",
+  "updated_at": "2021-06-16 16:35:38",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c713e59fe077036cf0082c"
+  },
+  "identitiesId": "60822eba097a230d64702e04",
+  "type": "idcard",
+  "description": "",
+  "image": "images/idcard/60822eba097a230d64702e04.jpg",
+  "thumbnail": "images/idcard/thumbnails/thumb-60822eba097a230d64702e04.jpg",
+  "created_at": "2021-06-14 15:31:33",
+  "updated_at": "2021-06-16 16:35:46",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c9a6f7dc1eb52a844f486c"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "type": "idcard",
+  "description": "",
+  "image": "images/idcard/606e89504cf4671f9cd32b3b.jpg",
+  "thumbnail": "images/idcard/thumbnails/thumb-606e89504cf4671f9cd32b3b.jpg",
+  "created_at": "2021-06-16 14:23:35",
+  "updated_at": "2021-06-17 10:47:13",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c9a6ffdc1eb52a844f486d"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "type": "profile",
+  "description": "",
+  "image": "images/profile/606e89504cf4671f9cd32b3b.jpg",
+  "thumbnail": "images/profile/thumbnails/thumb-606e89504cf4671f9cd32b3b.jpg",
+  "created_at": "2021-06-16 14:23:43",
+  "updated_at": "2021-06-17 16:58:36",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c9a8b804ff562f90845808"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "type": "selfie",
+  "description": "",
+  "image": "images/selfie/606e89504cf4671f9cd32b3b.jpg",
+  "thumbnail": "images/selfie/thumbnails/thumb-606e89504cf4671f9cd32b3b.jpg",
+  "created_at": "2021-06-16 14:31:04",
+  "updated_at": "2021-06-16 16:11:46",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c9a8d104ff562f90845809"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "type": "certificate",
+  "description": "",
+  "image": "images/certificate/606e89504cf4671f9cd32b3b.jpg",
+  "thumbnail": "images/certificate/thumbnails/thumb-606e89504cf4671f9cd32b3b.jpg",
+  "created_at": "2021-06-16 14:31:29",
+  "updated_at": "2021-06-16 16:11:53",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c9bdb41b723c2d8c905194"
+  },
+  "identitiesId": "60822eba097a230d64702e04",
+  "type": "selfie",
+  "description": "",
+  "image": "images/selfie/60822eba097a230d64702e04.png",
+  "thumbnail": "images/selfie/thumbnails/thumb-60822eba097a230d64702e04.png",
+  "created_at": "2021-06-16 16:00:36",
+  "updated_at": "2021-06-16 16:35:51",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60c9bdbd1b723c2d8c905195"
+  },
+  "identitiesId": "60822eba097a230d64702e04",
+  "type": "certificate",
+  "description": "",
+  "image": "images/certificate/60822eba097a230d64702e04.jpg",
+  "thumbnail": "images/certificate/thumbnails/thumb-60822eba097a230d64702e04.jpg",
+  "created_at": "2021-06-16 16:00:45",
+  "updated_at": "2021-06-16 16:35:59",
+  "__v": 0
+}]

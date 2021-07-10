@@ -1,0 +1,58 @@
+[{
+  "_id": {
+    "$oid": "6098dee151ebfb1f789aa07f"
+  },
+  "name": "0",
+  "desc": "Private Course",
+  "nprice1": "50000",
+  "nprice2": "0",
+  "nprice3": "0",
+  "nprice4": "0",
+  "nprice5": "0",
+  "oprice1": "0",
+  "oprice2": "0",
+  "oprice3": "0",
+  "oprice4": "0",
+  "oprice5": "0",
+  "created_at": "2021-05-10 14:21:05",
+  "updated_at": "2021-05-10 14:21:05",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6098dee151ebfb1f789aa080"
+  },
+  "name": "1",
+  "desc": "Group (Max 3 People) Course",
+  "nprice1": "100000",
+  "nprice2": "0",
+  "nprice3": "0",
+  "nprice4": "0",
+  "nprice5": "0",
+  "oprice1": "0",
+  "oprice2": "0",
+  "oprice3": "0",
+  "oprice4": "0",
+  "oprice5": "0",
+  "created_at": "2021-05-10 14:21:05",
+  "updated_at": "2021-05-10 14:21:05",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6098dee151ebfb1f789aa081"
+  },
+  "name": "2",
+  "desc": "Group (Max 5 People) Course",
+  "nprice1": "150000",
+  "nprice2": "0",
+  "nprice3": "0",
+  "nprice4": "0",
+  "nprice5": "0",
+  "oprice1": "0",
+  "oprice2": "0",
+  "oprice3": "0",
+  "oprice4": "0",
+  "oprice5": "0",
+  "created_at": "2021-05-10 14:21:05",
+  "updated_at": "2021-05-10 14:21:05",
+  "__v": 0
+}]

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="google-signin-client_id" content="<%= GClientID() %>">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  </head>
+  <body>
+    <script>
+	function init() {
+		gapi.load('auth2', function() {
+			// Ready.
+			gapi.auth2.init({
+				client_id: '<%= GClientID() %>'
+			});
+		});
+	}
+	
+	function googleLogout() {
+		
+		gapi.auth2.getAuthInstance().disconnect().then(function () {
+			console.log('User signed out.');
+			alert("googleLogout done."); 
+			location.replace('http://localhost:3000/register');
+		});   
+		
+	}
+	
+	googleLogout();
+	</script>
+	
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+	<button onClick="googleLogout()">Logout</button>
+  </body>
+</html>

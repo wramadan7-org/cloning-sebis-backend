@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="robots" content="noindex">
+		<meta name="google-signin-client_id" content="<%= GClientID() %>">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<% if(ContentData.tokens !== undefined && ContentData.tokens != ""){ %>
+		<meta name="csrf-token" content="<%= ContentData.tokens %>">
+		<% } %>
+        <title>SEBIS Les Admin | Profile</title>
+
+        <!-- ========== COMMON STYLES ========== -->
+        <link rel="stylesheet" href="/options_admin/css/bootstrap.min.css" media="screen" >
+        <link rel="stylesheet" href="/options_admin/css/font-awesome.min.css" media="screen" >
+        <link rel="stylesheet" href="/options_admin/css/animate-css/animate.min.css" media="screen" >
+        <link rel="stylesheet" href="/options_admin/css/lobipanel/lobipanel.min.css" media="screen" >
+
+        <!-- ========== PAGE STYLES ========== -->
+        <link rel="stylesheet" href="/options_admin/css/jquery-steps/jquery.steps.css" >
+
+        <!-- ========== THEME CSS ========== -->
+        <link rel="stylesheet" href="/options_admin/css/main.css" media="screen" >
+
+        <link rel="stylesheet" href="/options_admin/css/dropzone/dropzone.min.css" >
+        <link rel="stylesheet" href="/options_admin/css/sweet-alert/sweetalert.css" media="screen" >
+        <link rel="stylesheet" type="text/css" href="/options_admin/css/date-picker/jquery.timepicker.css" />
+        <link rel="stylesheet" type="text/css" href="/options_admin/css/date-picker/bootstrap-datepicker.css" />
+        <link rel="stylesheet" href="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.min.css">
+
+        <style>
+            .img-picker {
+                object-fit: contain;
+                width: 300px;
+                height: 150px;
+            }
+        </style>
+
+
+        <!-- ========== MODERNIZR ========== -->
+        <script src="/options_admin/js/modernizr/modernizr.min.js"></script>
+    </head>
+    <body class="top-navbar-fixed">
+		<script>
+		console.log("<%= ContentData.getIdentities.pushType %>");
+		function initGoogle() {
+			gapi.load('auth2', function() {
+				var auth2 = gapi.auth2.init({client_id: '<%= GClientID() %>'});
+				//gapi.auth2.init();
+			});
+		}
+		
+		function googleLogout(identifier) {
+			var GStatus = identifier.getAttribute("data-google");
+			if(GStatus == "google"){
+				gapi.auth2.getAuthInstance().disconnect().then(function () {
+					location.replace('/logout');
+				}); 
+			} else
+				location.replace('/logout');
+		}
+		</script>
+        <div class="main-wrapper">
+			<%- include("top-nav.ejs") %>
+
+            <!-- ========== WRAPPER FOR BOTH SIDEBARS & MAIN CONTENT ========== -->
+            <div class="content-wrapper">
+                <div class="content-container">
+					<%- include("left-sidebar.ejs") %>
+					<%- include("mainpage_profile.ejs") %>
+                </div>
+                <!-- /.content-container -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- /.main-wrapper -->
+
+       <!-- ========== COMMON JS FILES ========== -->
+        <script src="/options_admin/js/jquery/jquery-2.2.4.min.js"></script>
+        <script src="/options_admin/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/options_admin/js/pace/pace.min.js"></script>
+        <script src="/options_admin/js/lobipanel/lobipanel.min.js"></script>
+        <script src="/options_admin/js/iscroll/iscroll.js"></script>
+
+        <!-- ========== PAGE JS FILES ========== -->
+        <script src="/options_admin/js/prism/prism.js"></script>
+        <script src="/options_admin/js/jquery-validate/jquery.validate.min.js"></script>
+        <script src="/options_admin/js/jquery-steps/jquery.steps.min.js"></script>
+
+        <!-- ========== THEME JS ========== -->
+        <script src="/options_admin/js/main.js"></script>
+
+        <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
+        <script type="text/javascript" src="/options_admin/js/date-picker/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="/options_admin/js/date-picker/jquery.timepicker.js"></script>
+        <script type="text/javascript" src="/options_admin/js/date-picker/datepair.js"></script>
+        <script type="text/javascript" src="/options_admin/js/date-picker/moment.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="/options_admin/js/prism/prism.js"></script>
+        <!-- <script src="js/dropzone/dropzone.min.js"></script> //-->
+        <script src="/options_admin/js/sweet-alert/sweetalert.min.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/browser-image-compression@1.0.14/dist/browser-image-compression.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue-form-wizard/dist/vue-form-wizard.js"></script>
+		<% if(ContentData.Google) { %>
+		<script src="https://apis.google.com/js/platform.js?onload=initGoogle" async defer></script>
+		<% } %>
+        <!-- ========== ADD custom.js FILE BELOW WITH YOUR CHANGES ========== -->
+		<script>
+
+            //const siteUrl = 'http://192.168.1.10:3000'
+            const baseUrl = '/profile/editRawData/<%= ContentData.getIdentities._id %>/<%= ContentData.getPeople.email %>'
+            const uploadImageUrl = '/profile/sendImg/<%= ContentData.getIdentities._id %>/<%= ContentData.getPeople.email %>'
+
+            const compressOptions = {
+                maxSizeMB: 1,
+                maxWidthOrHeight: 1920,
+                useWebWorker: true,
+            }
+
+            const app = new Vue({
+                el: '#app',
+                mounted() {
+                    
+                    $('#datepickerBasic').datetimepicker({
+                        viewMode: 'years',
+                        format: 'DD/MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.user.birth_date = $('#datepickerBasic input').val()
+                    })
+                    $('#teachFromDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.teaching_experience.from = $('#teachFromDate input').val()
+                    })
+                    $('#teachToDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.teaching_experience.to = $('#teachToDate input').val()
+                    })
+                    $('#eduFromDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                        this.education.from = $('#eduFromDate input').val()
+                    })
+                    $('#eduToDate').datetimepicker({
+                        viewMode: 'years',
+                        format: 'MM/YYYY'
+                    }).on('dp.change', () => {
+                            this.education.to = $('#eduToDate input').val()
+                    })
+                    
+                },
+                created() {
+                    // aktivasi jika profile terisi semua
+                    // this.$refs.formWizard.activateA
+                    if (localStorage.getItem('userProfile') === null) {
+                        localStorage.setItem('userProfile', '')
+                    } else {
+                        this.getProfileFromLocal()
+                    }
+                    
+                },
+                data() {
+                    return {
+                        // siteUrl: 'http://192.168.1.10:3000/',
+                        // user profile
+                        user: {
+                            // step 1
+                            uid: "",
+                            name: "",
+                            gender: "",
+                            phone: "",
+                            religion: "",
+                            birth_place: "",
+                            birth_date: "",
+                            // step 2
+                            id_type: "",
+                            id_number: "",
+                            address: "",
+                            city: "",
+                            state: "",
+                            postal_code: "",
+                            about_me: "",
+                            ytlink: "",
+                            // step 3
+                            teaching_experiences: [
+                            ],
+                            // step 4
+                            educations: [
+                            ],
+                            // step 5
+                            profile_img_url: "",
+                            selfie_card_img_url: "",
+                            id_card_img_url: "",
+                            diploma_img_url: "",
+                        },
+                        // end of user profile
+
+                        // temporary user input
+                        teaching_experience: {
+                            school: '',
+                            city: '',
+                            class: '',
+                            subject: '',
+                            teaching_status: '',
+                            from: '',
+                            to: '',
+                            portofolio: '',
+                        },
+                        education: {
+                            major: '',
+                            level: '',
+                            college: '',
+                            thesis: '',
+                            from: '',
+                            to: '',
+                            score: '',
+                        },
+                        // end of temporary user input
+
+                        // user fields
+                        education_levels: [
+                            {
+                                value: 's1',
+                                description: 'S1',
+                            },
+                            {
+                                value: 's2',
+                                description: 'S2',
+                            },
+                            {
+                                value: 's3',
+                                description: 'S3',
+                            },
+                        ],
+                        grades: [
+                            'I',
+                            'II',
+                            'III',
+                            'IV',
+                            'V',
+                            'VI',
+                            'VII',
+                            'VIII',
+                            'IX',
+                            'X',
+                            'XI',
+                            'XII',
+                        ],
+                        teaching_statuses: [
+                            {
+                                value: 'freelance',
+                                description: 'Freelance',
+                            },
+                            {
+                                value: 'contract',
+                                description: 'Contract',
+                            },
+                            {
+                                value: 'fulltime',
+                                description: 'FullTime',
+                            },
+                            {
+                                value: 'private',
+                                description: 'Private',
+                            },
+                        ],
+                        // end of user fields
+                    }
+                },
+                methods: {
+                    getProfileFromLocal() {
+                        this.user = JSON.parse(localStorage.getItem('userProfile'))
+                    },
+                    saveProfileToLocal() {
+                        localStorage.setItem('userProfile', JSON.stringify(this.user))
+                    },
+                    updateProfile() {
+                        return new Promise((resolve, reject) => {
+                            axios.post(baseUrl, this.user).then((res) => {
+                                resolve(res)
+                            }).catch(err => reject(err))
+                        })
+                    },
+                    onComplete() {
+						if (this.user.profile_img_url && this.user.id_card_img_url && this.user.selfie_card_img_url && this.user.diploma_img_url) {
+                            this.updateProfile().then(() => {
+                                swal('Sukses', 'Data berhasil disimpan!', 'success')
+                            }).catch(() => {
+                                swal("Gagal", "Gagal memperbarui profil!", "error")
+                            })
+                        } else {
+                            swal("Gagal", "Anda belum melengkapi berkas foto!", "error")
+                        }
+
+                    },
+                    modalAddTeachingExp() {
+                        this.teaching_experience = {
+                            school: '',
+                            city: '',
+                            class: '',
+                            subject: '',
+                            teaching_status: '',
+                            from: '',
+                            to: '',
+                            portofolio: '',
+                        }
+                        $('#addTeachingModal').modal('show')
+                    },
+                    modalAddEducation() {
+                        this.education = {
+                            major: '',
+                            level: '',
+                            college: '',
+                            thesis: '',
+                            from: '',
+                            to: '',
+                            score: '',
+                        }
+                        $('#addEducationModal').modal('show')
+                    },
+                    addTeachingExperience() {
+                        this.user.teaching_experiences.push(this.teaching_experience)
+                        $('#addTeachingModal').modal('hide')
+                        this.saveProfileToLocal()
+                    },
+                    addEducationBackground() {
+                        this.user.educations.push(this.education)
+                        $('#addEducationModal').modal('hide')
+                        this.saveProfileToLocal()
+                    },
+                    beforeTab1() {
+                        this.saveProfileToLocal()
+                        if (this.user.name && this.user.gender && this.user.phone && this.user.religion && this.user.birth_place && this.user.birth_date)
+                            return true
+                        else {
+                            swal("Gagal", "Harap melengkapi informasi dasar!", "error")
+                            return false
+                        }
+                    },
+                    beforeTab2() {
+                        this.saveProfileToLocal()
+                        if (this.user.id_type && this.user.id_number && this.user.address && this.user.city && this.user.state && this.user.postal_code && this.user.about_me && this.user.ytlink)
+                            return true
+                        else {
+                            swal("Gagal", "Harap melengkapi data diri dengan benar!", "error")
+                            return false
+                        }
+                    },
+                    beforeTab3() {
+                        this.saveProfileToLocal()
+                        if (this.user.teaching_experiences && this.user.teaching_experiences.length > 0)
+                            return true
+                        else {
+                            swal("Gagal", "Anda belum mengisi pengalaman mengajar!", "error")
+                            return false
+                        }
+                    },
+                    beforeTab4() {
+                        this.saveProfileToLocal()
+                        if (this.user.educations && this.user.educations.length > 0)
+                            return true
+                        else {
+                            swal("Gagal", "Anda belum mengisi latar belakang pendidikan!", "error")
+                            return false
+                        }
+                    },
+                    uploadImage(name, imgFile) {
+                        return new Promise((resolve, reject) => {
+                            let formData = new FormData()
+                            formData.append(name, imgFile)
+                            axios.post(uploadImageUrl, formData, {
+                                headers: {
+                                    'Content-Type': 'multipart/form-data'
+                                }
+                            }).then((res) => {
+                                resolve(res.data.urlpath)
+                            }).catch((err) => reject(err))
+                        })
+                    },
+                    imgProfileChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+
+                            reader.onload = function (e) {
+                                $('#profileImgPreview').attr('src', e.target.result)
+                            }
+
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgProfile', newFile).then((path) => {
+                                    // set value
+                                    this.user.profile_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                                // reader.readAsDataURL(newFile)
+                                // return newFile
+                            })
+                        }
+                    },
+                    imgIdChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+                            reader.onload = function (e) {
+                                $('#idImgPreview').attr('src', e.target.result)
+                            }
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgIDCard', newFile).then((path) => {
+                                    // set value
+                                    this.user.id_card_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                            })
+                        }
+                    },
+                    imgSelfieChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+                            reader.onload = function (e) {
+                                $('#selfieImgPreview').attr('src', e.target.result)
+                            }
+
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgSelfie', newFile).then((path) => {
+                                    // set value
+                                    this.user.selfie_card_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                            })
+                        }
+                    },
+                    imgDiplomaChange(event) {
+                        if (event.target.files && event.target.files[0]) {
+                            let reader = new FileReader()
+                            reader.onload = function (e) {
+                                $('#diplomaImgPreview').attr('src', e.target.result)
+                            }
+                            let imgFile = event.target.files[0]
+                            imageCompression(imgFile, compressOptions).then((output) => {
+                                const newFile = new File([output], imgFile.name, {
+                                    type: output.type
+                                });
+                                this.uploadImage('imgCertificate', newFile).then((path) => {
+                                    // set value
+                                    this.user.diploma_img_url = path
+                                    this.saveProfileToLocal()
+                                    reader.readAsDataURL(newFile)
+                                })
+                            })
+                        }
+                    },
+            }
+            })
+            
+        </script>
+    </body>
+</html>

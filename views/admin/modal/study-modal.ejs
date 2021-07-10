@@ -1,0 +1,46 @@
+<!-- Modal Add-->
+<div class="modal fade" id="addStudyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/mystudy" method="POST" >
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add Study<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="dataTitle">Grade</label>
+							<select class="form-control" name="dataGrade" id="dataGrade">
+							<% for(let i = 0; i < ContentData.getGrade.length; i++){ var grade = ContentData.getGrade; %>
+								<option value="<%= grade[i]._id %>"><%= grade[i].name %></option>
+							<% } %>
+							</select>
+						</div>
+					</div>
+					<!-- /.col-md-6 -->
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="dataSubtitle">Course</label>
+							<select class="form-control" name="dataCourse" id="dataCourse">
+							<% for(let i = 0; i < ContentData.getTypeCourse.length; i++){ var course = ContentData.getTypeCourse; %>
+								<option value="<%= course[i]._id %>"><%= course[i].name %></option>
+							<% } %>
+							</select>
+						</div>
+					</div>
+					<!-- /.col-md-6 -->
+				</div> 
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="reset" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+        </form>
+		</div>
+    </div>
+</div>
+<!-- /.Modal Add-->

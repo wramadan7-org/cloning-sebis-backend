@@ -1,0 +1,177 @@
+[{
+  "_id": {
+    "$oid": "60766f24c419e910d8e78a71"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d6",
+  "name": "Manusia Prasejarah",
+  "desc": "Bagaimana manusia prasejarah hidup dan bersosialisasi",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-04-14 11:26:27",
+  "updated_at": "2021-04-14 11:26:27",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076761148b8a10680712106"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d8",
+  "name": "Peluang",
+  "desc": "Menghitung berapa besar peluang dari permainan dadu",
+  "typeId": "606a7663fe83562544fbb505",
+  "year": "1998",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-04-14 11:55:22",
+  "updated_at": "2021-04-14 11:55:22",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b81e1f3326206c64e0eb"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d7",
+  "name": "Aljabar",
+  "desc": "Menghitung aljabar dalam matematika",
+  "typeId": "606a7663fe83562544fbb505",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b8571f3326206c64e0ec"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d6",
+  "name": "Vector",
+  "desc": "Kalkulasi vector dalam diagram",
+  "typeId": "606a7663fe83562544fbb505",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b8b91f3326206c64e0ef"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d6",
+  "name": "Perkembangan Kerajaan Hindu",
+  "desc": "Melihat penyebaran kerajaan hindu di nusantara",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b8f21f3326206c64e0f0"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d7",
+  "name": "Pendirian PBB",
+  "desc": "Sejarah awal pendirian PBB dan siapa saja pengikutnya",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b9361f3326206c64e0f1"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d8",
+  "name": "Sejarah Negara Agraria",
+  "desc": "Kenapa negara agraria didirikan",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b9831f3326206c64e0f2"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d8",
+  "name": "Sejarah Mata Uang",
+  "desc": "Bagaimana sejarah mata uang kertas dan koin terbentuk",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090b9db1f3326206c64e0f3"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d8",
+  "name": "Kerajaan Mataram Lama",
+  "desc": "Mengulas tentang sejarah kerajaan mataram di nusantara",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090ba121f3326206c64e0f4"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d6",
+  "name": "Sejarah Kolonial Belanda",
+  "desc": "Mengulas sejarah penjajahan kolonial belanda",
+  "typeId": "606a7663fe83562544fbb509",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6090ba391f3326206c64e0f5"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "gradeId": "60680f91a0731c27c838b3d6",
+  "name": "Logika Matematika",
+  "desc": "Mempelajari bagaimana matematika berjalan",
+  "typeId": "606a7663fe83562544fbb505",
+  "year": "2021",
+  "status": "2",
+  "disable": "enable",
+  "delete": "0",
+  "created_at": "2021-05-04 09:48:52",
+  "updated_at": "2021-05-04 09:48:52",
+  "__v": 0
+}]

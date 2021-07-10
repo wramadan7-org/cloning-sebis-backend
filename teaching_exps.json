@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "60cabce27eec4b1934e22a9a"
+  },
+  "identitiesId": "60822eba097a230d64702e04",
+  "fromDate": "03/2017",
+  "toDate": "04/2017",
+  "school": "SMP 2",
+  "city": "surabaya",
+  "status": "freelance",
+  "desc": "Testing Pengalaman",
+  "grade": "60680f91a0731c27c838b3ce",
+  "course": "AGAMA",
+  "created_at": "2021-06-17 10:09:22",
+  "updated_at": "2021-06-17 10:09:22",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60cabf7ef9612d0e78a011b1"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "fromDate": "06/2021",
+  "toDate": "11/2026",
+  "school": "SMP 1",
+  "city": "sby",
+  "status": "fulltime",
+  "desc": "Porto",
+  "grade": "60680f91a0731c27c838b3ce",
+  "course": "MTK",
+  "created_at": "2021-06-17 10:20:30",
+  "updated_at": "2021-06-17 10:47:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60cac3bcbd8fd01a4cea7590"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "fromDate": "06/2021",
+  "toDate": "12/2027",
+  "school": "SMP 9",
+  "city": "sby",
+  "status": "private",
+  "desc": "PF",
+  "grade": "60680f91a0731c27c838b3d3",
+  "course": "IPS",
+  "created_at": "2021-06-17 10:38:36",
+  "updated_at": "2021-06-17 10:47:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60cac44ac116af25a49d4681"
+  },
+  "identitiesId": "606e89504cf4671f9cd32b3b",
+  "fromDate": "06/2021",
+  "toDate": "12/2027",
+  "school": "SMP 10",
+  "city": "sby",
+  "status": "fulltime",
+  "desc": "PF",
+  "grade": "60680f91a0731c27c838b3d1",
+  "course": "BIOLOGI",
+  "created_at": "2021-06-17 10:40:58",
+  "updated_at": "2021-06-17 10:47:18",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60dbdc40e9c5291ca04f71eb"
+  },
+  "identitiesId": "605841e54171670590690298",
+  "fromDate": "06/2021",
+  "toDate": "06/2021",
+  "school": "SMP 1",
+  "city": "surabaya",
+  "status": "freelance",
+  "desc": "doc/portofolio/605841e54171670590690298_2021-06-30_09-51.pdf",
+  "grade": "60680f91a0731c27c838b3cd",
+  "course": "ASD",
+  "created_at": "2021-06-30 09:51:44",
+  "updated_at": "2021-06-30 09:51:44",
+  "__v": 0
+}]

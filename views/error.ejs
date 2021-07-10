@@ -1,0 +1,18 @@
+<html><head><title>Error - <%= message %></title></head>
+<body onLoad="redirect_Pagess()">
+<h1><%= message %></h1>
+<h2><%= error.status %></h2>
+<!--//
+<pre><%= error.stack %></pre>
+//-->
+
+<script>
+function redirect_Page () {
+    var tID = setTimeout(function () {
+        window.location.href = "http://localhost:3000";
+        window.clearTimeout(tID);		// clear time out.
+    }, 3000);
+}
+</script>
+</body>
+</html>

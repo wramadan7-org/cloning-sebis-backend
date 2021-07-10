@@ -1,0 +1,82 @@
+[{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb502"
+  },
+  "name": "BAHASA INGGRIS",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb503"
+  },
+  "name": "BAHASA INDONESIA",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb504"
+  },
+  "name": "BAHASA MANDARIN",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb505"
+  },
+  "name": "MATEMATIKA",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb506"
+  },
+  "name": "FISIKA",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb507"
+  },
+  "name": "KIMIA",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb508"
+  },
+  "name": "SOSIOLOGI",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb509"
+  },
+  "name": "SEJARAH",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "606a7663fe83562544fbb50a"
+  },
+  "name": "AGAMA",
+  "disable": "enable",
+  "updated_at": "2021-04-05 09:28:59",
+  "created_at": "2021-04-05 09:28:59",
+  "__v": 0
+}]

@@ -1,0 +1,140 @@
+<!-- Modal Add-->
+<div class="modal fade" id="addCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/course/add" method="POST">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add Course <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="dataStudy">Grade - Study</label>
+																<select class="form-control" name="dataStudy" id="dataStudy">
+																<% var typeStudy = ContentData.getStudy; %>
+																<% if(typeStudy!="" || typeStudy !== undefined){ %>
+																<% for(let tc=0; tc<typeStudy.length; tc++){ %>
+																<% var getGrade = ContentData.getGrade; %>
+																<% var getTyCourse = ContentData.getTypeCourse; %>
+																<% var GradeObj = getGrade.find(o => o._id == typeStudy[tc].gradeId); %>
+																<% var TcObj = getTyCourse.find(o => o._id == typeStudy[tc].typeId); %>
+																	<option value="<%= GradeObj._id %>_<%= TcObj._id %>"><%= GradeObj.name %> - <%= TcObj.name %></option>
+																<% } } %>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="dataYear">Year</label>
+																<input type="text" class="form-control" name="dataYear" id="dataYear" placeholder="Enter Course Year">
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="dataName">Name</label>
+																<input type="text" class="form-control" name="dataName" id="dataName" placeholder="Enter Course Name">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="published">Enable?</label>
+																<div class="mb-20" name="replacer" id="replacer">
+																	<input type="checkbox" class="js-switch-small" id="published" name="published" checked />
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="dataDesc">Description</label>
+																<input type="text" class="form-control" name="dataDesc" id="dataDesc" placeholder="Enter Description">
+															</div>
+														</div>
+													</div>
+			</div>
+            <div class="modal-footer">
+                <div class="btn-group" role="group">
+                    <button type="reset" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+        </form>
+		</div>
+    </div>
+</div>
+<!-- /.Modal Add-->
+
+<!-- Modal Edit -->
+<div class="modal fade" id="editCourseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+		<form class="p-20" action="/course?_method=PUT" method="POST">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Edit Course Data <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></h4>
+            </div>
+            <div class="modal-body">
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="EditdataStudy">Grade - Study</label>
+																<select class="form-control" name="EditdataStudy" id="EditdataStudy" disabled>
+																<% var typeStudy = ContentData.getStudy; %>
+																<% for(let tc=0; tc<typeStudy.length; tc++){ %>
+																<% var getGrade = ContentData.getGrade; %>
+																<% var getTyCourse = ContentData.getTypeCourse; %>
+																<% var GradeObj = getGrade.find(o => o._id == typeStudy[tc].gradeId); %>
+																<% var TcObj = getTyCourse.find(o => o._id == typeStudy[tc].typeId); %>
+																	<option value="<%= GradeObj._id %>_<%= TcObj._id %>"><%= GradeObj.name %> - <%= TcObj.name %></option>
+																<% } %>
+																</select>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="EditdataYear">Year</label>
+																<input type="text" class="form-control" name="EditdataYear" id="EditdataYear" placeholder="Enter Course Year">
+															</div>
+														</div>
+													</div>
+													
+													<div class="row">
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="EditdataName">Name</label>
+																<input type="text" class="form-control" name="EditdataName" id="EditdataName" placeholder="Enter Course Name">
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="published2">Enable?</label>
+																<div class="mb-20" name="replacer2" id="replacer2">
+																	<input type="checkbox" class="js-switch-small" id="published2" name="published2" checked />
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="EditdataDesc">Description</label>
+																<input type="text" class="form-control" name="EditdataDesc" id="EditdataDesc" placeholder="Enter Description">
+															</div>
+														</div>
+													</div>
+			</div>
+            <div class="modal-footer">
+				<input type="hidden" name="idCourseMaterial" id="idCourseMaterial" />
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-gray btn-wide btn-rounded" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
+                    <button type="submit" class="btn bg-success btn-wide btn-rounded"><i class="fa fa-check"></i>Save</button>
+                </div>
+            </div>
+			</form>
+        </div>
+    </div>
+</div>
+<!-- /.Modal Edit-->

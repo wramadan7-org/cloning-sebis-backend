@@ -1,0 +1,12 @@
+							<% var getdata = ContentData.getIdentities; %>
+							
+							<div class="user-info open">
+                                <img src="<%= ContentData.avatarThumb %>" style="width:90px; height: 90px; object-fit: cover;" onerror="this.src='http://placehold.it/90/c2c2c2?text=User'" alt="<%= ContentData.peopleName %>" class="img-circle profile-img">
+                                <h6 class="title"><%= ContentData.peopleName %></h6>
+								<% var utype = ContentData.userType%>
+								<% if(utype=="pteacher" || utype=="Pteacher") utype="Tutor (pending)" %>
+								<% if(utype=="bteacher" || utype=="Bteacher") utype="Tutor (blocked)" %>
+								<% if(utype=="rteacher" || utype=="Rteacher") utype="Tutor (rejected)" %>
+                                <small class="info"><%= utype %></small>
+                            </div>
+                            

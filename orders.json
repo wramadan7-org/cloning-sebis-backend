@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "60a7587bf184a50520dccb8b"
+  },
+  "checkoutId": "pob7d41f3326206c64e0ea1621579899",
+  "payment_type": "indomaret",
+  "codeNumber": "00000",
+  "TransactionId": "00000-00000-00000-00000",
+  "statusTrans": "0",
+  "identitiesId": "605841e54171670590690298",
+  "studyId": "6090b7d41f3326206c64e0ea",
+  "clientId": "60a476c2d766ac1798d2c3e9",
+  "status": "0",
+  "totalSchedule": "1",
+  "discountId": "",
+  "discountAmount": "0",
+  "grossAmount": "50000",
+  "request": "",
+  "requestImg": "",
+  "requestThumb": "",
+  "created_at": "2021-05-21 13:51:39",
+  "updated_at": "2021-05-21 13:51:39",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a778698b0b0a0b0845fa4b"
+  },
+  "checkoutId": "pob7d41f3326206c64e0ea1621588073",
+  "payment_type": "indomaret",
+  "codeNumber": "00000",
+  "TransactionId": "00000-00000-00000-00000",
+  "statusTrans": "0",
+  "identitiesId": "605841e54171670590690298",
+  "studyId": "6090b7d41f3326206c64e0ea",
+  "clientId": "60a476c2d766ac1798d2c3e9",
+  "status": "0",
+  "totalSchedule": "1",
+  "discountId": "",
+  "discountAmount": "0",
+  "grossAmount": "50000",
+  "request": "",
+  "requestImg": "",
+  "requestThumb": "",
+  "created_at": "2021-05-21 16:07:53",
+  "updated_at": "2021-05-21 16:07:53",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a77ac0a7ddb10ba055b575"
+  },
+  "checkoutId": "pob7d41f3326206c64e0ea1621588672",
+  "payment_type": "indomaret",
+  "codeNumber": "368569285692",
+  "TransactionId": "f1c8d09f-ec5a-490e-856d-78e3f4d839cb",
+  "statusTrans": "0",
+  "identitiesId": "605841e54171670590690298",
+  "studyId": "6090b7d41f3326206c64e0ea",
+  "clientId": "60a476c2d766ac1798d2c3e9",
+  "status": "0",
+  "totalSchedule": "1",
+  "discountId": "",
+  "discountAmount": "0",
+  "grossAmount": "50000",
+  "request": "",
+  "requestImg": "",
+  "requestThumb": "",
+  "created_at": "2021-05-21 16:17:51",
+  "updated_at": "2021-05-21 16:17:51",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a77d32417af72630df198f"
+  },
+  "checkoutId": "pob7d41f3326206c64e0ea1621589298",
+  "payment_type": "bcava",
+  "codeNumber": "1010181621583287",
+  "TransactionId": "a5670f0c-c48f-4208-9671-0a11596112f1",
+  "statusTrans": "1",
+  "identitiesId": "605841e54171670590690298",
+  "studyId": "6090b7d41f3326206c64e0ea",
+  "clientId": "60a476c2d766ac1798d2c3e9",
+  "status": "0",
+  "totalSchedule": "1",
+  "discountId": "",
+  "discountAmount": "0",
+  "grossAmount": "50000",
+  "request": "",
+  "requestImg": "",
+  "requestThumb": "",
+  "created_at": "2021-05-21 16:28:17",
+  "updated_at": "2021-05-21 16:37:07",
+  "__v": 0
+}]

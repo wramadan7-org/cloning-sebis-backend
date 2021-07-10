@@ -1,0 +1,300 @@
+[{
+  "_id": {
+    "$oid": "6076b30454ac8b0a3c14cce1"
+  },
+  "name": "Menu",
+  "parent": "",
+  "uri": "/menu",
+  "html": "fa fa-server",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-14 16:15:47",
+  "updated_at": "2021-04-14 16:15:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076b34a54ac8b0a3c14cce2"
+  },
+  "name": "Article",
+  "parent": "",
+  "uri": "/article",
+  "html": "fa fa-thumb-tack",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-14 16:15:47",
+  "updated_at": "2021-04-20 10:03:11",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076b37c54ac8b0a3c14cce3"
+  },
+  "name": "Course",
+  "parent": "",
+  "uri": "/course",
+  "html": "fa fa-file-text",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-14 16:15:47",
+  "updated_at": "2021-04-14 16:15:47",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076b3ab54ac8b0a3c14cce4"
+  },
+  "name": "Mentor",
+  "parent": "",
+  "uri": "/mentor",
+  "html": "fa fa-male",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-14 16:15:47",
+  "updated_at": "2021-04-14 16:23:32",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076b4e754ac8b0a3c14cce5"
+  },
+  "name": "Video",
+  "parent": "6076b34a54ac8b0a3c14cce2",
+  "uri": "/video",
+  "html": "fa fa-video-camera",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-14 16:23:32",
+  "updated_at": "2021-04-14 16:23:32",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6076b989302592153cba2f37"
+  },
+  "name": "Blog",
+  "parent": "6076b34a54ac8b0a3c14cce2",
+  "uri": "/blog",
+  "html": "fa fa-paperclip",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-14 16:30:48",
+  "updated_at": "2021-04-14 16:30:48",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6077de77db54b227acd66660"
+  },
+  "name": "All Article",
+  "parent": "6076b34a54ac8b0a3c14cce2",
+  "uri": "/article",
+  "html": "fa fa-newspaper-o",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-15 13:33:20",
+  "updated_at": "2021-04-23 10:00:05",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60792daad20cac2bac20d15e"
+  },
+  "name": "Schedule",
+  "parent": "",
+  "uri": "/schedule",
+  "html": "fa fa-calendar",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-16 13:11:06",
+  "updated_at": "2021-04-16 13:11:06",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "608238745f6d6705ec0e0bbe"
+  },
+  "name": "Article",
+  "parent": "",
+  "uri": "/article",
+  "html": "fa fa-thumb-tack",
+  "userType": "seo",
+  "disable": "enable",
+  "created_at": "2021-04-23 10:00:05",
+  "updated_at": "2021-04-23 10:01:23",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "608238a45f6d6705ec0e0bbf"
+  },
+  "name": "Mentor",
+  "parent": "",
+  "uri": "/mentor",
+  "html": "fa fa-male",
+  "userType": "support",
+  "disable": "enable",
+  "created_at": "2021-04-23 10:01:23",
+  "updated_at": "2021-04-29 16:49:02",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60823dd45f6d6705ec0e0bc0"
+  },
+  "name": "Mentor",
+  "parent": "",
+  "uri": "/mentor",
+  "html": "fa fa-male",
+  "userType": "verifikator",
+  "disable": "enable",
+  "created_at": "2021-04-23 10:01:23",
+  "updated_at": "2021-04-29 16:48:55",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60823df15f6d6705ec0e0bc1"
+  },
+  "name": "Balance",
+  "parent": "",
+  "uri": "/balance",
+  "html": "fa fa-money",
+  "userType": "finance",
+  "disable": "enable",
+  "created_at": "2021-04-23 10:01:23",
+  "updated_at": "2021-04-28 09:10:26",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6082673b1219be09ecc65266"
+  },
+  "name": "Payment",
+  "parent": "",
+  "uri": "/payment",
+  "html": "fa fa-credit-card",
+  "userType": "finance",
+  "disable": "enable",
+  "created_at": "2021-04-23 13:08:42",
+  "updated_at": "2021-04-29 16:54:51",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6082675b1219be09ecc65267"
+  },
+  "name": "Cost",
+  "parent": "",
+  "uri": "/cost",
+  "html": "fa fa-cc",
+  "userType": "finance",
+  "disable": "enable",
+  "created_at": "2021-04-23 13:08:42",
+  "updated_at": "2021-04-29 16:56:57",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6083bf51969d7923f8f1f00a"
+  },
+  "name": "Monitoring",
+  "parent": "",
+  "uri": "/monitoring",
+  "html": "fa fa-gears",
+  "userType": "support",
+  "disable": "enable",
+  "created_at": "2021-04-24 13:47:06",
+  "updated_at": "2021-04-28 09:09:02",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6083bf65969d7923f8f1f00b"
+  },
+  "name": "Monitoring",
+  "parent": "",
+  "uri": "/monitoring",
+  "html": "fa fa-gears",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-24 13:47:06",
+  "updated_at": "2021-04-28 09:09:12",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60890987d7b1af0b4c5c5c1a"
+  },
+  "name": "Search",
+  "parent": "",
+  "uri": "/search",
+  "html": "fa fa-search",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-04-28 14:05:09",
+  "updated_at": "2021-04-28 14:05:09",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a8798bbe69b10a94d0c235"
+  },
+  "name": "Profile",
+  "parent": "",
+  "uri": "/profile",
+  "html": "fa fa-info",
+  "userType": "public",
+  "disable": "enable",
+  "created_at": "2021-05-22 09:36:25",
+  "updated_at": "2021-05-22 13:42:21",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60a879a1be69b10a94d0c236"
+  },
+  "name": "Profile",
+  "parent": "",
+  "uri": "/profile",
+  "html": "fa fa-info",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-05-22 09:36:25",
+  "updated_at": "2021-05-22 13:42:32",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ab144be058d5045c42fd5a"
+  },
+  "name": "My Study",
+  "parent": "",
+  "uri": "/mystudy",
+  "html": "fa fa-graduation-cap",
+  "userType": "teacher",
+  "disable": "enable",
+  "created_at": "2021-05-24 09:47:32",
+  "updated_at": "2021-05-24 09:55:21",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ab145fe058d5045c42fd5b"
+  },
+  "name": "My Study",
+  "parent": "",
+  "uri": "/mystudy",
+  "html": "fa fa-graduation-cap",
+  "userType": "administrator",
+  "disable": "enable",
+  "created_at": "2021-05-24 09:47:32",
+  "updated_at": "2021-05-24 09:55:09",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60ab70d69459002aa4035d1a"
+  },
+  "name": "Schedule",
+  "parent": "",
+  "uri": "/schedule",
+  "html": "fa fa-calendar",
+  "userType": "teacher",
+  "disable": "enable",
+  "created_at": "2021-05-24 15:33:34",
+  "updated_at": "2021-05-24 15:33:34",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "60b47d4dd57ade16f4dc5f08"
+  },
+  "name": "Profile",
+  "parent": "",
+  "uri": "/profile",
+  "html": "fa fa-info",
+  "userType": "pteacher",
+  "disable": "enable",
+  "created_at": "2021-05-31 11:48:19",
+  "updated_at": "2021-05-31 11:48:19",
+  "__v": 0
+}]
